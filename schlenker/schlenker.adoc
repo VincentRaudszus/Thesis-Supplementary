@@ -1,0 +1,193 @@
+[role="rule"]
+Every TestResult can-only bestored Testresultserver.
+
+[role="rule"]
+No Testresultserver can store a IPAdress.
+
+[role="rule"]
+No Testresultserver can log Personaldata.
+
+[role="rule"]
+No Testresultserver can store GUID.
+
+[role="rule"]
+Nothing can callEndpoint CreateTestResult.
+
+[role="rule"]
+Every Testresultserver can-only becalled Verificationserver.
+
+[role="rule"]
+No Verificationserver can store a IPAdress.
+
+[role="rule"]
+No Verificationserver can log Personaldata.
+
+[role="rule"]
+No Verificationserver can store Personaldata.
+
+[role="rule"]
+Every CreateRegistrationToken can-only exist Verificationserver.
+
+[role="rule"]
+Every CreateTAN can-only exist Verificationserver.
+
+[role="rule"]
+Every CreateTeleTAN can-only exist Verificationserver.
+
+[role="rule"]
+Every VerifyTan can-only exist Verificationserver.
+
+[role="rule"]
+Every RequestKeys can-only exist CWAServer.
+
+[role="rule"]
+Every UploadKeys can-only exist CWAServer.
+
+[role="rule"]
+Every VerifyTAN can-only becalled CWAServer.
+
+[role="rule"]
+Every Key can-only bestored CWAServer.
+
+[role="rule"]
+No CWAServer can store TAN.
+
+[role="rule"]
+Every Fragment must hasattribute ViewModelAttribute.
+
+[role="rule"]
+No ViewModel can use a Fragment.
+
+[role="rule"]
+Fact: CWAApp use ExposureNotificationFramework.
+
+[role="rule"]
+Every Storage must use Encryption.
+
+[role="rule"]
+Only a User can see a ContactWarning.
+
+[role="rule"]
+Fact: CWAServer use FederationGateway.
+
+[role="rule"]
+No Request can use GETMethod.
+
+[role="rule"]
+Every Request must use a RegistrationToken.
+
+//=====================================================================================
+
+[role="mapping"]
+isTestResult: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*TestResultEntity') -> (?class rdf:type architecture:TestResult)
+
+[role="mapping"]
+isRepository: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*Repository') -> (?class rdf:type architecture:Repository)
+
+[role="mapping"]
+storeMapping: (?repositoryClass rdf:type architecture:Repository) (?repositoryClass famix:imports ?entityClass) (?entityClass famix:isExternal 'false'^^xsd:boolean) -> (?repositoryClass architecture:store ?entityClass)
+
+[role="mapping"]
+bestoredMapping: (?repositoryClass rdf:type architecture:Repository) (?repositoryClass famix:imports ?entityClass) (?entityClass famix:isExternal 'false'^^xsd:boolean) -> (?entityClass architecture:bestored ?repositoryClass)
+
+[role="mapping"]
+isTestresultserver: (?class rdf:type famix:FamixClass) (?testresultpackage rdf:type famix:Namespace) (?testresultpackage famix:hasName ?testresultpackagename) regex(?testresultpackagename, 'app\\.coronawarn\\.testresult\\.?(\\w||\\W)*') (?testresultpackage famix:namespaceContains ?class) -> (?class rdf:type architecture:Testresultserver)
+
+[role="mapping"]
+isCreateTestResult: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/api\\/v1\\/app\\/result\"') -> (?feignClientMethods rdf:type architecture:CreateTestResult)
+
+[role="mapping"]
+isVerificationserver: (?class rdf:type famix:FamixClass) (?verificationpackage rdf:type famix:Namespace) (?verificationpackage famix:hasName ?verificationpackagename) regex(?verificationpackagename, 'app\\.coronawarn\\.verification\\.?(\\w||\\W)*') (?verificationpackage famix:namespaceContains ?class) -> (?class rdf:type architecture:Verificationserver)
+
+[role="mapping"]
+isCreateRegistrationToken: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/registrationToken\"') -> (?feignClientMethods rdf:type architecture:CreateRegistrationToken)
+
+[role="mapping"]
+isCreateTAN: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/tan\"') -> (?feignClientMethods rdf:type architecture:CreateTAN)
+
+[role="mapping"]
+isCreateTeleTAN: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/tan\\/teletan\"') -> (?feignClientMethods rdf:type architecture:CreateTeleTAN)
+
+[role="mapping"]
+isVerifyTan: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/tan\\/verify\"') -> (?feignClientMethods rdf:type architecture:VerifyTan)
+
+[role="mapping"]
+existMapping: (?class famix:definesMethod ?method) -> (?method architecture:exist ?class)
+
+[role="mapping"]
+isCWAServer: (?class rdf:type famix:FamixClass) (?cwapackage rdf:type famix:Namespace) (?cwapackage famix:hasName ?cwapackagename) regex(?cwapackagename, 'app\\.coronawarn\\.server\\.?(\\w||\\W)*') (?cwapackage famix:namespaceContains ?class) -> (?class rdf:type architecture:CWAServer)
+
+[role="mapping"]
+isUploadKeys: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/diagnosis-keys"') -> (?feignClientMethods rdf:type architecture:UploadKeys)
+
+[role="mapping"]
+isKey: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*DiagnosisKey') -> (?class rdf:type architecture:Key)
+
+[role="mapping"]
+isCWAApp: (?class rdf:type famix:FamixClass) (?cwaapppackage rdf:type famix:Namespace) (?cwaapppackage famix:hasName ?cwaapppackagename) regex(?cwaapppackagename, 'de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*') (?cwaapppackage famix:namespaceContains ?class) -> (?class rdf:type architecture:CWAApp)
+
+[role="mapping"]
+isFragment: (?class rdf:type architecture:CWAApp) (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*Fragment') -> (?class rdf:type architecture:Fragment)
+
+[role="mapping"]
+isViewModel: (?class rdf:type architecture:CWAApp) (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*ViewModel') -> (?class rdf:type architecture:ViewModel)
+
+[role="mapping"]
+isExposureNotificationFramework: (?class rdf:type architecture:CWAApp) (?class rdf:type famix:FamixClass) (?enfpackage rdf:type famix:Namespace) (?enfpackage famix:hasName ?enfpackagename) regex(?enfpackagename, 'com\\.google\\.android\\.gms\\.nearby\\.exposurenotification\\.?(\\w||\\W)*') (?enfpackage famix:namespaceContains ?class) -> (?class rdf:type architecture:ExposureNotificationFramework)
+
+[role="mapping"]
+RequestURLPathMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'GET') (?annotationTypeInstances famix:hasAnnotationType ?annotationTypes) (?annotationTypeInstances famix:hasAnnotationInstanceAttribute ?annotationValueType) (?annotationValueType famix:hasValue ?annotationValue) (?annotationInstance famix:hasAnnotationInstance ?annotationTypeInstances) -> (?annotationInstance architecture:RequestURLPath ?annotationValue)
+
+[role="mapping"]
+RequestURLPathMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'POST') (?annotationTypeInstances famix:hasAnnotationType ?annotationTypes) (?annotationTypeInstances famix:hasAnnotationInstanceAttribute ?annotationValueType) (?annotationValueType famix:hasValue ?annotationValue) (?annotationInstance famix:hasAnnotationInstance ?annotationTypeInstances) -> (?annotationInstance architecture:RequestURLPath ?annotationValue)
+
+[role="mapping"]
+isRequester: (?methodInstances architecture:RequestURLPath ?URLPaths) (?requsterInstances famix:definesMethod ?methodInstances) -> (?requsterInstances rdf:type architecture:Requester)
+
+[role="mapping"]
+isRequester: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'FeignClient') (?feignClients famix:hasAnnotationType ?annotationTypes) (?feignClientInstances famix:hasAnnotationInstance ?feignClients) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) -> (?feignClientInstances rdf:type architecture:Requester)
+
+[role="mapping"]
+URLPathsMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'FeignClient') (?feignClients famix:hasAnnotationType ?annotationTypes) (?feignClientInstances famix:hasAnnotationInstance ?feignClients) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) -> (?feignClientInstances architecture:URLPaths ?URLPaths)
+
+[role="mapping"]
+URLPathsMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'RestController') (?restControllers famix:hasAnnotationType ?annotationTypes) (?restControllerInstances famix:hasAnnotationInstance ?restControllers) (?restControllerInstances famix:definesMethod ?restControllerMethods) (?restControllerMethods architecture:URLPath ?URLPaths) -> (?restControllerInstances architecture:URLPaths ?URLPaths)
+
+[role="mapping"]
+URLPathsMapping: (?methodInstances architecture:RequestURLPath ?URLPaths) (?requsterInstances famix:definesMethod ?methodInstances) -> (?requsterInstances architecture:URLPaths ?URLPaths)
+
+[role="mapping"]
+hasattributeMapping: (?class famix:definesAttribute ?attribute) -> (?class architecture:hasattribute ?attribute)
+
+[role="mapping"]
+isViewModelAttribute: (?attribute rdf:type famix:Attribute) (?attribute famix:hasName 'vm') -> (?attribute rdf:type architecture:ViewModelAttribute)
+
+[role="mapping"]
+isViewModelAttribute: (?attribute rdf:type famix:Attribute) (?attribute famix:hasName 'viewModel') -> (?attribute rdf:type architecture:ViewModelAttribute)
+
+[role="mapping"]
+isViewModelAttribute: (?attribute rdf:type famix:Attribute) (?attribute famix:hasName ?name) regex(?name, '(\\w||\\W)*ViewModel') -> (?attribute rdf:type architecture:ViewModelAttribute)
+
+[role="mapping"]
+isFederationGateway: (?class rdf:type architecture:CWAServer) (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*FederationUploadClient') -> (?class rdf:type architecture:FederationGateway)
+
+[role="mapping"]
+isResponder: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'RestController') (?restControllers famix:hasAnnotationType ?annotationTypes) (?restControllerInstances famix:hasAnnotationInstance ?restControllers) (?restControllerInstances famix:definesMethod ?restControllerMethods) (?restControllerMethods architecture:URLPath ?URLPaths) -> (?restControllerInstances rdf:type architecture:Responder)
+
+[role="mapping"]
+URLPathMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'PostMapping') (?annotationTypeInstances famix:hasAnnotationType ?annotationTypes) (?annotationTypeInstances famix:hasAnnotationInstanceAttribute ?annotationValueType) (?annotationValueType famix:hasValue ?annotationValue) (?annotationValueType famix:hasAnnotationTypeAttribute ?annotationTypeAttribute) (?annotationTypeAttribute famix:hasName 'value') (?annotationInstance famix:hasAnnotationInstance ?annotationTypeInstances) -> (?annotationInstance architecture:URLPath ?annotationValue)
+
+[role="mapping"]
+callMapping: (?feignClientInstances rdf:type architecture:Requester) (?feignClientInstances architecture:URLPaths ?URLPaths) (?restControllerInstances rdf:type architecture:Responder) (?restControllerInstances architecture:URLPaths ?URLPaths) -> (?feignClientInstances architecture:call ?restControllerInstances)
+
+[role="mapping"]
+callMethodMapping: (?feignClientInstances rdf:type architecture:Requester) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) (?restControllerInstances rdf:type architecture:Responder) (?restControllerInstances famix:definesMethod ?restControllerMethods) (?restControllerMethods architecture:URLPath ?URLPaths) -> (?feignClientMethods architecture:callMethod ?restControllerMethods)
+
+[role="mapping"]
+callMapping: (?appRequesterInstances rdf:type architecture:Requester) (?appRequesterInstances architecture:URLPaths ?URLPathsWithVersion) regex(?URLPathsWithVersion, '.*(version\/v1)(.*)', ?versionURLPartGroup, ?actualURLPartGroup) strConcat('"', ?actualURLPartGroup, ?URLPaths) (?restControllerInstances rdf:type architecture:Responder) (?restControllerInstances architecture:URLPaths ?URLPaths) -> (?appRequesterInstances architecture:call ?restControllerInstances)
+
+[role="mapping"]
+isGUID: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class2 famix:hasFullQualifiedName 'java.util.UUID') (?class famix:imports ?class2) -> (?class rdf:type architecture:GUID)
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)

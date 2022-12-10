@@ -1,0 +1,268 @@
+[role="rule"]
+Every Controller must use a Service.
+
+//can only changed to can-only
+[role="rule"]
+Every Service can-only beUsedBy a Controller or beUsedBy a Service.
+
+[role="rule"]
+No Controller can access a DataAccessObject.
+
+[role="rule"]
+Nothing can access a Controller.
+
+// one changed to 1
+[role="rule"]
+Every HostTransactionComponent can beIncludedIn exactly 1 Module.
+
+[role="rule"]
+No HostTransactionComponent can dependOn anything.
+
+// haveName changed to hasName
+[role="rule"]
+Every BatchBean must hasName equal-to "Bat*".
+
+// call cant be described, isDefinedIn changed to methodIsDefinedIn
+[role="rule"]
+No MBean can call a Method that (methodIsDefinedIn an ApplicationCore).
+
+// CompositePrimary Key erfordert 2 mal @Id --> nicht mit einfachem mapping möglich
+[role="rule"]
+No Entity can define a CompositePrimaryKey.
+
+// nicht formalisierbar, da PrimaryKey sich aus mehreren unterliegenden Konzepten zusammensetzen müsste --> keine Graphstruktur
+[role="rule"]
+Every PrimaryKey can consistOf exactly 1 Attribute.
+
+[role="rule"]
+Every ApplicationException must implement a BusinessException or implement a TechnicalException or implement a TechnicalRuntimeException.
+
+// isLocatedIn changed to methodIsLocatedIn da das Mapping doppelt verwendet wird
+[role="rule"]
+Every Method that (hasModifier equal-to "public" and methodIsLocatedIn a ControllerLayer) must return an APIResponseWrapper.
+
+// Field changed to Aggregate
+[role="rule"]
+Every GeneratedValueAnnotation that (annotates a Aggregate) must define a Strategy that (hasValue equal-to "AUTO").
+
+[role="rule"]
+Every Aggregate that (defines an AggregateId) must provide a Method that (return an AggregateId).
+
+// Field changed to Attribute, haveModifier changed to hasModifier
+[role="rule"]
+Every Attribute that (represents a Logger) must hasModifier equal-to "private" and hasModifier equal-to "static" and hasModifier equal-to "final".
+
+[role="rule"]
+Every Exception that (isThrownBy a ServiceMethod) must be a ServiceInterfaceException.
+
+[role="rule"]
+No ServiceMethod can throw an Exception that (isDefinedIn an ApplicationCore).
+
+// ExceptionFacade kann nicht formalisiert werden: Was ist das, ArchCNL erlaubt keinen Zugriff auf try catch Strukturen
+[role="rule"]
+Every Method that (isPartOf an ExceptionFacade) must beAnnotatedWith a LoggingContextAnnotation.
+
+[role="rule"]
+Every ServiceMethod can-only return a TransferObject or return a PrimitiveType.
+
+// hasType changed to hasDeclaredType, declare changed to definesParameter
+[role="rule"]
+Every ServiceMethod can-only definesParameter a Parameter that (hasDeclaredType a TransferObject) or definesParameter a Parameter that (hasDeclaredType a PrimitiveType).
+
+// declares changed to definesAttribute, Class changes to FamixClass, Field changed to Attribute, beAccessedBy kann nicht formalisiert werden
+[role="rule"]
+Every FamixClass that (definesAttribute a Attribute that (isAnnotatedWith a PayloadAnnotation)) can-only beAccessedBy a Method that (isAnnotatedWith a SecuredAnnotation).
+
+// Field changed to Attribute, can only changed to can-only, isDefinedIn changed to isFieldOf or isMethodOf, , beAccessedBy kann nicht formalisiert werden
+[role="rule"]
+Every Attribute that (isFieldOf StatelessSessionBean X) can-only beAccessedBy a Constructor that (isMethodOf StatelessSessionBean X) or beAccessedBy a PostConstructMethod that (isMethodOf StatelessSessionBean X).
+
+// hasPosition hat kein Äquivalent
+[role="rule"]
+Every Parameter that (hasPosition equal-to 1 and isDefinedBy a Method that (isDefinedBy a RemoteBeanInterface)) must haveType a AufrufKontextTo or haveType a ClientAufrufKontextTo.
+
+// accesses changed to accesses, can only changed to can-only
+[role="rule"]
+Every Application that (accesses Application X) can-only accesses a ServiceLayer that (belongsTo Application X).
+
+// Module hat kein Äquivalent, hasName kann nicht in Variable gespeichert werden, Umweg über Konzept nicht in Visualisierung möglich
+[role="rule"]
+Every Service that (hasName equal-to A and isLocatedIn Module X and uses a Service that (hasName equal-to B and isLocatedIn Module X)) must communicateVia a LocalEJBCommunication that (hasSource a Service that (hasName equal-to A) and hasDestination a Service that (hasName equal-to B)).
+
+// uses changed to use, Domain und WebserviceCommunication nicht formalisierbar
+[role="rule"]
+Every Service that (isLocatedIn Domain X and use a Service that (isLocatedIn Domain Y)) must use a WebserviceCommunication that (hasSource a Service that (isLocatedIn Domain X) and hasDestination a Service that (isLocatedIn Domain Y)).
+
+// Module hat kein Äquivalent
+[role="rule"]
+Every Service that (isLocatedIn Application A and isLocatedIn Module X and uses a Service that (isLocatedIn Application A and isLocatedIn Module Y)) must communicateVia a LocalEJBCommunication that (hasSource a Service that (isLocatedIn Application A and isLocatedIn Module X) and hasDestination a Service that (isLocatedIn Application A and isLocatedIn Module Y)).
+
+[role="rule"]
+Every BusinessLogicService that (isLocatedIn Module X and uses a DataAccessComponent) can-only use a DataAccessComponent that (isLocatedIn Module X) or use a HostAccessComponent that (isLocatedIn Module X) or use a HostTransactionComponent that (isLocatedIn Module X).
+
+// String kann nicht direkt in Variable gespeichert werden, Umweg über Konzept durch Visualisierung nicht erlaubt, WebserviceCommunication nicht formalisierbar
+[role="rule"]
+Every Application that (hasName equal-to X and communicatesWith an Application that (hasName equal-to Y)) can-only use a WebserviceCommunication that (hasSource an Application that (hasName equal-to X) and hasDestination an Application that (hasName equal-to Y)) or use a RemoteEJBCommunication that (hasSource an Application that (hasName equal-to X) and hasDestination an Application that (hasName equal-to Y)).
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
+[role="mapping"]
+definesMapping: (?class rdf:type famix:FamixClass) (?class famix:definesAttribute ?att) (?att famix:hasDeclaredType ?type) -> (?class architecture:defines ?type)
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+
+[role="mapping"]
+beUsedByMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class2 architecture:beUsedBy ?class)
+
+[role="mapping"]
+accessMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:access ?class2)
+
+[role="mapping"]
+accessesMapping: (?package famix:namespaceContains ?class) (?package2 famix:namespaceContains ?class2) (?class architecture:use ?class2) -> (?package architecture:accesses ?package2)
+
+[role="mapping"]
+dependOnMapping: (?class famix:imports ?class2) -> (?class architecture:dependOn ?class2)
+
+[role="mapping"]
+defineMapping: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasAnnotationTypeAttribute ?att) -> (?annotation architecture:define ?att)
+
+[role="mapping"]
+implementMapping: (?inheritance famix:hasSubClass ?class) (?inheritance famix:hasSuperClass ?interface) (?interface famix:isInterface 'true'^^xsd:boolean) -> (?class architecture:implement ?interface)
+
+[role="mapping"]
+methodIsLocatedInMapping: (?class famix:definesMethod ?method) (?package famix:namespaceContains ?class) -> (?method architecture:methodIsLocatedIn ?package)
+
+[role="mapping"]
+isLocatedInMapping: (?package famix:namespaceContains ?class) -> (?class architecture:isLocatedIn ?package)
+
+[role="mapping"]
+returnMapping: (?method rdf:type famix:Method) (?method famix:hasDeclaredType ?returnType) -> (?method architecture:return ?returnType)
+
+[role="mapping"]
+annotatesMapping: (?class rdf:type famix:FamixClass) (?class famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?annotation) -> (?annotation architecture:annotates ?class)
+
+[role="mapping"]
+provideMapping: (?class rdf:type famix:FamixClass) (?class famix:definesMethod ?method) -> (?class architecture:provide ?method)
+
+[role="mapping"]
+representsMapping: (?att rdf:type famix:Attribute) (?att famix:hasDeclaredType ?type) (?namespace famix:namespaceContains ?type) -> (?att architecture:represents ?namespace)
+
+[role="mapping"]
+isThrownByMapping: (?exception rdf:type famix:FamixClass) (?method rdf:type famix:Method) (?method famix:throwsException ?exception) -> (?exception architecture:isThrownBy ?method)
+
+[role="mapping"]
+throwMapping: (?method rdf:type famix:Method) (?method famix:throwsException ?exception) -> (?method architecture:throw ?exception)
+
+[role="mapping"]
+isDefinedInMapping: (?namespace famix:namespaceContains ?class) -> (?class architecture:isDefinedIn ?namespace)
+
+[role="mapping"]
+methodIsDefinedInMapping: (?namespace famix:namespaceContains ?class) (?class famix:definesMethod ?method) -> (?method architecture:methodIsDefinedIn ?namespace)
+
+[role="mapping"]
+isMethodOfMapping: (?class rdf:type famix:FamixClass) (?class famix:definesMethod ?content) -> (?content architecture:isMethodOf ?class)
+
+[role="mapping"]
+isAttributeOfMapping: (?class rdf:type famix:FamixClass) (?class famix:definesAttribute ?content) -> (?content architecture:isAttributeOf ?class)
+
+[role="mapping"]
+beAnnotatedWithMapping: (?method rdf:type famix:Method) (?method famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?annotation) -> (?method architecture:beAnnotatedWith ?annotation)
+
+[role="mapping"]
+belongsToMapping: (?layer rdf:type architecture:ServiceLayer) (?app rdf:type architecture:Application) (?app famix:namespaceContains ?layer) -> (?layer architecture:belongsTo ?app)
+
+//----------------------------------------------
+
+[role="mapping"]
+isController: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Controller') -> (?class rdf:type architecture:Controller)
+
+[role="mapping"]
+isService: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Service') -> (?class rdf:type architecture:Service)
+
+[role="mapping"]
+isDataAccessObject: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*DAO') -> (?class rdf:type architecture:DataAccessObject)
+
+[role="mapping"]
+isHostTransactionComponent: (?class rdf:type famix:FamixClass) (?class famix:hasName 'HostTransactionComponent') -> (?class rdf:type architecture:HostTransactionComponent)
+
+[role="mapping"]
+isEntity: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Entity') -> (?class rdf:type architecture:Entity)
+
+[role="mapping"]
+isApplicationException: (?exception rdf:type architecture:Exception) (?package famix:namespaceContains ?exception) (?package famix:hasName 'application') -> (?exception rdf:type architecture:ApplicationException)
+
+[role="mapping"]
+isBusinessException: (?exception rdf:type architecture:Exception) (?business famix:namespaceContains ?exception) (?business famix:hasName 'business') -> (?exception rdf:type architecture:BusinessException)
+
+[role="mapping"]
+isTechnicalException: (?exception rdf:type architecture:Exception) (?business famix:namespaceContains ?exception) (?business famix:hasName 'technical') -> (?exception rdf:type architecture:TechnicalException)
+
+[role="mapping"]
+isRuntimeException: (?class rdf:type famix:FamixClass) (?class famix:hasName 'RuntimeException') -> (?class rdf:type architecture:RuntimeException)
+
+[role="mapping"]
+isTechnicalRuntimeException: (?exception rdf:type architecture:TechnicalException) (?runtime rdf:type architecture:RuntimeException) (?inheritance famix:hasSubClass ?exception) (?inheritance famix:hasSuperClass ?runtime) -> (?exception rdf:type architecture:TechnicalRuntimeException)
+
+[role="mapping"]
+isControllerLayer: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'controllers') -> (?package rdf:type architecture:ControllerLayer)
+
+[role="mapping"]
+isAPIResponseWrapper: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*ApiWrapper') -> (?class rdf:type architecture:APIResponseWrapper)
+
+[role="mapping"]
+isGeneratedValueAnnotation: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'GeneratedValue') -> (?annotation rdf:type architecture:GeneratedValueAnnotation)
+
+[role="mapping"]
+isAggregate: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Aggregate') -> (?class rdf:type architecture:Aggregate)
+
+[role="mapping"]
+isAggregateId: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*AggregateId') -> (?class rdf:type architecture:AggregateId)
+
+[role="mapping"]
+isLogger: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'logging') -> (?package rdf:type architecture:Logger)
+
+[role="mapping"]
+isException: (?class rdf:type famix:FamixClass) (?method famix:throwsException ?class) -> (?class rdf:type architecture:Exception)
+
+[role="mapping"]
+isServiceMethod: (?service rdf:type architecture:Service) (?service famix:definesMethod ?method) -> (?method rdf:type architecture:ServiceMethod)
+
+[role="mapping"]
+isServiceInterfaceException: (?exception rdf:type architecture:Exception) (?namespace rdf:type architecture:ServiceLayer) (?namespace famix:namespaceContains ?exception) -> (?exception rdf:type architecture:ServiceInterfaceException)
+
+[role="mapping"]
+isApplicationCore: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'core') -> (?package rdf:type architecture:ApplicationCore)
+
+[role="mapping"]
+isTransferObject: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName 'transfer') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:TransferObject)
+
+[role="mapping"]
+isPayloadAnnotation: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'Payload') -> (?annotation rdf:type architecture:PayloadAnnotation)
+
+[role="mapping"]
+isSecuredAnnotation: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'Secured') -> (?annotation rdf:type architecture:SecuredAnnotation)
+
+[role="mapping"]
+isStatelessSessionBean: (?class rdf:type famix:FamixClass) (?class famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?annotation) (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'Stateless') -> (?class rdf:type architecture:StatelessSessionBean)
+
+[role="mapping"]
+isConstructor: (?method rdf:type famix:Method) (?method famix:isConstructor 'true'^^xsd:boolean) -> (?method rdf:type architecture:Constructor)
+
+[role="mapping"]
+isPostConstructMethod: (?method rdf:type famix:Method) (?method famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?type) (?type famix:hasName 'PostConstruct') -> (?method rdf:type architecture:PostConstructMethod)
+
+[role="mapping"]
+isApplication: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'application') -> (?package rdf:type architecture:Application)
+
+[role="mapping"]
+isServiceLayer: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'services') -> (?package rdf:type architecture:ServiceLayer)
+
+[role="mapping"]
+isBusinessLogicService: (?service rdf:type architecture:Service) (?package rdf:type famix:Namespace) (?package famix:hasName 'logic') (?package famix:namespaceContains ?service) -> (?service rdf:type architecture:BusinessLogicService)
+
+[role="mapping"]
+isDataAccessComponent: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*DAC') -> (?class rdf:type architecture:DataAccessComponent)
+
+[role="mapping"]
+isStrategy: (?att rdf:type famix:AnnotationTypeAttribute) (?att famix:hasName 'strategy') -> (?att rdf:type architecture:Strategy)

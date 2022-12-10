@@ -1,0 +1,217 @@
+[role="rule"]
+No ModelClass can use a GuiClass.
+@startuml No ModelClass can use a GuiClass.
+title No ModelClass can use a GuiClass.
+folder ".*\.domain\..*" as package {
+class "?modelClass" as modelClass {
+}
+}
+folder ".*\.ui\..*" as package1 {
+class "?guiClass" as guiClass {
+}
+}
+modelClass -[dashed]-> guiClass #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass -[bold]-> guiClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ModelClass" as ModelClass
+ModelClass .. modelClass
+note "GuiClass" as GuiClass
+GuiClass .. guiClass
+@enduml
+
+[role="rule"]
+No View can use a ModelClass.
+@startuml No View can use a ModelClass.
+title No View can use a ModelClass.
+class ".*View" as view {
+}
+folder ".*\.domain\..*" as package {
+class "?modelClass" as modelClass {
+}
+}
+view -[dashed]-> modelClass #line:OrangeRed;text:OrangeRed : <<imports>>
+view -[bold]-> modelClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "View" as View
+View .. view
+note "ModelClass" as ModelClass
+ModelClass .. modelClass
+@enduml
+
+[role="rule"]
+Every View must have a Presenter.
+==========================================
+complex regex prevents visualization
+==========================================
+
+[role="rule"]
+Every Presenter must have a View.
+==========================================
+complex regex prevents visualization
+==========================================
+
+[role="rule"]
+Every View must inheritFrom a ContractView.
+@startuml Every View must inheritFrom a ContractView.
+title Every View must inheritFrom a ContractView.
+class ".*View" as viewW #OrangeRed {
+}
+class ".*Contract" as contract1 {
+}
+class "View" as contractViewC {
+}
+contract1 +-- contractViewC
+note "Contract" as Contract
+Contract .. contract1
+class ".*View" as viewC #RoyalBlue extends contractViewC {
+}
+viewC -[bold]-> contractViewC
+note on link: inheritFrom
+note "View" as View1
+View1 .. viewW
+note "ContractView" as ContractView
+ContractView .. contractViewC
+note "View" as View
+View .. viewC
+@enduml
+
+[role="rule"]
+Every Presenter must inheritFrom a ContractPresenter.
+@startuml Every Presenter must inheritFrom a ContractPresenter.
+scale 4
+title Every Presenter must inheritFrom a ContractPresenter.
+class ".*Presenter" as presenterW #OrangeRed {
+}
+class ".*Presenter" as presenterC #RoyalBlue extends contractPresenterC {
+}
+class ".*Contract" as contract1 {
+}
+class "Presenter" as contractPresenterC {
+}
+contract1 +-- contractPresenterC
+note "Contract" as Contract
+Contract .. contract1
+presenterC -[bold]-> contractPresenterC
+note on link: inheritFrom
+note "Presenter" as Presenter1
+Presenter1 .. presenterW
+note "Presenter" as Presenter
+Presenter .. presenterC
+note "ContractPresenter" as ContractPresenter
+ContractPresenter .. contractPresenterC
+@enduml
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:namespaceContains ?class) (?package famix:hasName ?name) regex(?name, '.*\.domain\..*') -> (?class rdf:type architecture:ModelClass)
+@startuml isModelClass
+title isModelClass
+folder ".*\.domain\..*" as package {
+class "?class" as class {
+}
+}
+note "ModelClass" as ModelClass
+ModelClass .. class
+@enduml
+
+[role="mapping"]
+isGuiClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:namespaceContains ?class) (?package famix:hasName ?name) regex(?name, '.*\.ui\..*') -> (?class rdf:type architecture:GuiClass)
+@startuml isGuiClass
+title isGuiClass
+folder ".*\.ui\..*" as package {
+class "?class" as class {
+}
+}
+note "GuiClass" as GuiClass
+GuiClass .. class
+@enduml
+
+[role="mapping"]
+isView: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*View') (?class famix:isInterface 'false'^^xsd:boolean) -> (?class rdf:type architecture:View)
+@startuml isView
+title isView
+class ".*View" as class {
+}
+note "View" as View
+View .. class
+@enduml
+
+[role="mapping"]
+isPresenter: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Presenter') (?class famix:isInterface 'false'^^xsd:boolean) -> (?class rdf:type architecture:Presenter)
+@startuml isPresenter
+title isPresenter
+class ".*Presenter" as class {
+}
+note "Presenter" as Presenter
+Presenter .. class
+@enduml
+
+[role="mapping"]
+isContract: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Contract') -> (?class rdf:type architecture:Contract)
+@startuml isContract
+title isContract
+class ".*Contract" as class {
+}
+note "Contract" as Contract
+Contract .. class
+@enduml
+
+[role="mapping"]
+isContractView: (?contract rdf:type architecture:Contract) (?contract famix:definesNestedType ?nestedType) (?nestedType famix:hasName ?name) regex(?name, 'View') -> (?nestedType rdf:type architecture:ContractView)
+@startuml isContractView
+title isContractView
+class ".*Contract" as contract1 {
+}
+class "View" as nestedType {
+}
+contract1 +-- nestedType
+note "Contract" as Contract
+Contract .. contract1
+note "ContractView" as ContractView
+ContractView .. nestedType
+@enduml
+
+[role="mapping"]
+isContractPresenter: (?contract rdf:type architecture:Contract) (?contract famix:definesNestedType ?nestedType) (?nestedType famix:hasName ?name) regex(?name, 'Presenter') -> (?nestedType rdf:type architecture:ContractPresenter)
+@startuml isContractPresenter
+title isContractPresenter
+class ".*Contract" as contract1 {
+}
+class "Presenter" as nestedType {
+}
+contract1 +-- nestedType
+note "Contract" as Contract
+Contract .. contract1
+note "ContractPresenter" as ContractPresenter
+ContractPresenter .. nestedType
+@enduml
+
+[role="mapping"]
+haveMapping: (?view rdf:type architecture:View) (?presenter rdf:type architecture:Presenter) (?view famix:hasName ?vName) (?presenter famix:hasName ?pName) regex(?vName, '(\\w*)View', ?vPrefix) regex(?pName, '(\\w*)Presenter', ?pPrefix) regex(?vPrefix, ?pPrefix) -> (?view architecture:have ?presenter) (?presenter architecture:have ?view)
+==========================================
+complex regex prevents visualization
+==========================================
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+@startuml useMapping
+title useMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: use
+@enduml
+
+[role="mapping"]
+inheritFromMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?inheritance famix:hasSubClass ?class) (?inheritance famix:hasSuperClass ?class2) -> (?class architecture:inheritFrom ?class2)
+@startuml inheritFromMapping
+title inheritFromMapping
+class "?class" as class extends class2 {
+}
+class "?class2" as class2 {
+}
+class -[bold]-> class2
+note on link: inheritFrom
+@enduml

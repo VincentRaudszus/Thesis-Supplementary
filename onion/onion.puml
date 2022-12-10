@@ -1,0 +1,123 @@
+[role="rule"]
+Every Aggregate must resideIn a DomainRing.
+@startuml Every Aggregate must resideIn a DomainRing.
+title Every Aggregate must resideIn a DomainRing.
+folder "domain" as domainRingC {
+class "(\\w||\\W)*\\.(\\w||\\W)*Aggregate" as aggregateC #RoyalBlue {
+}
+}
+class "(\\w||\\W)*\\.(\\w||\\W)*Aggregate" as aggregateW #OrangeRed {
+}
+
+aggregateC -[bold]-> domainRingC
+note on link: resideIn
+note "DomainRing" as DomainRing
+DomainRing .. domainRingC
+note "Aggregate" as Aggregate1
+Aggregate1 .. aggregateW
+note "Aggregate" as Aggregate
+Aggregate .. aggregateC
+@enduml
+
+[role="rule"]
+No Aggregate can use an ApplicationService.
+@startuml No Aggregate can use an ApplicationService.
+scale 4
+title No Aggregate can use an ApplicationService.
+folder "api" as package {
+class "?applicationService" as applicationService {
+}
+}
+class "(\\w||\\W)*\\.(\\w||\\W)*Aggregate" as aggregate {
+<color:#OrangeRed> {field} ?f : ?applicationService
+}
+aggregate -[bold]-> applicationService #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ApplicationService" as ApplicationService
+ApplicationService .. applicationService
+note "Aggregate" as Aggregate
+Aggregate .. aggregate
+folder "api" as package1 {
+class "?applicationService1" as applicationService1 {
+}
+}
+class "(\\w||\\W)*\\.(\\w||\\W)*Aggregate" as aggregate1 {
+}
+aggregate1 -[dashed]-> applicationService1 #line:OrangeRed;text:OrangeRed : <<imports>>
+aggregate1 -[bold]-> applicationService1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ApplicationService" as ApplicationService1
+ApplicationService1 .. applicationService1
+note "Aggregate" as Aggregate1
+Aggregate1 .. aggregate1
+@enduml
+
+[role="mapping"]
+isAggregate: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*\\.(\\w||\\W)*Aggregate') -> (?class rdf:type architecture:Aggregate)
+@startuml isAggregate
+title isAggregate
+class "(\\w||\\W)*\\.(\\w||\\W)*Aggregate" as class {
+}
+note "Aggregate" as Aggregate
+Aggregate .. class
+@enduml
+
+[role="mapping"]
+isApplicationService: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'api') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ApplicationService)
+@startuml isApplicationService
+title isApplicationService
+folder "api" as package {
+class "?class" as class {
+}
+}
+note "ApplicationService" as ApplicationService
+ApplicationService .. class
+@enduml
+
+[role="mapping"]
+isDomainRing: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'domain') -> (?package rdf:type architecture:DomainRing)
+@startuml isDomainRing
+title isDomainRing
+folder "domain" as package {
+}
+note "DomainRing" as DomainRing
+DomainRing .. package
+@enduml
+
+[role="mapping"]
+resideInMapping: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:namespaceContains ?class) -> (?class architecture:resideIn ?package)
+@startuml resideInMapping
+title resideInMapping
+folder "?package" as package {
+class "?class" as class {
+}
+}
+class -[bold]-> package
+note on link: resideIn
+@enduml
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?f rdf:type famix:Attribute) (?class famix:definesAttribute ?f) (?f famix:hasDeclaredType ?class2) -> (?class architecture:use ?class2)
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+@startuml useMapping
+title useMapping
+package useMapping1 <<Cloud>> {
+class "?class" as class {
+{field} ?f : ?class2
+}
+class "?class2" as class2 {
+}
+class -[bold]-> class2
+note on link: use
+}
+package useMapping2 <<Cloud>> {
+class "?class1" as class1 {
+}
+class "?class21" as class21 {
+}
+class1 -[dashed]-> class21: <<imports>>
+class1 -[bold]-> class21
+note on link: use
+}
+@enduml

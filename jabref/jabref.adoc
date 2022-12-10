@@ -1,0 +1,207 @@
+[role="rule"]
+No GUIClass can use a CommandLineInterfaceClass.
+
+[role="rule"]
+No LogicClass can use a GUIClass.
+
+[role="rule"]
+No LogicClass can use a PreferenceClass.
+
+[role="rule"]
+No ModelClass can use a LogicClass.
+
+[role="rule"]
+No ModelClass can use a PreferenceClass.
+
+[role="rule"]
+No PreferenceClass can use a GlobalClass.
+
+[role="rule"]
+No PreferenceClass can use a GUIClass.
+
+[role="rule"]
+No PreferenceClass can use a SwingLibraryClass.
+
+[role="rule"]
+No ModelClass can use a JavaSQLAndOracleClass.
+
+//------------------------------------------------------------------------------------
+Relationsmappings stammen aus old-mappings
+In variante 1 wurde fehlerhaftes subjekt im then tripel geändert
+use Variante über invokes geht nicht
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?f rdf:type famix:Attribute) (?class famix:definesAttribute ?f) (?f famix:hasDeclaredType ?class2) -> (?class architecture:use ?class2)
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?m rdf:type famix:Method) (?class famix:definesMethod ?m) (?m famix:definesVariable ?v) (?v famix:hasDeclaredType ?class2) -> (?class architecture:use ?class2)
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+
+GUIClass Mappings:
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.gui(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefGUI') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefMain') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.Change') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.ChangeScanner') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.EntryAddChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.EntryChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.EntryDeleteChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.FileUpdatePanel') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.GroupChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.InfoPane') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.MetaDataChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.PreambleChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringAddChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringNameChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringRemoveChange') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.pdfimport\\.ImportDialog') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter') -> (?class rdf:type architecture:GUIClass)
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.pdfimport\\.PdfImporter') -> (?class rdf:type architecture:GUIClass)
+
+
+
+LogicClass:
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefExecutorService') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.FileUpdateListener') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.FileUpdateMonitor') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.logic(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSProcessor') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.MySQLProcessor') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.OracleProcessor') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor') -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+
+ModelClass Mappings:
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefException') -> (?class rdf:type architecture:ModelClass)
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.model(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ModelClass)
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSConnection') -> (?class rdf:type architecture:ModelClass)
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties') -> (?class rdf:type architecture:ModelClass)
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSType') -> (?class rdf:type architecture:ModelClass)
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.security\\.Password') -> (?class rdf:type architecture:ModelClass)
+
+
+GlobalClass Mappings:
+
+[role="mapping"]
+isGlobalClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.Globals') -> (?class rdf:type architecture:GlobalClass)
+
+
+CommandLineInterfaceClass Mappings:
+
+
+[role="mapping"]
+isCommandLineInterfaceClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.cli') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:CommandLineInterfaceClass)
+
+
+Pref Mappings:
+
+[role="mapping"]
+isPreferenceClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations') -> (?class rdf:type architecture:PreferenceClass)
+
+[role="mapping"]
+isPreferenceClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.preferences(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:PreferenceClass)
+
+[role="mapping"]
+isPreferenceClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+
+SwingLibraryClass Mappings:
+
+[role="mapping"]
+isSwingLibraryClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'javax\\.swing\\.(\\w|\\W)*') -> (?class rdf:type architecture:SwingLibraryClass)
+
+[role="mapping"]
+isSwingLibraryClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'java\\.awt\\.(\\w|\\W)*') -> (?class rdf:type architecture:SwingLibraryClass)
+
+JavaSQLAndOracle Mappings:
+
+[role="mapping"]
+isJavaSQLAndOracleClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'java\\.sql\\.(\\w|\\W)*') -> (?class rdf:type architecture:JavaSQLAndOracle)
+

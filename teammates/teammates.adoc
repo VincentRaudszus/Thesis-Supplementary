@@ -1,0 +1,296 @@
+[role="rule"]
+No CommonClass can use a UIClass.
+
+[role="rule"]
+No CommonClass can use a LogicClass.
+
+[role="rule"]
+Only a UITest can use a PageObjectTestClass.
+
+[role="rule"]
+Only a TaskQueueLogic can use a TaskQueueAPI.
+
+[role="rule"]
+Only a ClientOrSearchClass can use a GoogleSearchAPI.
+
+[role="rule"]
+Only a ObjectifyClient can use an ObjectifyAPI.
+
+[role="rule"]
+Only a ServletClient can use a ServletAPI.
+
+[role="rule"]
+Only a RemoteAPIClient can use a RemoteAPI.
+
+[role="rule"]
+Only a GoogleCloudStorageHelper can use a GoogleCloudStorageAPI.
+
+[role="rule"]
+Only a DataTransferObjectTestClass can use a StorageEntityClass.
+
+[role="rule"]
+Only a TestCase can use a GaeSimulationClass.
+
+[role="rule"]
+Only a TestCase can use a BackDoorLogicClass.
+
+[role="rule"]
+Only a BrowserTest can use a BackDoorTestDriver.
+
+[role="rule"]
+Only an AutomatedActionClass can use an AutomatedActionClass.
+
+[role="rule"]
+Only an ActionClass can use a LogicAPI.
+
+[role="rule"]
+Only a TeammatesLogger can use a JavaUtilLogger.
+
+[role="rule"]
+Only a PageDataClass can use a TemplateClass.
+
+[role="rule"]
+Only a Controller can use a PageDataClass.
+
+[role="rule"]
+Only a Controller can use a Controller.
+
+[role="rule"]
+Only a ClientScript can use a ClientScript.
+
+[role="rule"]
+No UIClass can use a StorageClass.
+
+[role="rule"]
+No TestCase can use a TestCase.
+
+[role="rule"]
+No StorageSearchClass can use a StorageEntityClass.
+
+[role="rule"]
+No StorageEntityClass can use a StorageSearchClass.
+
+[role="rule"]
+No StorageEntityClass can use a StorageAPIClass.
+
+[role="rule"]
+No StorageClass can use a UIClass.
+
+[role="rule"]
+No StorageClass can use a LogicClass.
+
+[role="rule"]
+No LogicCoreClass can use a BackDoorLogicClass.
+
+[role="rule"]
+No LogicCoreClass can use a LogicAPIClass.
+
+[role="rule"]
+No LogicClass can use a UIClass.
+
+[role="rule"]
+No LogicClass can use a StorageSearchClass.
+
+[role="rule"]
+No LogicClass can use a StorageEntityClass.
+
+[role="rule"]
+No LogicAPIClass can use a BackDoorLogicClass.
+
+[role="rule"]
+No ClientUtilClass can use a ClientClass.
+
+[role="rule"]
+No ClientRemoteAPIClass can use a ClientScriptClass.
+
+[role="rule"]
+No ClientClass can use a UIClass.
+
+[role="rule"]
+No BackDoorServlet can use a LogicCoreClass.
+
+[role="rule"]
+No BackDoorServlet can use a LogicAPIClass.
+
+[role="rule"]
+No AutomatedActionClass can use a UIClass.
+
+// DBType mapping is missing, manage mapping does not build connection
+
+[role="rule"]
+If a LogicClass uses a DBType, it must manage this DBType.
+
+//---------------------------------------------------
+
+[role="mapping"]
+isCommonClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.common(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:CommonClass)
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+
+[role="mapping"]
+isUIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:UIClass)
+
+[role="mapping"]
+isStorageClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageClass)
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+
+[role="mapping"]
+isUITest: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases\\.browsertests(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:UITest)
+
+[role="mapping"]
+isPageObjectTestClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.pageobjects(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:PageObjectTestClass)
+
+[role="mapping"]
+isTaskQueueAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.api\\.taskqueue(\\w|\\W)*') -> (?class rdf:type architecture:TaskQueueAPI)
+
+[role="mapping"]
+isTaskQueueLogic: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.logic\\.core\\.TaskQueuesLogic') -> (?class rdf:type architecture:TaskQueueLogic)
+[role="mapping"]
+isTaskQueueLogic: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.logic\\.core\\.TaskQueuesLogic') -> (?class rdf:type architecture:TaskQueueLogic)
+
+[role="mapping"]
+isGoogleSearchAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.api\\.search(\\w|\\W)*') -> (?class rdf:type architecture:GoogleSearchAPI)
+
+[role="mapping"]
+isClientOrSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientOrSearchClass)
+[role="mapping"]
+isClientOrSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.search(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientOrSearchClass)
+[role="mapping"]
+isClientOrSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientOrSearchClass)
+
+[role="mapping"]
+isObjectifyAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.googlecode\\.objectify(\\w|\\W)*') -> (?class rdf:type architecture:ObjectifyAPI)
+
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.cases\\.BaseTestCaseWithObjectifyAccess') -> (?class rdf:type architecture:ObjectifyClient)
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ObjectifyClient)
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.remoteapi(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ObjectifyClient)
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ObjectifyClient)
+
+[role="mapping"]
+isServletAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'javax\\.servlet(\\w|\\W)*')  -> (?class rdf:type architecture:ServletAPI)
+
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.util\\.ActivityLogEntry') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.util\\.HttpRequestHelper') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.storage\\.api\\.OfyHelper') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?className) regex(?className, 'teammates\\.logic\\.backdoor\\.BackDoorServlet') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.automated(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.controller(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?className) regex(?className, 'teammates\\.test\\.driver\\.GaeSimulation') -> (?class rdf:type architecture:ServletClient)
+
+[role="mapping"]
+isRemoteAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.tools\\.remoteapi(\\w|\\W)*') -> (?class rdf:type architecture:RemoteAPI)
+
+[role="mapping"]
+isRemoteAPIClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.client\\.remoteapi\\.RemoteApiClient') -> (?class rdf:type architecture:RemoteApiClient)
+[role="mapping"]
+isRemoteAPIClient: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.client\\.remoteapi\\.RemoteApiClient') -> (?class rdf:type architecture:RemoteApiClient)
+
+[role="mapping"]
+isGoogleCloudStorageAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.tools\\.cloudstorage(\\w|\\W)*')  -> (?class rdf:type architecture:GoogleCloudStorageAPI)
+
+[role="mapping"]
+isGoogleCloudStorageHelper: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.util\\.GoogleCloudStorageHelper') -> (?class rdf:type architecture:GoogleCloudStorageHelper)
+
+[role="mapping"]
+isStorageEntityClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.entity(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageEntityClass)
+
+[role="mapping"]
+isDataTransferObjectTestClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases\\.datatransfer(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:DataTransferObjectTestClass)
+
+[role="mapping"]
+isGaeSimulationClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?className) regex(?className, 'teammates\\.test\\.driver\\.GaeSimulation') -> (?class rdf:type architecture:GaeSimulationClass)
+
+[role="mapping"]
+isTestCase: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:TestCase)
+
+[role="mapping"]
+isBackdoorLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.logic\\.backdoor\\.BackDoorLogic') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:BackdoorLogicClass)
+
+[role="mapping"]
+isBackDoorTestDriver: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.driver\\.BackDoor') -> (?class rdf:type architecture:BackDoorTestDriver)
+
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases\\.browsertests(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.cases\\.testdriver\\.BackDoorTest') -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.cases\\.BaseTestCaseWithBackDoorApiAccess') -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.client\\.scripts\\.ImportData') -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts\\.PerformanceProfiler') -> (?class rdf:type architecture:BrowserTest)
+
+[role="mapping"]
+isAutomatedActionClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.automated(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:AutomatedActionClass)
+
+[role="mapping"]
+isActionClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.template(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ActionClass)
+[role="mapping"]
+isActionClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.automated(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ActionClass)
+
+[role="mapping"]
+isLogicAPI: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicAPI)
+
+[role="mapping"]
+isJavaUtilLogger: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'java\\.util\\.logging(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:JavaUtilLogger)
+
+[role="mapping"]
+isTeammatesLogger: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.Logger') -> (?class rdf:type architecture:TeammatesLogger)
+[role="mapping"]
+isTeammatesLogger: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.common\\.Logger') -> (?class rdf:type architecture:TeammatesLogger)
+
+[role="mapping"]
+isTemplateClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.template(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:TemplateClass)
+
+[role="mapping"]
+isPageDataClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.pagedata(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:PageDataClass)
+
+[role="mapping"]
+isController: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.controller(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:Controller)
+
+[role="mapping"]
+isClientScript: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientScript)
+
+[role="mapping"]
+isStorageSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.search(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageSearchClass)
+
+[role="mapping"]
+isStorageAPIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageAPIClass)
+
+[role="mapping"]
+isLogicCoreClass: (?class rdf:type famix:FamixClass)  (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.core(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicCoreClass)
+
+[role="mapping"]
+isBackDoorLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.backdoor(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:BackDoorLogicClass)
+
+[role="mapping"]
+isLogicAPIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicAPIClass)
+
+[role="mapping"]
+isClientClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientClass)
+
+[role="mapping"]
+isClientUtilClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts\\.util(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientUtilClass)
+
+[role="mapping"]
+isClientScriptClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientScriptClass)
+
+[role="mapping"]
+isClientRemoteAPIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.remoteapi(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientRemoteAPIClass)
+
+[role="mapping"]
+isBackDoorServlet: (?class rdf:type famix:FamixClass) (?class famix:hasName ?className) regex(?className, 'teammates\\.logic\\.backdoor\\.BackDoorServlet') -> (?class rdf:type architecture:BackDoorServlet)

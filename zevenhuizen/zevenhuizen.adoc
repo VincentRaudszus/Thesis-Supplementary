@@ -1,0 +1,56 @@
+[role="rule"]
+Every ApiGateway must resideinpackage MicroserviceApp.
+
+[role="rule"]
+Every Microservice must registerin ServiceRegistry.
+
+[role="rule"]
+Every Microservice must haveown DatabaseAccessAbstraction.
+
+[role="rule"]
+Every Microservice must use CircuitBreaker.
+
+[role="rule"]
+Every Microservice must useown RuntimeEnvironment.
+
+[role="rule"]
+Every Microservice must haveown API.
+
+[role="mapping"]
+isAPI: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*Controller$') -> (?class rdf:type architecture:API)
+
+[role="mapping"]
+isApiGateway: (?classPackage rdf:type famix:Namespace) (?classPackage famix:hasName ?name) regex(?name, '(\\w||\\W)*gateway$') -> (?classPackage rdf:type architecture:ApiGateway)
+
+[role="mapping"]
+isCircuitBreaker: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*EnableCircuitBreaker$') -> (?class rdf:type architecture:CircuitBreaker)
+
+[role="mapping"]
+isDatabaseAccessAbstraction: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) (?class famix:isExternal 'false'^^xsd:boolean) regex(?name, '(\\w||\\W)*Repository$') -> (?class rdf:type architecture:DatabaseAccessAbstraction)
+
+[role="mapping"]
+isMicroservice: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'NotificationServiceApplication$|AccountApplication$|StatisticsApplication$') -> (?class rdf:type architecture:Microservice)
+
+[role="mapping"]
+isMicroserviceApp: (?classPackage rdf:type famix:Namespace) (?classPackage famix:hasName ?name) regex(?name, 'com\\.piggymetrics$(\\w||\\W)*') -> (?classPackage rdf:type architecture:MicroserviceApp)
+
+[role="mapping"]
+isRuntimeEnvironment: (?class rdf:type architecture:Microservice) (?class famix:definesMethod ?method) (?method famix:hasName ?name) regex(?name, 'main') -> (?method rdf:type architecture:RuntimeEnvironment)
+
+[role="mapping"]
+isServiceRegistry: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*RegistryApplication$') -> (?class rdf:type architecture:ServiceRegistry)
+
+[role="mapping"]
+registerinMapping: (?registry rdf:type architecture:ServiceRegistry) (?class rdf:type famix:FamixClass) (?registryImport rdf:type famix:FamixClass) (?class famix:imports ?registryImport) (?registryImport famix:hasName ?registryImportName) regex(?registryImportName, 'EnableDiscoveryClient') -> (?class architecture:registerin ?registry)
+
+[role="mapping"]
+haveownMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?classPackage rdf:type famix:Namespace) (?classPackage famix:namespaceContains ?class) (?class2Package rdf:type famix:Namespace) (?class2Package famix:namespaceContains ?class2) (?classPackage famix:namespaceContains ?class2Package) -> (?class architecture:haveown ?class2)
+
+[role="mapping"]
+resideinpackageMapping: (?classPackage rdf:type famix:Namespace) (?class2Package rdf:type famix:Namespace) (?classPackage famix:namespaceContains ?class2Package) -> (?class2Package architecture:resideinpackage ?classPackage)
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+
+[role="mapping"]
+useownMapping: (?class rdf:type architecture:Microservice) (?class2 rdf:type architecture:RuntimeEnvironment) (?class famix:definesMethod ?class2) -> (?class architecture:useown ?class2)

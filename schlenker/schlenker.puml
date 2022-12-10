@@ -1,0 +1,660 @@
+[role="rule"]
+Every TestResult can-only bestored Testresultserver.
+@startuml Every TestResult can-only bestored Testresultserver.
+title Every TestResult can-only bestored Testresultserver.
+class "(\\w||\\W)*TestResultEntity" as testResultW {
+}
+class "(\\w||\\W)*TestResultEntity" as testResultC {
+}
+folder "app\\.coronawarn\\.testresult\\.?(\\w||\\W)*" as testresultpackage {
+class "?testresultserverC" as testresultserverC {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+testresultserverC -[dashed]-> testResultC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+testResultC -[bold]-> testresultserverC #line:RoyalBlue;text:RoyalBlue 
+note on link: bestored
+famixClassW -[dashed]-> testResultW #line:OrangeRed;text:OrangeRed : <<imports>>
+testResultW -[bold]-> famixClassW #line:OrangeRed;text:OrangeRed 
+note on link: bestored
+note "TestResult" as TestResult1
+TestResult1 .. testResultW
+note "TestResult" as TestResult
+TestResult .. testResultC
+note "Testresultserver" as Testresultserver
+Testresultserver .. testresultserverC
+@enduml
+
+[role="rule"]
+No Testresultserver can store a IPAdress.
+==================================================================
+IPAdress has no mapping
+==================================================================
+
+[role="rule"]
+No Testresultserver can log Personaldata.
+==================================================================
+log, Personaldata have no mapping
+==================================================================
+
+[role="rule"]
+No Testresultserver can store GUID.
+@startuml No Testresultserver can store GUID.
+title No Testresultserver can store GUID.
+class "java.util.UUID" as class2 {
+}
+class "?gUID" as gUID {
+}
+gUID -[dashed]-> class2: <<imports>>
+folder "app\\.coronawarn\\.testresult\\.?(\\w||\\W)*" as testresultpackage {
+class "?testresultserver" as testresultserver {
+}
+}
+testresultserver -[dashed]-> gUID #line:OrangeRed;text:OrangeRed : <<imports>>
+testresultserver -[bold]-> gUID #line:OrangeRed;text:OrangeRed 
+note on link: store
+note "GUID" as GUID
+GUID .. gUID
+note "Testresultserver" as Testresultserver
+Testresultserver .. testresultserver
+@enduml
+
+[role="rule"]
+Nothing can callEndpoint CreateTestResult.
+==================================================================
+callEndpoint ist eigentlich callMethod
+kann aber wegen String nicht visualisiert werden
+==================================================================
+
+[role="rule"]
+Every Testresultserver can-only becalled Verificationserver.
+==================================================================
+becalled has no mapping
+==================================================================
+
+[role="rule"]
+No Verificationserver can store a IPAdress.
+==================================================================
+IPAdress has no mapping
+==================================================================
+
+[role="rule"]
+No Verificationserver can log Personaldata.
+==================================================================
+log, Personaldata have no mapping
+==================================================================
+
+[role="rule"]
+No Verificationserver can store Personaldata.
+==================================================================
+Personaldata has no mapping
+==================================================================
+
+[role="rule"]
+Every CreateRegistrationToken can-only exist Verificationserver.
+==================================================================
+CreateRegistrationToken kann nicht visualisiert werden
+==================================================================
+
+[role="rule"]
+Every CreateTAN can-only exist Verificationserver.
+==================================================================
+CreateTAN kann nicht visualisiert werden
+==================================================================
+
+[role="rule"]
+Every CreateTeleTAN can-only exist Verificationserver.
+==================================================================
+CreateTeleTAN kann nicht visualisiert werden
+==================================================================
+
+[role="rule"]
+Every VerifyTan can-only exist Verificationserver.
+==================================================================
+VerifyTan kann nicht visualisiert werden
+==================================================================
+
+[role="rule"]
+Every RequestKeys can-only exist CWAServer.
+==================================================================
+RequestKeys has no mapping
+==================================================================
+
+[role="rule"]
+Every UploadKeys can-only exist CWAServer.
+==================================================================
+UploadKeys kann nicht visualisiert werden
+==================================================================
+
+[role="rule"]
+Every VerifyTAN can-only becalled CWAServer.
+==================================================================
+becalled has no mapping
+==================================================================
+
+[role="rule"]
+Every Key can-only bestored CWAServer.
+@startuml Every Key can-only bestored CWAServer.
+title Every Key can-only bestored CWAServer.
+class "(\\w||\\W)*DiagnosisKey" as keyC {
+}
+folder "app\\.coronawarn\\.server\\.?(\\w||\\W)*" as cwapackage {
+class "?cWAServerC" as cWAServerC {
+}
+}
+class "(\\w||\\W)*DiagnosisKey" as keyW {
+}
+class "?famixClassW" as famixClassW {
+}
+cWAServerC -[dashed]-> keyC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+keyC -[bold]-> cWAServerC #line:RoyalBlue;text:RoyalBlue 
+note on link: bestored
+famixClassW -[dashed]-> keyW #line:OrangeRed;text:OrangeRed : <<imports>>
+keyW -[bold]-> famixClassW #line:OrangeRed;text:OrangeRed 
+note on link: bestored
+note "Key" as Key
+Key .. keyC
+note "CWAServer" as CWAServer
+CWAServer .. cWAServerC
+note "Key" as Key1
+Key1 .. keyW
+@enduml
+
+[role="rule"]
+No CWAServer can store TAN.
+==================================================================
+TAN has no mapping
+==================================================================
+
+[role="rule"]
+Every Fragment must hasattribute ViewModelAttribute.
+@startuml Every Fragment must hasattribute ViewModelAttribute.
+scale 4
+title Every Fragment must hasattribute ViewModelAttribute.
+package isViewModelAttribute1 <<Cloud>> {
+class "?GENERATED1" as GENERATED1 {
+{field} vm
+}
+}
+package isViewModelAttribute2 <<Cloud>> {
+class "?GENERATED2" as GENERATED2 {
+{field} viewModel
+}
+}
+package isViewModelAttribute3 <<Cloud>> {
+class "?GENERATED3" as GENERATED3 {
+{field} (\\w||\\W)*ViewModel
+}
+}
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage #RoyalBlue {
+class "(\\w||\\W)*Fragment" as fragmentC1 #RoyalBlue {
+{field} vm
+{field} viewModel
+{field} (\\w||\\W)*ViewModel
+}
+}
+note "CWAApp" as CWAApp
+CWAApp .. fragmentC1
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage1 #OrangeRed {
+class "(\\w||\\W)*Fragment" as fragmentW1 #OrangeRed {
+}
+}
+note "CWAApp" as CWAApp1
+CWAApp1 .. fragmentW1
+fragmentC1 -[bold]-> fragmentC1::vm
+note on link: hasattribute
+fragmentC1 -[bold]-> fragmentC1::viewModel
+note on link: hasattribute
+fragmentC1 -[bold]-> fragmentC1::wWViewModel
+note on link: hasattribute
+note "ViewModelAttribute" as ViewModelAttribute
+ViewModelAttribute .. fragmentC1::vm
+ViewModelAttribute .. fragmentC1::viewModel
+ViewModelAttribute .. fragmentC1::wWViewModel
+note "Fragment" as Fragment
+Fragment .. fragmentC1
+note "Fragment" as Fragment1
+Fragment1 .. fragmentW1
+@enduml
+
+[role="rule"]
+No ViewModel can use a Fragment.
+@startuml No ViewModel can use a Fragment.
+scale 4
+title No ViewModel can use a Fragment.
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage1 {
+class "(\\w||\\W)*Fragment" as fragment1 {
+}
+}
+note "CWAApp" as CWAApp1
+CWAApp1 .. fragment1
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage {
+class "(\\w||\\W)*ViewModel" as viewModel1 {
+}
+}
+note "CWAApp" as CWAApp
+CWAApp .. viewModel1
+viewModel1 -[dashed]-> fragment1 #line:OrangeRed;text:OrangeRed : <<imports>>
+viewModel1 -[bold]-> fragment1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "Fragment" as Fragment
+Fragment .. fragment1
+note "ViewModel" as ViewModel
+ViewModel .. viewModel1
+@enduml
+
+[role="rule"]
+Fact: CWAApp use ExposureNotificationFramework.
+@startuml Fact: CWAApp use ExposureNotificationFramework.
+title Fact: CWAApp use ExposureNotificationFramework.
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage1 {
+class "?exposureNotificationFramework1" as exposureNotificationFramework1 {
+}
+}
+folder "com\\.google\\.android\\.gms\\.nearby\\.exposurenotification\\.?(\\w||\\W)*" as enfpackage {
+class "?exposureNotificationFramework1" as exposureNotificationFramework1 {
+}
+}
+note "CWAApp" as CWAApp1
+CWAApp1 .. exposureNotificationFramework1
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage {
+class "?cWAApp" as cWAApp {
+}
+}
+cWAApp -[dashed]-> exposureNotificationFramework1: <<imports>>
+cWAApp -[bold]-> exposureNotificationFramework1
+note on link: use
+note "ExposureNotificationFramework" as ExposureNotificationFramework
+ExposureNotificationFramework .. exposureNotificationFramework1
+note "CWAApp" as CWAApp
+CWAApp .. cWAApp
+@enduml
+
+[role="rule"]
+Every Storage must use Encryption.
+==================================================================
+Storage, Encryption have no mapping
+==================================================================
+
+[role="rule"]
+Only a User can see a ContactWarning.
+==================================================================
+see, ContactWarning have no mapping
+==================================================================
+
+[role="rule"]
+Fact: CWAServer use FederationGateway.
+@startuml Fact: CWAServer use FederationGateway.
+title Fact: CWAServer use FederationGateway.
+folder "app\\.coronawarn\\.server\\.?(\\w||\\W)*" as cwapackage {
+class "?cWAServer" as cWAServer {
+}
+}
+folder "app\\.coronawarn\\.server\\.?(\\w||\\W)*" as cwapackage1 {
+class "(\\w||\\W)*FederationUploadClient" as federationGateway1 {
+}
+}
+note "CWAServer" as CWAServer1
+CWAServer1 .. federationGateway1
+cWAServer -[dashed]-> federationGateway1: <<imports>>
+cWAServer -[bold]-> federationGateway1
+note on link: use
+note "CWAServer" as CWAServer
+CWAServer .. cWAServer
+note "FederationGateway" as FederationGateway
+FederationGateway .. federationGateway1
+@enduml
+
+[role="rule"]
+No Request can use GETMethod.
+==================================================================
+Request, GetMethod have no mapping
+==================================================================
+
+[role="rule"]
+Every Request must use a RegistrationToken.
+==================================================================
+Request, RegistrationToken have no mapping
+==================================================================
+
+//=====================================================================================
+
+[role="mapping"]
+isTestResult: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*TestResultEntity') -> (?class rdf:type architecture:TestResult)
+@startuml isTestResult
+title isTestResult
+class "(\\w||\\W)*TestResultEntity" as class {
+}
+note "TestResult" as TestResult
+TestResult .. class
+@enduml
+
+[role="mapping"]
+isRepository: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*Repository') -> (?class rdf:type architecture:Repository)
+@startuml isRepository
+title isRepository
+class "(\\w||\\W)*Repository" as class {
+}
+note "Repository" as Repository
+Repository .. class
+@enduml
+
+[role="mapping"]
+storeMapping: (?repositoryClass rdf:type architecture:Repository) (?repositoryClass famix:imports ?entityClass) (?entityClass famix:isExternal 'false'^^xsd:boolean) -> (?repositoryClass architecture:store ?entityClass)
+============================================
+without isExternal
+============================================
+@startuml storeMapping
+title storeMapping
+class "?entityClass" as entityClass {
+}
+class "(\\w||\\W)*Repository" as repositoryClass1 {
+}
+repositoryClass1 -[dashed]-> entityClass: <<imports>>
+repositoryClass1 -[bold]-> entityClass
+note on link: store
+note "Repository" as Repository
+Repository .. repositoryClass1
+@enduml
+
+[role="mapping"]
+bestoredMapping: (?repositoryClass rdf:type architecture:Repository) (?repositoryClass famix:imports ?entityClass) (?entityClass famix:isExternal 'false'^^xsd:boolean) -> (?entityClass architecture:bestored ?repositoryClass)
+============================================
+without isExternal
+============================================
+@startuml bestoredMapping
+title bestoredMapping
+class "?entityClass" as entityClass {
+}
+class "(\\w||\\W)*Repository" as repositoryClass1 {
+}
+repositoryClass1 -[dashed]-> entityClass: <<imports>>
+entityClass -[bold]-> repositoryClass1
+note on link: bestored
+note "Repository" as Repository
+Repository .. repositoryClass1
+@enduml
+
+[role="mapping"]
+isTestresultserver: (?class rdf:type famix:FamixClass) (?testresultpackage rdf:type famix:Namespace) (?testresultpackage famix:hasName ?testresultpackagename) regex(?testresultpackagename, 'app\\.coronawarn\\.testresult\\.?(\\w||\\W)*') (?testresultpackage famix:namespaceContains ?class) -> (?class rdf:type architecture:Testresultserver)
+@startuml isTestresultserver
+title isTestresultserver
+folder "app\\.coronawarn\\.testresult\\.?(\\w||\\W)*" as testresultpackage {
+class "?class" as class {
+}
+}
+note "Testresultserver" as Testresultserver
+Testresultserver .. class
+@enduml
+
+[role="mapping"]
+isCreateTestResult: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/api\\/v1\\/app\\/result\"') -> (?feignClientMethods rdf:type architecture:CreateTestResult)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+isVerificationserver: (?class rdf:type famix:FamixClass) (?verificationpackage rdf:type famix:Namespace) (?verificationpackage famix:hasName ?verificationpackagename) regex(?verificationpackagename, 'app\\.coronawarn\\.verification\\.?(\\w||\\W)*') (?verificationpackage famix:namespaceContains ?class) -> (?class rdf:type architecture:Verificationserver)
+@startuml isVerificationserver
+title isVerificationserver
+folder "app\\.coronawarn\\.verification\\.?(\\w||\\W)*" as verificationpackage {
+class "?class" as class {
+}
+}
+note "Verificationserver" as Verificationserver
+Verificationserver .. class
+@enduml
+
+[role="mapping"]
+isCreateRegistrationToken: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/registrationToken\"') -> (?feignClientMethods rdf:type architecture:CreateRegistrationToken)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+isCreateTAN: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/tan\"') -> (?feignClientMethods rdf:type architecture:CreateTAN)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+isCreateTeleTAN: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/tan\\/teletan\"') -> (?feignClientMethods rdf:type architecture:CreateTeleTAN)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+isVerifyTan: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/tan\\/verify\"') -> (?feignClientMethods rdf:type architecture:VerifyTan)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+existMapping: (?class famix:definesMethod ?method) -> (?method architecture:exist ?class)
+@startuml existMapping
+title existMapping
+class "?class" as class {
+{method} ?method()
+}
+class::method -[bold]-> class
+note on link: exist
+@enduml
+
+[role="mapping"]
+isCWAServer: (?class rdf:type famix:FamixClass) (?cwapackage rdf:type famix:Namespace) (?cwapackage famix:hasName ?cwapackagename) regex(?cwapackagename, 'app\\.coronawarn\\.server\\.?(\\w||\\W)*') (?cwapackage famix:namespaceContains ?class) -> (?class rdf:type architecture:CWAServer)
+@startuml isCWAServer
+title isCWAServer
+folder "app\\.coronawarn\\.server\\.?(\\w||\\W)*" as cwapackage {
+class "?class" as class {
+}
+}
+note "CWAServer" as CWAServer
+CWAServer .. class
+@enduml
+
+[role="mapping"]
+isUploadKeys: (?feignClientInstances rdf:type architecture:Responder) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) regex(?URLPaths, '\"\\/diagnosis-keys"') -> (?feignClientMethods rdf:type architecture:UploadKeys)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+isKey: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*DiagnosisKey') -> (?class rdf:type architecture:Key)
+@startuml isKey
+title isKey
+class "(\\w||\\W)*DiagnosisKey" as class {
+}
+note "Key" as Key
+Key .. class
+@enduml
+
+[role="mapping"]
+isCWAApp: (?class rdf:type famix:FamixClass) (?cwaapppackage rdf:type famix:Namespace) (?cwaapppackage famix:hasName ?cwaapppackagename) regex(?cwaapppackagename, 'de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*') (?cwaapppackage famix:namespaceContains ?class) -> (?class rdf:type architecture:CWAApp)
+@startuml isCWAApp
+title isCWAApp
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage {
+class "?class" as class {
+}
+}
+note "CWAApp" as CWAApp
+CWAApp .. class
+@enduml
+
+[role="mapping"]
+isFragment: (?class rdf:type architecture:CWAApp) (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*Fragment') -> (?class rdf:type architecture:Fragment)
+@startuml isFragment
+title isFragment
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage {
+class "(\\w||\\W)*Fragment" as class1 {
+}
+}
+note "CWAApp" as CWAApp
+CWAApp .. class1
+note "Fragment" as Fragment
+Fragment .. class1
+@enduml
+
+[role="mapping"]
+isViewModel: (?class rdf:type architecture:CWAApp) (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*ViewModel') -> (?class rdf:type architecture:ViewModel)
+@startuml isViewModel
+title isViewModel
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage {
+class "(\\w||\\W)*ViewModel" as class1 {
+}
+}
+note "CWAApp" as CWAApp
+CWAApp .. class1
+note "ViewModel" as ViewModel
+ViewModel .. class1
+@enduml
+
+[role="mapping"]
+isExposureNotificationFramework: (?class rdf:type architecture:CWAApp) (?class rdf:type famix:FamixClass) (?enfpackage rdf:type famix:Namespace) (?enfpackage famix:hasName ?enfpackagename) regex(?enfpackagename, 'com\\.google\\.android\\.gms\\.nearby\\.exposurenotification\\.?(\\w||\\W)*') (?enfpackage famix:namespaceContains ?class) -> (?class rdf:type architecture:ExposureNotificationFramework)
+@startuml isExposureNotificationFramework
+title isExposureNotificationFramework
+folder "de\\.rki\\.coronawarnapp\\.?(\\w||\\W)*" as cwaapppackage {
+class "?class1" as class1 {
+}
+}
+folder "com\\.google\\.android\\.gms\\.nearby\\.exposurenotification\\.?(\\w||\\W)*" as enfpackage {
+class "?class1" as class1 {
+}
+}
+note "CWAApp" as CWAApp
+CWAApp .. class1
+note "ExposureNotificationFramework" as ExposureNotificationFramework
+ExposureNotificationFramework .. class1
+@enduml
+
+[role="mapping"]
+RequestURLPathMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'GET') (?annotationTypeInstances famix:hasAnnotationType ?annotationTypes) (?annotationTypeInstances famix:hasAnnotationInstanceAttribute ?annotationValueType) (?annotationValueType famix:hasValue ?annotationValue) (?annotationInstance famix:hasAnnotationInstance ?annotationTypeInstances) -> (?annotationInstance architecture:RequestURLPath ?annotationValue)
+[role="mapping"]
+RequestURLPathMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'POST') (?annotationTypeInstances famix:hasAnnotationType ?annotationTypes) (?annotationTypeInstances famix:hasAnnotationInstanceAttribute ?annotationValueType) (?annotationValueType famix:hasValue ?annotationValue) (?annotationInstance famix:hasAnnotationInstance ?annotationTypeInstances) -> (?annotationInstance architecture:RequestURLPath ?annotationValue)
+==============================================================================================
+Relation hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+isRequester: (?methodInstances architecture:RequestURLPath ?URLPaths) (?requsterInstances famix:definesMethod ?methodInstances) -> (?requsterInstances rdf:type architecture:Requester)
+[role="mapping"]
+isRequester: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'FeignClient') (?feignClients famix:hasAnnotationType ?annotationTypes) (?feignClientInstances famix:hasAnnotationInstance ?feignClients) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) -> (?feignClientInstances rdf:type architecture:Requester)
+==============================================================================================
+RequestURLPath, URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+URLPathsMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'FeignClient') (?feignClients famix:hasAnnotationType ?annotationTypes) (?feignClientInstances famix:hasAnnotationInstance ?feignClients) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) -> (?feignClientInstances architecture:URLPaths ?URLPaths)
+[role="mapping"]
+URLPathsMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'RestController') (?restControllers famix:hasAnnotationType ?annotationTypes) (?restControllerInstances famix:hasAnnotationInstance ?restControllers) (?restControllerInstances famix:definesMethod ?restControllerMethods) (?restControllerMethods architecture:URLPath ?URLPaths) -> (?restControllerInstances architecture:URLPaths ?URLPaths)
+[role="mapping"]
+URLPathsMapping: (?methodInstances architecture:RequestURLPath ?URLPaths) (?requsterInstances famix:definesMethod ?methodInstances) -> (?requsterInstances architecture:URLPaths ?URLPaths)
+==============================================================================================
+URLPaths hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+hasattributeMapping: (?class famix:definesAttribute ?attribute) -> (?class architecture:hasattribute ?attribute)
+@startuml hasattributeMapping
+title hasattributeMapping
+class "?class" as class {
+{field} ?attribute
+}
+class -[bold]-> class::attribute
+note on link: hasattribute
+@enduml
+
+[role="mapping"]
+isViewModelAttribute: (?attribute rdf:type famix:Attribute) (?attribute famix:hasName 'vm') -> (?attribute rdf:type architecture:ViewModelAttribute)
+[role="mapping"]
+isViewModelAttribute: (?attribute rdf:type famix:Attribute) (?attribute famix:hasName 'viewModel') -> (?attribute rdf:type architecture:ViewModelAttribute)
+[role="mapping"]
+isViewModelAttribute: (?attribute rdf:type famix:Attribute) (?attribute famix:hasName ?name) regex(?name, '(\\w||\\W)*ViewModel') -> (?attribute rdf:type architecture:ViewModelAttribute)
+@startuml isViewModelAttribute
+title isViewModelAttribute
+package isViewModelAttribute1 <<Cloud>> {
+class "?GENERATED1" as GENERATED1 {
+{field} vm
+}
+}
+package isViewModelAttribute2 <<Cloud>> {
+class "?GENERATED2" as GENERATED2 {
+{field} viewModel
+}
+}
+package isViewModelAttribute3 <<Cloud>> {
+class "?GENERATED3" as GENERATED3 {
+{field} (\\w||\\W)*ViewModel
+}
+}
+note "ViewModelAttribute" as ViewModelAttribute
+ViewModelAttribute .. GENERATED1::vm
+ViewModelAttribute .. GENERATED2::viewModel
+ViewModelAttribute .. GENERATED3::wWViewModel
+@enduml
+
+[role="mapping"]
+isFederationGateway: (?class rdf:type architecture:CWAServer) (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*FederationUploadClient') -> (?class rdf:type architecture:FederationGateway)
+@startuml isFederationGateway
+title isFederationGateway
+folder "app\\.coronawarn\\.server\\.?(\\w||\\W)*" as cwapackage {
+class "(\\w||\\W)*FederationUploadClient" as class1 {
+}
+}
+note "CWAServer" as CWAServer
+CWAServer .. class1
+note "FederationGateway" as FederationGateway
+FederationGateway .. class1
+@enduml
+
+[role="mapping"]
+isResponder: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'RestController') (?restControllers famix:hasAnnotationType ?annotationTypes) (?restControllerInstances famix:hasAnnotationInstance ?restControllers) (?restControllerInstances famix:definesMethod ?restControllerMethods) (?restControllerMethods architecture:URLPath ?URLPaths) -> (?restControllerInstances rdf:type architecture:Responder)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+URLPathMapping: (?annotationTypes rdf:type famix:AnnotationType) (?annotationTypes famix:hasFullQualifiedName 'PostMapping') (?annotationTypeInstances famix:hasAnnotationType ?annotationTypes) (?annotationTypeInstances famix:hasAnnotationInstanceAttribute ?annotationValueType) (?annotationValueType famix:hasValue ?annotationValue) (?annotationValueType famix:hasAnnotationTypeAttribute ?annotationTypeAttribute) (?annotationTypeAttribute famix:hasName 'value') (?annotationInstance famix:hasAnnotationInstance ?annotationTypeInstances) -> (?annotationInstance architecture:URLPath ?annotationValue)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+callMethodMapping: (?feignClientInstances rdf:type architecture:Requester) (?feignClientInstances famix:definesMethod ?feignClientMethods) (?feignClientMethods architecture:URLPath ?URLPaths) (?restControllerInstances rdf:type architecture:Responder) (?restControllerInstances famix:definesMethod ?restControllerMethods) (?restControllerMethods architecture:URLPath ?URLPaths) -> (?feignClientMethods architecture:callMethod ?restControllerMethods)
+==============================================================================================
+URLPath hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+callMapping: (?feignClientInstances rdf:type architecture:Requester) (?feignClientInstances architecture:URLPaths ?URLPaths) (?restControllerInstances rdf:type architecture:Responder) (?restControllerInstances architecture:URLPaths ?URLPaths) -> (?feignClientInstances architecture:call ?restControllerInstances)
+[role="mapping"]
+callMapping: (?appRequesterInstances rdf:type architecture:Requester) (?appRequesterInstances architecture:URLPaths ?URLPathsWithVersion) regex(?URLPathsWithVersion, '.*(version\/v1)(.*)', ?versionURLPartGroup, ?actualURLPartGroup) strConcat('"', ?actualURLPartGroup, ?URLPaths) (?restControllerInstances rdf:type architecture:Responder) (?restControllerInstances architecture:URLPaths ?URLPaths) -> (?appRequesterInstances architecture:call ?restControllerInstances)
+==============================================================================================
+URLPaths hat einen String als Objekt
+==============================================================================================
+
+[role="mapping"]
+isGUID: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class2 famix:hasFullQualifiedName 'java.util.UUID') (?class famix:imports ?class2) -> (?class rdf:type architecture:GUID)
+@startuml isGUID
+title isGUID
+class "?class" as class {
+}
+class "java.util.UUID" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+note "GUID" as GUID
+GUID .. class
+@enduml
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+@startuml useMapping
+title useMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: use
+@enduml

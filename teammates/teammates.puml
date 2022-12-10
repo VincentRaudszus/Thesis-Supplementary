@@ -1,0 +1,1838 @@
+[role="rule"]
+No CommonClass can use a UIClass.
+@startuml No CommonClass can use a UIClass.
+title No CommonClass can use a UIClass.
+folder "teammates\\.common(\\w|\\W)*" as package {
+class "?commonClass" as commonClass {
+}
+}
+folder "teammates\\.ui(\\w|\\W)*" as package1 {
+class "?uIClass" as uIClass {
+}
+}
+commonClass -[dashed]-> uIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+commonClass -[bold]-> uIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "CommonClass" as CommonClass
+CommonClass .. commonClass
+note "UIClass" as UIClass
+UIClass .. uIClass
+@enduml
+
+[role="rule"]
+No CommonClass can use a LogicClass.
+@startuml No CommonClass can use a LogicClass.
+title No CommonClass can use a LogicClass.
+folder "teammates\\.common(\\w|\\W)*" as package {
+class "?commonClass" as commonClass {
+}
+}
+folder "teammates\\.logic(\\w|\\W)*" as package1 {
+class "?logicClass" as logicClass {
+}
+}
+commonClass -[dashed]-> logicClass #line:OrangeRed;text:OrangeRed : <<imports>>
+commonClass -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "CommonClass" as CommonClass
+CommonClass .. commonClass
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+@enduml
+
+[role="rule"]
+Only a UITest can use a PageObjectTestClass.
+@startuml Only a UITest can use a PageObjectTestClass.
+title Only a UITest can use a PageObjectTestClass.
+folder "teammates\\.test\\.cases\\.browsertests(\\w|\\W)*" as package {
+class "?uITestC" as uITestC {
+}
+}
+folder "teammates\\.test\\.pageobjects(\\w|\\W)*" as package2 {
+class "?pageObjectTestClassW" as pageObjectTestClassW {
+}
+}
+folder "teammates\\.test\\.pageobjects(\\w|\\W)*" as package1 {
+class "?pageObjectTestClassC" as pageObjectTestClassC {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+uITestC -[dashed]-> pageObjectTestClassC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+uITestC -[bold]-> pageObjectTestClassC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> pageObjectTestClassW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> pageObjectTestClassW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "UITest" as UITest
+UITest .. uITestC
+note "PageObjectTestClass" as PageObjectTestClass1
+PageObjectTestClass1 .. pageObjectTestClassW
+note "PageObjectTestClass" as PageObjectTestClass
+PageObjectTestClass .. pageObjectTestClassC
+@enduml
+
+[role="rule"]
+Only a TaskQueueLogic can use a TaskQueueAPI.
+@startuml Only a TaskQueueLogic can use a TaskQueueAPI.
+title Only a TaskQueueLogic can use a TaskQueueAPI.
+class "com\\.google\\.appengine\\.api\\.taskqueue(\\w|\\W)*" as taskQueueAPIW {
+}
+package isTaskQueueLogic1 <<Cloud>> {
+class "teammates\\.logic\\.core\\.TaskQueuesLogic" as taskQueueLogicC {
+}
+}
+package isTaskQueueLogic2 <<Cloud>> {
+class "teammates\\.logic\\.core\\.TaskQueuesLogic" as taskQueueLogicC1 {
+}
+}
+class "com\\.google\\.appengine\\.api\\.taskqueue(\\w|\\W)*" as taskQueueAPIC {
+}
+class "?famixClassW" as famixClassW {
+}
+taskQueueLogicC -[dashed]-> taskQueueAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+taskQueueLogicC1 -[dashed]-> taskQueueAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+taskQueueLogicC -[bold]-> taskQueueAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+taskQueueLogicC1 -[bold]-> taskQueueAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> taskQueueAPIW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> taskQueueAPIW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "TaskQueueAPI" as TaskQueueAPI1
+TaskQueueAPI1 .. taskQueueAPIW
+note "TaskQueueLogic" as TaskQueueLogic
+TaskQueueLogic .. taskQueueLogicC
+TaskQueueLogic .. taskQueueLogicC1
+note "TaskQueueAPI" as TaskQueueAPI
+TaskQueueAPI .. taskQueueAPIC
+@enduml
+
+[role="rule"]
+Only a ClientOrSearchClass can use a GoogleSearchAPI.
+@startuml Only a ClientOrSearchClass can use a GoogleSearchAPI.
+title Only a ClientOrSearchClass can use a GoogleSearchAPI.
+package isClientOrSearchClass1 <<Cloud>> {
+folder "teammates\\.storage\\.api(\\w|\\W)*" as package {
+class "?clientOrSearchClassC" as clientOrSearchClassC {
+}
+}
+}
+package isClientOrSearchClass2 <<Cloud>> {
+folder "teammates\\.storage\\.search(\\w|\\W)*" as package1 {
+class "?clientOrSearchClassC1" as clientOrSearchClassC1 {
+}
+}
+}
+package isClientOrSearchClass3 <<Cloud>> {
+folder "teammates\\.client\\.scripts" as package2 {
+class "?clientOrSearchClassC2" as clientOrSearchClassC2 {
+}
+}
+}
+class "com\\.google\\.appengine\\.api\\.search(\\w|\\W)*" as googleSearchAPIC {
+}
+class "com\\.google\\.appengine\\.api\\.search(\\w|\\W)*" as googleSearchAPIW {
+}
+class "?famixClassW" as famixClassW {
+}
+clientOrSearchClassC -[dashed]-> googleSearchAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+clientOrSearchClassC1 -[dashed]-> googleSearchAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+clientOrSearchClassC2 -[dashed]-> googleSearchAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+clientOrSearchClassC -[bold]-> googleSearchAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+clientOrSearchClassC1 -[bold]-> googleSearchAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+clientOrSearchClassC2 -[bold]-> googleSearchAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> googleSearchAPIW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> googleSearchAPIW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ClientOrSearchClass" as ClientOrSearchClass
+ClientOrSearchClass .. clientOrSearchClassC
+ClientOrSearchClass .. clientOrSearchClassC1
+ClientOrSearchClass .. clientOrSearchClassC2
+note "GoogleSearchAPI" as GoogleSearchAPI
+GoogleSearchAPI .. googleSearchAPIC
+note "GoogleSearchAPI" as GoogleSearchAPI1
+GoogleSearchAPI1 .. googleSearchAPIW
+@enduml
+
+[role="rule"]
+Only a ObjectifyClient can use an ObjectifyAPI.
+@startuml Only a ObjectifyClient can use an ObjectifyAPI.
+title Only a ObjectifyClient can use an ObjectifyAPI.
+package isObjectifyClient1 <<Cloud>> {
+class "teammates\\.test\\.cases\\.BaseTestCaseWithObjectifyAccess" as objectifyClientC {
+}
+}
+package isObjectifyClient2 <<Cloud>> {
+folder "teammates\\.storage\\.api(\\w|\\W)*" as package {
+class "?objectifyClientC1" as objectifyClientC1 {
+}
+}
+}
+package isObjectifyClient3 <<Cloud>> {
+folder "teammates\\.client\\.remoteapi(\\w|\\W)*" as package1 {
+class "?objectifyClientC2" as objectifyClientC2 {
+}
+}
+}
+package isObjectifyClient4 <<Cloud>> {
+folder "teammates\\.client\\.scripts" as package2 {
+class "?objectifyClientC3" as objectifyClientC3 {
+}
+}
+}
+class "com\\.googlecode\\.objectify(\\w|\\W)*" as objectifyAPIC {
+}
+class "com\\.googlecode\\.objectify(\\w|\\W)*" as objectifyAPIW {
+}
+class "?famixClassW" as famixClassW {
+}
+objectifyClientC -[dashed]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+objectifyClientC1 -[dashed]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+objectifyClientC2 -[dashed]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+objectifyClientC3 -[dashed]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+objectifyClientC -[bold]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+objectifyClientC1 -[bold]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+objectifyClientC2 -[bold]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+objectifyClientC3 -[bold]-> objectifyAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> objectifyAPIW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> objectifyAPIW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ObjectifyClient" as ObjectifyClient
+ObjectifyClient .. objectifyClientC
+ObjectifyClient .. objectifyClientC1
+ObjectifyClient .. objectifyClientC2
+ObjectifyClient .. objectifyClientC3
+note "ObjectifyAPI" as ObjectifyAPI
+ObjectifyAPI .. objectifyAPIC
+note "ObjectifyAPI" as ObjectifyAPI1
+ObjectifyAPI1 .. objectifyAPIW
+@enduml
+
+[role="rule"]
+Only a ServletClient can use a ServletAPI.
+@startuml Only a ServletClient can use a ServletAPI.
+title Only a ServletClient can use a ServletAPI.
+package isServletClient1 <<Cloud>> {
+class "teammates\\.common\\.util\\.ActivityLogEntry" as servletClientC {
+}
+}
+package isServletClient2 <<Cloud>> {
+class "teammates\\.common\\.util\\.HttpRequestHelper" as servletClientC1 {
+}
+}
+package isServletClient3 <<Cloud>> {
+class "teammates\\.storage\\.api\\.OfyHelper" as servletClientC2 {
+}
+}
+package isServletClient4 <<Cloud>> {
+class "teammates\\.logic\\.backdoor\\.BackDoorServlet" as servletClientC3 {
+}
+}
+package isServletClient5 <<Cloud>> {
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package {
+class "?servletClientC4" as servletClientC4 {
+}
+}
+}
+package isServletClient6 <<Cloud>> {
+folder "teammates\\.ui\\.controller(\\w|\\W)*" as package1 {
+class "?servletClientC5" as servletClientC5 {
+}
+}
+}
+package isServletClient7 <<Cloud>> {
+class "teammates\\.test\\.driver\\.GaeSimulation" as servletClientC6 {
+}
+}
+class "javax\\.servlet(\\w|\\W)*" as servletAPIW {
+}
+class "javax\\.servlet(\\w|\\W)*" as servletAPIC {
+}
+class "?famixClassW" as famixClassW {
+}
+servletClientC -[dashed]-> servletAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+servletClientC1 -[dashed]-> servletAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+servletClientC2 -[dashed]-> servletAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+servletClientC3 -[dashed]-> servletAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+servletClientC4 -[dashed]-> servletAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+servletClientC5 -[dashed]-> servletAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+servletClientC6 -[dashed]-> servletAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+servletClientC -[bold]-> servletAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+servletClientC1 -[bold]-> servletAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+servletClientC2 -[bold]-> servletAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+servletClientC3 -[bold]-> servletAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+servletClientC4 -[bold]-> servletAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+servletClientC5 -[bold]-> servletAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+servletClientC6 -[bold]-> servletAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> servletAPIW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> servletAPIW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ServletClient" as ServletClient
+ServletClient .. servletClientC
+ServletClient .. servletClientC1
+ServletClient .. servletClientC2
+ServletClient .. servletClientC3
+ServletClient .. servletClientC4
+ServletClient .. servletClientC5
+ServletClient .. servletClientC6
+note "ServletAPI" as ServletAPI1
+ServletAPI1 .. servletAPIW
+note "ServletAPI" as ServletAPI
+ServletAPI .. servletAPIC
+@enduml
+
+[role="rule"]
+Only a RemoteAPIClient can use a RemoteAPI.
+'RemoteApiClient changed to RemoteAPIClient
+@startuml Only a RemoteAPIClient can use a RemoteAPI.
+title Only a RemoteAPIClient can use a RemoteAPI.
+package isRemoteAPIClient1 <<Cloud>> {
+class "teammates\\.client\\.remoteapi\\.RemoteApiClient" as remoteAPIClientC {
+}
+}
+package isRemoteAPIClient2 <<Cloud>> {
+class "teammates\\.client\\.remoteapi\\.RemoteApiClient" as remoteAPIClientC1 {
+}
+}
+class "com\\.google\\.appengine\\.tools\\.remoteapi(\\w|\\W)*" as remoteAPIC {
+}
+class "com\\.google\\.appengine\\.tools\\.remoteapi(\\w|\\W)*" as remoteAPIW {
+}
+class "?famixClassW" as famixClassW {
+}
+remoteAPIClientC -[dashed]-> remoteAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+remoteAPIClientC1 -[dashed]-> remoteAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+remoteAPIClientC -[bold]-> remoteAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+remoteAPIClientC1 -[bold]-> remoteAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> remoteAPIW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> remoteAPIW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "RemoteAPIClient" as RemoteAPIClient
+RemoteAPIClient .. remoteAPIClientC
+RemoteAPIClient .. remoteAPIClientC1
+note "RemoteAPI" as RemoteAPI
+RemoteAPI .. remoteAPIC
+note "RemoteAPI" as RemoteAPI1
+RemoteAPI1 .. remoteAPIW
+@enduml
+
+[role="rule"]
+Only a GoogleCloudStorageHelper can use a GoogleCloudStorageAPI.
+@startuml Only a GoogleCloudStorageHelper can use a GoogleCloudStorageAPI.
+title Only a GoogleCloudStorageHelper can use a GoogleCloudStorageAPI.
+class "com\\.google\\.appengine\\.tools\\.cloudstorage(\\w|\\W)*" as googleCloudStorageAPIC {
+}
+class "teammates\\.common\\.util\\.GoogleCloudStorageHelper" as googleCloudStorageHelperC {
+}
+class "?famixClassW" as famixClassW {
+}
+class "com\\.google\\.appengine\\.tools\\.cloudstorage(\\w|\\W)*" as googleCloudStorageAPIW {
+}
+googleCloudStorageHelperC -[dashed]-> googleCloudStorageAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+googleCloudStorageHelperC -[bold]-> googleCloudStorageAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> googleCloudStorageAPIW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> googleCloudStorageAPIW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "GoogleCloudStorageAPI" as GoogleCloudStorageAPI
+GoogleCloudStorageAPI .. googleCloudStorageAPIC
+note "GoogleCloudStorageHelper" as GoogleCloudStorageHelper
+GoogleCloudStorageHelper .. googleCloudStorageHelperC
+note "GoogleCloudStorageAPI" as GoogleCloudStorageAPI1
+GoogleCloudStorageAPI1 .. googleCloudStorageAPIW
+@enduml
+
+[role="rule"]
+Only a DataTransferObjectTestClass can use a StorageEntityClass.
+@startuml Only a DataTransferObjectTestClass can use a StorageEntityClass.
+title Only a DataTransferObjectTestClass can use a StorageEntityClass.
+folder "teammates\\.test\\.cases\\.datatransfer(\\w|\\W)*" as package {
+class "?dataTransferObjectTestClassC" as dataTransferObjectTestClassC {
+}
+}
+folder "teammates\\.storage\\.entity(\\w|\\W)*" as package2 {
+class "?storageEntityClassW" as storageEntityClassW {
+}
+}
+folder "teammates\\.storage\\.entity(\\w|\\W)*" as package1 {
+class "?storageEntityClassC" as storageEntityClassC {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+dataTransferObjectTestClassC -[dashed]-> storageEntityClassC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+dataTransferObjectTestClassC -[bold]-> storageEntityClassC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> storageEntityClassW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> storageEntityClassW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "DataTransferObjectTestClass" as DataTransferObjectTestClass
+DataTransferObjectTestClass .. dataTransferObjectTestClassC
+note "StorageEntityClass" as StorageEntityClass1
+StorageEntityClass1 .. storageEntityClassW
+note "StorageEntityClass" as StorageEntityClass
+StorageEntityClass .. storageEntityClassC
+@enduml
+
+[role="rule"]
+Only a TestCase can use a GaeSimulationClass.
+@startuml Only a TestCase can use a GaeSimulationClass.
+title Only a TestCase can use a GaeSimulationClass.
+folder "teammates\\.test\\.cases(\\w|\\W)*" as package {
+class "?testCaseC" as testCaseC {
+}
+}
+class "teammates\\.test\\.driver\\.GaeSimulation" as gaeSimulationClassC {
+}
+class "teammates\\.test\\.driver\\.GaeSimulation" as gaeSimulationClassW {
+}
+class "?famixClassW" as famixClassW {
+}
+testCaseC -[dashed]-> gaeSimulationClassC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+testCaseC -[bold]-> gaeSimulationClassC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> gaeSimulationClassW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> gaeSimulationClassW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "TestCase" as TestCase
+TestCase .. testCaseC
+note "GaeSimulationClass" as GaeSimulationClass
+GaeSimulationClass .. gaeSimulationClassC
+note "GaeSimulationClass" as GaeSimulationClass1
+GaeSimulationClass1 .. gaeSimulationClassW
+@enduml
+
+[role="rule"]
+Only a TestCase can use a BackDoorLogicClass.
+@startuml Only a TestCase can use a BackDoorLogicClass.
+title Only a TestCase can use a BackDoorLogicClass.
+folder "teammates\\.logic\\.backdoor(\\w|\\W)*" as package2 {
+class "?backDoorLogicClassW" as backDoorLogicClassW {
+}
+}
+folder "teammates\\.test\\.cases(\\w|\\W)*" as package {
+class "?testCaseC" as testCaseC {
+}
+}
+folder "teammates\\.logic\\.backdoor(\\w|\\W)*" as package1 {
+class "?backDoorLogicClassC" as backDoorLogicClassC {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+testCaseC -[dashed]-> backDoorLogicClassC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+testCaseC -[bold]-> backDoorLogicClassC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> backDoorLogicClassW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> backDoorLogicClassW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "BackDoorLogicClass" as BackDoorLogicClass1
+BackDoorLogicClass1 .. backDoorLogicClassW
+note "TestCase" as TestCase
+TestCase .. testCaseC
+note "BackDoorLogicClass" as BackDoorLogicClass
+BackDoorLogicClass .. backDoorLogicClassC
+@enduml
+
+[role="rule"]
+Only a BrowserTest can use a BackDoorTestDriver.
+@startuml Only a BrowserTest can use a BackDoorTestDriver.
+title Only a BrowserTest can use a BackDoorTestDriver.
+class "teammates\\.test\\.driver\\.BackDoor" as backDoorTestDriverC {
+}
+class "teammates\\.test\\.driver\\.BackDoor" as backDoorTestDriverW {
+}
+package isBrowserTest1 <<Cloud>> {
+folder "teammates\\.test\\.cases\\.browsertests(\\w|\\W)*" as package {
+class "?browserTestC" as browserTestC {
+}
+}
+}
+package isBrowserTest2 <<Cloud>> {
+class "teammates\\.test\\.cases\\.testdriver\\.BackDoorTest" as browserTestC1 {
+}
+}
+package isBrowserTest3 <<Cloud>> {
+class "teammates\\.test\\.cases\\.BaseTestCaseWithBackDoorApiAccess" as browserTestC2 {
+}
+}
+package isBrowserTest4 <<Cloud>> {
+class "teammates\\.client\\.scripts\\.ImportData" as browserTestC3 {
+}
+}
+package isBrowserTest5 <<Cloud>> {
+class "teammates\\.client\\.scripts\\.PerformanceProfiler" as browserTestC4 {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+browserTestC -[dashed]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+browserTestC1 -[dashed]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+browserTestC2 -[dashed]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+browserTestC3 -[dashed]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+browserTestC4 -[dashed]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+browserTestC -[bold]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+browserTestC1 -[bold]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+browserTestC2 -[bold]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+browserTestC3 -[bold]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+browserTestC4 -[bold]-> backDoorTestDriverC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> backDoorTestDriverW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> backDoorTestDriverW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "BackDoorTestDriver" as BackDoorTestDriver
+BackDoorTestDriver .. backDoorTestDriverC
+note "BackDoorTestDriver" as BackDoorTestDriver1
+BackDoorTestDriver1 .. backDoorTestDriverW
+note "BrowserTest" as BrowserTest
+BrowserTest .. browserTestC
+BrowserTest .. browserTestC1
+BrowserTest .. browserTestC2
+BrowserTest .. browserTestC3
+BrowserTest .. browserTestC4
+@enduml
+
+[role="rule"]
+Only an AutomatedActionClass can use an AutomatedActionClass.
+@startuml Only an AutomatedActionClass can use an AutomatedActionClass.
+scale 4
+title Only an AutomatedActionClass can use an AutomatedActionClass.
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package2 {
+class "?automatedActionClassW" as automatedActionClassW {
+}
+}
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package {
+class "?automatedActionClass1C" as automatedActionClass1C {
+}
+}
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package1 {
+class "?automatedActionClassC" as automatedActionClassC {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+automatedActionClass1C -[dashed]-> automatedActionClassC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+automatedActionClass1C -[bold]-> automatedActionClassC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> automatedActionClassW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> automatedActionClassW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "AutomatedActionClass" as AutomatedActionClass2
+AutomatedActionClass2 .. automatedActionClassW
+note "AutomatedActionClass" as AutomatedActionClass
+AutomatedActionClass .. automatedActionClass1C
+note "AutomatedActionClass" as AutomatedActionClass1
+AutomatedActionClass1 .. automatedActionClassC
+@enduml
+
+[role="rule"]
+Only an ActionClass can use a LogicAPI.
+@startuml Only an ActionClass can use a LogicAPI.
+title Only an ActionClass can use a LogicAPI.
+folder "teammates\\.logic\\.api(\\w|\\W)*" as package2 {
+class "?logicAPIC" as logicAPIC {
+}
+}
+folder "teammates\\.logic\\.api(\\w|\\W)*" as package3 {
+class "?logicAPIW" as logicAPIW {
+}
+}
+package isActionClass1 <<Cloud>> {
+folder "teammates\\.ui\\.template(\\w|\\W)*" as package {
+class "?actionClassC" as actionClassC {
+}
+}
+}
+package isActionClass2 <<Cloud>> {
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package1 {
+class "?actionClassC1" as actionClassC1 {
+}
+}
+}
+class "?famixClassW" as famixClassW {
+}
+actionClassC -[dashed]-> logicAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+actionClassC1 -[dashed]-> logicAPIC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+actionClassC -[bold]-> logicAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+actionClassC1 -[bold]-> logicAPIC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> logicAPIW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> logicAPIW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "LogicAPI" as LogicAPI
+LogicAPI .. logicAPIC
+note "LogicAPI" as LogicAPI1
+LogicAPI1 .. logicAPIW
+note "ActionClass" as ActionClass
+ActionClass .. actionClassC
+ActionClass .. actionClassC1
+@enduml
+
+[role="rule"]
+Only a TeammatesLogger can use a JavaUtilLogger.
+@startuml Only a TeammatesLogger can use a JavaUtilLogger.
+title Only a TeammatesLogger can use a JavaUtilLogger.
+folder "java\\.util\\.logging(\\w|\\W)*" as package {
+class "?javaUtilLoggerC" as javaUtilLoggerC {
+}
+}
+package isTeammatesLogger1 <<Cloud>> {
+class "teammates\\.common\\.Logger" as teammatesLoggerC {
+}
+}
+package isTeammatesLogger2 <<Cloud>> {
+class "teammates\\.common\\.Logger" as teammatesLoggerC1 {
+}
+}
+folder "java\\.util\\.logging(\\w|\\W)*" as package1 {
+class "?javaUtilLoggerW" as javaUtilLoggerW {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+teammatesLoggerC -[dashed]-> javaUtilLoggerC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+teammatesLoggerC1 -[dashed]-> javaUtilLoggerC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+teammatesLoggerC -[bold]-> javaUtilLoggerC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+teammatesLoggerC1 -[bold]-> javaUtilLoggerC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> javaUtilLoggerW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> javaUtilLoggerW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "JavaUtilLogger" as JavaUtilLogger
+JavaUtilLogger .. javaUtilLoggerC
+note "TeammatesLogger" as TeammatesLogger
+TeammatesLogger .. teammatesLoggerC
+TeammatesLogger .. teammatesLoggerC1
+note "JavaUtilLogger" as JavaUtilLogger1
+JavaUtilLogger1 .. javaUtilLoggerW
+@enduml
+
+[role="rule"]
+Only a PageDataClass can use a TemplateClass.
+@startuml Only a PageDataClass can use a TemplateClass.
+title Only a PageDataClass can use a TemplateClass.
+folder "teammates\\.ui\\.template(\\w|\\W)*" as package2 {
+class "?templateClassW" as templateClassW {
+}
+}
+folder "teammates\\.ui\\.pagedata(\\w|\\W)*" as package {
+class "?pageDataClassC" as pageDataClassC {
+}
+}
+folder "teammates\\.ui\\.template(\\w|\\W)*" as package1 {
+class "?templateClassC" as templateClassC {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+pageDataClassC -[dashed]-> templateClassC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+pageDataClassC -[bold]-> templateClassC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> templateClassW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> templateClassW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "TemplateClass" as TemplateClass1
+TemplateClass1 .. templateClassW
+note "PageDataClass" as PageDataClass
+PageDataClass .. pageDataClassC
+note "TemplateClass" as TemplateClass
+TemplateClass .. templateClassC
+@enduml
+
+[role="rule"]
+Only a Controller can use a PageDataClass.
+@startuml Only a Controller can use a PageDataClass.
+title Only a Controller can use a PageDataClass.
+folder "teammates\\.ui\\.controller(\\w|\\W)*" as package {
+class "?controllerC" as controllerC {
+}
+}
+folder "teammates\\.ui\\.pagedata(\\w|\\W)*" as package1 {
+class "?pageDataClassC" as pageDataClassC {
+}
+}
+folder "teammates\\.ui\\.pagedata(\\w|\\W)*" as package2 {
+class "?pageDataClassW" as pageDataClassW {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+controllerC -[dashed]-> pageDataClassC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+controllerC -[bold]-> pageDataClassC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> pageDataClassW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> pageDataClassW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "Controller" as Controller
+Controller .. controllerC
+note "PageDataClass" as PageDataClass
+PageDataClass .. pageDataClassC
+note "PageDataClass" as PageDataClass1
+PageDataClass1 .. pageDataClassW
+@enduml
+
+[role="rule"]
+Only a Controller can use a Controller.
+@startuml Only a Controller can use a Controller.
+title Only a Controller can use a Controller.
+folder "teammates\\.ui\\.controller(\\w|\\W)*" as package2 {
+class "?controllerW" as controllerW {
+}
+}
+folder "teammates\\.ui\\.controller(\\w|\\W)*" as package1 {
+class "?controllerC" as controllerC {
+}
+}
+folder "teammates\\.ui\\.controller(\\w|\\W)*" as package {
+class "?controller1C" as controller1C {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+controller1C -[dashed]-> controllerC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+controller1C -[bold]-> controllerC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> controllerW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> controllerW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "Controller" as Controller2
+Controller2 .. controllerW
+note "Controller" as Controller1
+Controller1 .. controllerC
+note "Controller" as Controller
+Controller .. controller1C
+@enduml
+
+[role="rule"]
+Only a ClientScript can use a ClientScript.
+@startuml Only a ClientScript can use a ClientScript.
+title Only a ClientScript can use a ClientScript.
+folder "teammates\\.client(\\w|\\W)*" as package2 {
+class "?clientScriptW" as clientScriptW {
+}
+}
+folder "teammates\\.client(\\w|\\W)*" as package {
+class "?clientScript1C" as clientScript1C {
+}
+}
+folder "teammates\\.client(\\w|\\W)*" as package1 {
+class "?clientScriptC" as clientScriptC {
+}
+}
+class "?famixClassW" as famixClassW {
+}
+clientScript1C -[dashed]-> clientScriptC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+clientScript1C -[bold]-> clientScriptC #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+famixClassW -[dashed]-> clientScriptW #line:OrangeRed;text:OrangeRed : <<imports>>
+famixClassW -[bold]-> clientScriptW #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ClientScript" as ClientScript2
+ClientScript2 .. clientScriptW
+note "ClientScript" as ClientScript
+ClientScript .. clientScript1C
+note "ClientScript" as ClientScript1
+ClientScript1 .. clientScriptC
+@enduml
+
+[role="rule"]
+No UIClass can use a StorageClass.
+@startuml No UIClass can use a StorageClass.
+title No UIClass can use a StorageClass.
+folder "teammates\\.storage(\\w|\\W)*" as package1 {
+class "?storageClass" as storageClass {
+}
+}
+folder "teammates\\.ui(\\w|\\W)*" as package {
+class "?uIClass" as uIClass {
+}
+}
+uIClass -[dashed]-> storageClass #line:OrangeRed;text:OrangeRed : <<imports>>
+uIClass -[bold]-> storageClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageClass" as StorageClass
+StorageClass .. storageClass
+note "UIClass" as UIClass
+UIClass .. uIClass
+@enduml
+
+[role="rule"]
+No TestCase can use a TestCase.
+@startuml No TestCase can use a TestCase.
+title No TestCase can use a TestCase.
+folder "teammates\\.test\\.cases(\\w|\\W)*" as package {
+class "?testCase1" as testCase1 {
+}
+}
+folder "teammates\\.test\\.cases(\\w|\\W)*" as package1 {
+class "?testCase" as testCase {
+}
+}
+testCase1 -[dashed]-> testCase #line:OrangeRed;text:OrangeRed : <<imports>>
+testCase1 -[bold]-> testCase #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "TestCase" as TestCase
+TestCase .. testCase1
+note "TestCase" as TestCase1
+TestCase1 .. testCase
+@enduml
+
+[role="rule"]
+No StorageSearchClass can use a StorageEntityClass.
+@startuml No StorageSearchClass can use a StorageEntityClass.
+title No StorageSearchClass can use a StorageEntityClass.
+folder "teammates\\.storage\\.search(\\w|\\W)*" as package {
+class "?storageSearchClass" as storageSearchClass {
+}
+}
+folder "teammates\\.storage\\.entity(\\w|\\W)*" as package1 {
+class "?storageEntityClass" as storageEntityClass {
+}
+}
+storageSearchClass -[dashed]-> storageEntityClass #line:OrangeRed;text:OrangeRed : <<imports>>
+storageSearchClass -[bold]-> storageEntityClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageSearchClass" as StorageSearchClass
+StorageSearchClass .. storageSearchClass
+note "StorageEntityClass" as StorageEntityClass
+StorageEntityClass .. storageEntityClass
+@enduml
+
+[role="rule"]
+No StorageEntityClass can use a StorageSearchClass.
+@startuml No StorageEntityClass can use a StorageSearchClass.
+title No StorageEntityClass can use a StorageSearchClass.
+folder "teammates\\.storage\\.search(\\w|\\W)*" as package1 {
+class "?storageSearchClass" as storageSearchClass {
+}
+}
+folder "teammates\\.storage\\.entity(\\w|\\W)*" as package {
+class "?storageEntityClass" as storageEntityClass {
+}
+}
+storageEntityClass -[dashed]-> storageSearchClass #line:OrangeRed;text:OrangeRed : <<imports>>
+storageEntityClass -[bold]-> storageSearchClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageSearchClass" as StorageSearchClass
+StorageSearchClass .. storageSearchClass
+note "StorageEntityClass" as StorageEntityClass
+StorageEntityClass .. storageEntityClass
+@enduml
+
+[role="rule"]
+No StorageEntityClass can use a StorageAPIClass.
+@startuml No StorageEntityClass can use a StorageAPIClass.
+title No StorageEntityClass can use a StorageAPIClass.
+folder "teammates\\.storage\\.entity(\\w|\\W)*" as package {
+class "?storageEntityClass" as storageEntityClass {
+}
+}
+folder "teammates\\.storage\\.api(\\w|\\W)*" as package1 {
+class "?storageAPIClass" as storageAPIClass {
+}
+}
+storageEntityClass -[dashed]-> storageAPIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+storageEntityClass -[bold]-> storageAPIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageEntityClass" as StorageEntityClass
+StorageEntityClass .. storageEntityClass
+note "StorageAPIClass" as StorageAPIClass
+StorageAPIClass .. storageAPIClass
+@enduml
+
+[role="rule"]
+No StorageClass can use a UIClass.
+@startuml No StorageClass can use a UIClass.
+title No StorageClass can use a UIClass.
+folder "teammates\\.storage(\\w|\\W)*" as package {
+class "?storageClass" as storageClass {
+}
+}
+folder "teammates\\.ui(\\w|\\W)*" as package1 {
+class "?uIClass" as uIClass {
+}
+}
+storageClass -[dashed]-> uIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+storageClass -[bold]-> uIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageClass" as StorageClass
+StorageClass .. storageClass
+note "UIClass" as UIClass
+UIClass .. uIClass
+@enduml
+
+[role="rule"]
+No StorageClass can use a LogicClass.
+@startuml No StorageClass can use a LogicClass.
+title No StorageClass can use a LogicClass.
+folder "teammates\\.storage(\\w|\\W)*" as package {
+class "?storageClass" as storageClass {
+}
+}
+folder "teammates\\.logic(\\w|\\W)*" as package1 {
+class "?logicClass" as logicClass {
+}
+}
+storageClass -[dashed]-> logicClass #line:OrangeRed;text:OrangeRed : <<imports>>
+storageClass -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageClass" as StorageClass
+StorageClass .. storageClass
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+@enduml
+
+[role="rule"]
+No LogicCoreClass can use a BackDoorLogicClass.
+@startuml No LogicCoreClass can use a BackDoorLogicClass.
+title No LogicCoreClass can use a BackDoorLogicClass.
+folder "teammates\\.logic\\.backdoor(\\w|\\W)*" as package1 {
+class "?backDoorLogicClass" as backDoorLogicClass {
+}
+}
+folder "teammates\\.logic\\.core(\\w|\\W)*" as package {
+class "?logicCoreClass" as logicCoreClass {
+}
+}
+logicCoreClass -[dashed]-> backDoorLogicClass #line:OrangeRed;text:OrangeRed : <<imports>>
+logicCoreClass -[bold]-> backDoorLogicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "BackDoorLogicClass" as BackDoorLogicClass
+BackDoorLogicClass .. backDoorLogicClass
+note "LogicCoreClass" as LogicCoreClass
+LogicCoreClass .. logicCoreClass
+@enduml
+
+[role="rule"]
+No LogicCoreClass can use a LogicAPIClass.
+@startuml No LogicCoreClass can use a LogicAPIClass.
+title No LogicCoreClass can use a LogicAPIClass.
+folder "teammates\\.logic\\.api(\\w|\\W)*" as package1 {
+class "?logicAPIClass" as logicAPIClass {
+}
+}
+folder "teammates\\.logic\\.core(\\w|\\W)*" as package {
+class "?logicCoreClass" as logicCoreClass {
+}
+}
+logicCoreClass -[dashed]-> logicAPIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+logicCoreClass -[bold]-> logicAPIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "LogicAPIClass" as LogicAPIClass
+LogicAPIClass .. logicAPIClass
+note "LogicCoreClass" as LogicCoreClass
+LogicCoreClass .. logicCoreClass
+@enduml
+
+[role="rule"]
+No LogicClass can use a UIClass.
+@startuml No LogicClass can use a UIClass.
+title No LogicClass can use a UIClass.
+folder "teammates\\.logic(\\w|\\W)*" as package {
+class "?logicClass" as logicClass {
+}
+}
+folder "teammates\\.ui(\\w|\\W)*" as package1 {
+class "?uIClass" as uIClass {
+}
+}
+logicClass -[dashed]-> uIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass -[bold]-> uIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+note "UIClass" as UIClass
+UIClass .. uIClass
+@enduml
+
+[role="rule"]
+No LogicClass can use a StorageSearchClass.
+@startuml No LogicClass can use a StorageSearchClass.
+title No LogicClass can use a StorageSearchClass.
+folder "teammates\\.storage\\.search(\\w|\\W)*" as package1 {
+class "?storageSearchClass" as storageSearchClass {
+}
+}
+folder "teammates\\.logic(\\w|\\W)*" as package {
+class "?logicClass" as logicClass {
+}
+}
+logicClass -[dashed]-> storageSearchClass #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass -[bold]-> storageSearchClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageSearchClass" as StorageSearchClass
+StorageSearchClass .. storageSearchClass
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+@enduml
+
+[role="rule"]
+No LogicClass can use a StorageEntityClass.
+@startuml No LogicClass can use a StorageEntityClass.
+title No LogicClass can use a StorageEntityClass.
+folder "teammates\\.storage\\.entity(\\w|\\W)*" as package1 {
+class "?storageEntityClass" as storageEntityClass {
+}
+}
+folder "teammates\\.logic(\\w|\\W)*" as package {
+class "?logicClass" as logicClass {
+}
+}
+logicClass -[dashed]-> storageEntityClass #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass -[bold]-> storageEntityClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "StorageEntityClass" as StorageEntityClass
+StorageEntityClass .. storageEntityClass
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+@enduml
+
+[role="rule"]
+No LogicAPIClass can use a BackDoorLogicClass.
+@startuml No LogicAPIClass can use a BackDoorLogicClass.
+title No LogicAPIClass can use a BackDoorLogicClass.
+folder "teammates\\.logic\\.api(\\w|\\W)*" as package {
+class "?logicAPIClass" as logicAPIClass {
+}
+}
+folder "teammates\\.logic\\.backdoor(\\w|\\W)*" as package1 {
+class "?backDoorLogicClass" as backDoorLogicClass {
+}
+}
+logicAPIClass -[dashed]-> backDoorLogicClass #line:OrangeRed;text:OrangeRed : <<imports>>
+logicAPIClass -[bold]-> backDoorLogicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "LogicAPIClass" as LogicAPIClass
+LogicAPIClass .. logicAPIClass
+note "BackDoorLogicClass" as BackDoorLogicClass
+BackDoorLogicClass .. backDoorLogicClass
+@enduml
+
+[role="rule"]
+No ClientUtilClass can use a ClientClass.
+@startuml No ClientUtilClass can use a ClientClass.
+title No ClientUtilClass can use a ClientClass.
+folder "teammates\\.client\\.scripts\\.util(\\w|\\W)*" as package {
+class "?clientUtilClass" as clientUtilClass {
+}
+}
+folder "teammates\\.client(\\w|\\W)*" as package1 {
+class "?clientClass" as clientClass {
+}
+}
+clientUtilClass -[dashed]-> clientClass #line:OrangeRed;text:OrangeRed : <<imports>>
+clientUtilClass -[bold]-> clientClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ClientUtilClass" as ClientUtilClass
+ClientUtilClass .. clientUtilClass
+note "ClientClass" as ClientClass
+ClientClass .. clientClass
+@enduml
+
+[role="rule"]
+No ClientRemoteAPIClass can use a ClientScriptClass.
+@startuml No ClientRemoteAPIClass can use a ClientScriptClass.
+title No ClientRemoteAPIClass can use a ClientScriptClass.
+folder "teammates\\.client\\.remoteapi(\\w|\\W)*" as package {
+class "?clientRemoteAPIClass" as clientRemoteAPIClass {
+}
+}
+folder "teammates\\.client\\.scripts" as package1 {
+class "?clientScriptClass" as clientScriptClass {
+}
+}
+clientRemoteAPIClass -[dashed]-> clientScriptClass #line:OrangeRed;text:OrangeRed : <<imports>>
+clientRemoteAPIClass -[bold]-> clientScriptClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ClientRemoteAPIClass" as ClientRemoteAPIClass
+ClientRemoteAPIClass .. clientRemoteAPIClass
+note "ClientScriptClass" as ClientScriptClass
+ClientScriptClass .. clientScriptClass
+@enduml
+
+[role="rule"]
+No ClientClass can use a UIClass.
+@startuml No ClientClass can use a UIClass.
+title No ClientClass can use a UIClass.
+folder "teammates\\.client(\\w|\\W)*" as package {
+class "?clientClass" as clientClass {
+}
+}
+folder "teammates\\.ui(\\w|\\W)*" as package1 {
+class "?uIClass" as uIClass {
+}
+}
+clientClass -[dashed]-> uIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+clientClass -[bold]-> uIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ClientClass" as ClientClass
+ClientClass .. clientClass
+note "UIClass" as UIClass
+UIClass .. uIClass
+@enduml
+
+[role="rule"]
+No BackDoorServlet can use a LogicCoreClass.
+@startuml No BackDoorServlet can use a LogicCoreClass.
+title No BackDoorServlet can use a LogicCoreClass.
+class "teammates\\.logic\\.backdoor\\.BackDoorServlet" as backDoorServlet {
+}
+folder "teammates\\.logic\\.core(\\w|\\W)*" as package {
+class "?logicCoreClass" as logicCoreClass {
+}
+}
+backDoorServlet -[dashed]-> logicCoreClass #line:OrangeRed;text:OrangeRed : <<imports>>
+backDoorServlet -[bold]-> logicCoreClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "BackDoorServlet" as BackDoorServlet
+BackDoorServlet .. backDoorServlet
+note "LogicCoreClass" as LogicCoreClass
+LogicCoreClass .. logicCoreClass
+@enduml
+
+[role="rule"]
+No BackDoorServlet can use a LogicAPIClass.
+@startuml No BackDoorServlet can use a LogicAPIClass.
+title No BackDoorServlet can use a LogicAPIClass.
+folder "teammates\\.logic\\.api(\\w|\\W)*" as package {
+class "?logicAPIClass" as logicAPIClass {
+}
+}
+class "teammates\\.logic\\.backdoor\\.BackDoorServlet" as backDoorServlet {
+}
+backDoorServlet -[dashed]-> logicAPIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+backDoorServlet -[bold]-> logicAPIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "LogicAPIClass" as LogicAPIClass
+LogicAPIClass .. logicAPIClass
+note "BackDoorServlet" as BackDoorServlet
+BackDoorServlet .. backDoorServlet
+@enduml
+
+[role="rule"]
+No AutomatedActionClass can use a UIClass.
+@startuml No AutomatedActionClass can use a UIClass.
+title No AutomatedActionClass can use a UIClass.
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package {
+class "?automatedActionClass" as automatedActionClass {
+}
+}
+folder "teammates\\.ui(\\w|\\W)*" as package1 {
+class "?uIClass" as uIClass {
+}
+}
+automatedActionClass -[dashed]-> uIClass #line:OrangeRed;text:OrangeRed : <<imports>>
+automatedActionClass -[bold]-> uIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "AutomatedActionClass" as AutomatedActionClass
+AutomatedActionClass .. automatedActionClass
+note "UIClass" as UIClass
+UIClass .. uIClass
+@enduml
+
+[role="rule"]
+If a LogicClass uses a DBType, then it must manage this DBType.
+=======================================================================
+' DBType mapping is missing, manage mapping does not build connection
+=======================================================================
+
+//---------------------------------------------------
+
+[role="mapping"]
+isCommonClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.common(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:CommonClass)
+@startuml isCommonClass
+title isCommonClass
+folder "teammates\\.common(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "CommonClass" as CommonClass
+CommonClass .. class
+@enduml
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+@startuml isLogicClass
+title isLogicClass
+folder "teammates\\.logic(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "LogicClass" as LogicClass
+LogicClass .. class
+@enduml
+
+[role="mapping"]
+isUIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:UIClass)
+@startuml isUIClass
+title isUIClass
+folder "teammates\\.ui(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "UIClass" as UIClass
+UIClass .. class
+@enduml
+
+[role="mapping"]
+isStorageClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageClass)
+@startuml isStorageClass
+title isStorageClass
+folder "teammates\\.storage(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "StorageClass" as StorageClass
+StorageClass .. class
+@enduml
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+@startuml useMapping
+title useMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: use
+@enduml
+
+[role="mapping"]
+isUITest: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases\\.browsertests(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:UITest)
+@startuml isUITest
+title isUITest
+folder "teammates\\.test\\.cases\\.browsertests(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "UITest" as UITest
+UITest .. class
+@enduml
+
+[role="mapping"]
+isPageObjectTestClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.pageobjects(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:PageObjectTestClass)
+@startuml isPageObjectTestClass
+title isPageObjectTestClass
+folder "teammates\\.test\\.pageobjects(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "PageObjectTestClass" as PageObjectTestClass
+PageObjectTestClass .. class
+@enduml
+
+[role="mapping"]
+isTaskQueueAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.api\\.taskqueue(\\w|\\W)*') -> (?class rdf:type architecture:TaskQueueAPI)
+@startuml isTaskQueueAPI
+title isTaskQueueAPI
+class "com\\.google\\.appengine\\.api\\.taskqueue(\\w|\\W)*" as class {
+}
+note "TaskQueueAPI" as TaskQueueAPI
+TaskQueueAPI .. class
+@enduml
+
+[role="mapping"]
+isTaskQueueLogic: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.logic\\.core\\.TaskQueuesLogic') -> (?class rdf:type architecture:TaskQueueLogic)
+[role="mapping"]
+isTaskQueueLogic: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.logic\\.core\\.TaskQueuesLogic') -> (?class rdf:type architecture:TaskQueueLogic)
+@startuml isTaskQueueLogic
+title isTaskQueueLogic
+package isTaskQueueLogic1 <<Cloud>> {
+class "teammates\\.logic\\.core\\.TaskQueuesLogic" as class {
+}
+}
+package isTaskQueueLogic2 <<Cloud>> {
+class "teammates\\.logic\\.core\\.TaskQueuesLogic" as class1 {
+}
+}
+note "TaskQueueLogic" as TaskQueueLogic
+TaskQueueLogic .. class
+TaskQueueLogic .. class1
+@enduml
+
+[role="mapping"]
+isGoogleSearchAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.api\\.search(\\w|\\W)*') -> (?class rdf:type architecture:GoogleSearchAPI)
+@startuml isGoogleSearchAPI
+title isGoogleSearchAPI
+class "com\\.google\\.appengine\\.api\\.search(\\w|\\W)*" as class {
+}
+note "GoogleSearchAPI" as GoogleSearchAPI
+GoogleSearchAPI .. class
+@enduml
+
+[role="mapping"]
+isClientOrSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientOrSearchClass)
+[role="mapping"]
+isClientOrSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.search(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientOrSearchClass)
+[role="mapping"]
+isClientOrSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientOrSearchClass)
+@startuml isClientOrSearchClass
+title isClientOrSearchClass
+package isClientOrSearchClass1 <<Cloud>> {
+folder "teammates\\.storage\\.api(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+}
+package isClientOrSearchClass2 <<Cloud>> {
+folder "teammates\\.storage\\.search(\\w|\\W)*" as package1 {
+class "?class1" as class1 {
+}
+}
+}
+package isClientOrSearchClass3 <<Cloud>> {
+folder "teammates\\.client\\.scripts" as package2 {
+class "?class2" as class2 {
+}
+}
+}
+note "ClientOrSearchClass" as ClientOrSearchClass
+ClientOrSearchClass .. class
+ClientOrSearchClass .. class1
+ClientOrSearchClass .. class2
+@enduml
+
+[role="mapping"]
+isObjectifyAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.googlecode\\.objectify(\\w|\\W)*') -> (?class rdf:type architecture:ObjectifyAPI)
+@startuml isObjectifyAPI
+title isObjectifyAPI
+class "com\\.googlecode\\.objectify(\\w|\\W)*" as class {
+}
+note "ObjectifyAPI" as ObjectifyAPI
+ObjectifyAPI .. class
+@enduml
+
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.cases\\.BaseTestCaseWithObjectifyAccess') -> (?class rdf:type architecture:ObjectifyClient)
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ObjectifyClient)
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.remoteapi(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ObjectifyClient)
+[role="mapping"]
+isObjectifyClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ObjectifyClient)
+@startuml isObjectifyClient
+title isObjectifyClient
+package isObjectifyClient1 <<Cloud>> {
+class "teammates\\.test\\.cases\\.BaseTestCaseWithObjectifyAccess" as class {
+}
+}
+package isObjectifyClient2 <<Cloud>> {
+folder "teammates\\.storage\\.api(\\w|\\W)*" as package {
+class "?class1" as class1 {
+}
+}
+}
+package isObjectifyClient3 <<Cloud>> {
+folder "teammates\\.client\\.remoteapi(\\w|\\W)*" as package1 {
+class "?class2" as class2 {
+}
+}
+}
+package isObjectifyClient4 <<Cloud>> {
+folder "teammates\\.client\\.scripts" as package2 {
+class "?class3" as class3 {
+}
+}
+}
+note "ObjectifyClient" as ObjectifyClient
+ObjectifyClient .. class
+ObjectifyClient .. class1
+ObjectifyClient .. class2
+ObjectifyClient .. class3
+@enduml
+
+[role="mapping"]
+isServletAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'javax\\.servlet(\\w|\\W)*')  -> (?class rdf:type architecture:ServletAPI)
+@startuml isServletAPI
+title isServletAPI
+class "javax\\.servlet(\\w|\\W)*" as class {
+}
+note "ServletAPI" as ServletAPI
+ServletAPI .. class
+@enduml
+
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.util\\.ActivityLogEntry') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.util\\.HttpRequestHelper') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.storage\\.api\\.OfyHelper') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?className) regex(?className, 'teammates\\.logic\\.backdoor\\.BackDoorServlet') -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.automated(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.controller(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ServletClient)
+[role="mapping"]
+isServletClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?className) regex(?className, 'teammates\\.test\\.driver\\.GaeSimulation') -> (?class rdf:type architecture:ServletClient)
+@startuml isServletClient
+title isServletClient
+package isServletClient1 <<Cloud>> {
+class "teammates\\.common\\.util\\.ActivityLogEntry" as class {
+}
+}
+package isServletClient2 <<Cloud>> {
+class "teammates\\.common\\.util\\.HttpRequestHelper" as class1 {
+}
+}
+package isServletClient3 <<Cloud>> {
+class "teammates\\.storage\\.api\\.OfyHelper" as class2 {
+}
+}
+package isServletClient4 <<Cloud>> {
+class "teammates\\.logic\\.backdoor\\.BackDoorServlet" as class3 {
+}
+}
+package isServletClient5 <<Cloud>> {
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package {
+class "?class4" as class4 {
+}
+}
+}
+package isServletClient6 <<Cloud>> {
+folder "teammates\\.ui\\.controller(\\w|\\W)*" as package1 {
+class "?class5" as class5 {
+}
+}
+}
+package isServletClient7 <<Cloud>> {
+class "teammates\\.test\\.driver\\.GaeSimulation" as class6 {
+}
+}
+note "ServletClient" as ServletClient
+ServletClient .. class
+ServletClient .. class1
+ServletClient .. class2
+ServletClient .. class3
+ServletClient .. class4
+ServletClient .. class5
+ServletClient .. class6
+@enduml
+
+[role="mapping"]
+isRemoteAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.tools\\.remoteapi(\\w|\\W)*') -> (?class rdf:type architecture:RemoteAPI)
+@startuml isRemoteAPI
+title isRemoteAPI
+class "com\\.google\\.appengine\\.tools\\.remoteapi(\\w|\\W)*" as class {
+}
+note "RemoteAPI" as RemoteAPI
+RemoteAPI .. class
+@enduml
+
+[role="mapping"]
+isRemoteAPIClient: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.client\\.remoteapi\\.RemoteApiClient') -> (?class rdf:type architecture:RemoteApiClient)
+[role="mapping"]
+isRemoteAPIClient: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.client\\.remoteapi\\.RemoteApiClient') -> (?class rdf:type architecture:RemoteApiClient)
+@startuml isRemoteAPIClient
+title isRemoteAPIClient
+package isRemoteAPIClient1 <<Cloud>> {
+class "teammates\\.client\\.remoteapi\\.RemoteApiClient" as class {
+}
+}
+package isRemoteAPIClient2 <<Cloud>> {
+class "teammates\\.client\\.remoteapi\\.RemoteApiClient" as class1 {
+}
+}
+note "RemoteAPIClient" as RemoteAPIClient
+RemoteAPIClient .. class
+RemoteAPIClient .. class1
+@enduml
+
+[role="mapping"]
+isGoogleCloudStorageAPI: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'com\\.google\\.appengine\\.tools\\.cloudstorage(\\w|\\W)*')  -> (?class rdf:type architecture:GoogleCloudStorageAPI)
+@startuml isGoogleCloudStorageAPI
+title isGoogleCloudStorageAPI
+class "com\\.google\\.appengine\\.tools\\.cloudstorage(\\w|\\W)*" as class {
+}
+note "GoogleCloudStorageAPI" as GoogleCloudStorageAPI
+GoogleCloudStorageAPI .. class
+@enduml
+
+[role="mapping"]
+isGoogleCloudStorageHelper: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.util\\.GoogleCloudStorageHelper') -> (?class rdf:type architecture:GoogleCloudStorageHelper)
+@startuml isGoogleCloudStorageHelper
+title isGoogleCloudStorageHelper
+class "teammates\\.common\\.util\\.GoogleCloudStorageHelper" as class {
+}
+note "GoogleCloudStorageHelper" as GoogleCloudStorageHelper
+GoogleCloudStorageHelper .. class
+@enduml
+
+[role="mapping"]
+isStorageEntityClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.entity(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageEntityClass)
+@startuml isStorageEntityClass
+title isStorageEntityClass
+folder "teammates\\.storage\\.entity(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "StorageEntityClass" as StorageEntityClass
+StorageEntityClass .. class
+@enduml
+
+[role="mapping"]
+isDataTransferObjectTestClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases\\.datatransfer(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:DataTransferObjectTestClass)
+@startuml isDataTransferObjectTestClass
+title isDataTransferObjectTestClass
+folder "teammates\\.test\\.cases\\.datatransfer(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "DataTransferObjectTestClass" as DataTransferObjectTestClass
+DataTransferObjectTestClass .. class
+@enduml
+
+[role="mapping"]
+isGaeSimulationClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?className) regex(?className, 'teammates\\.test\\.driver\\.GaeSimulation') -> (?class rdf:type architecture:GaeSimulationClass)
+@startuml isGaeSimulationClass
+title isGaeSimulationClass
+class "teammates\\.test\\.driver\\.GaeSimulation" as class {
+}
+note "GaeSimulationClass" as GaeSimulationClass
+GaeSimulationClass .. class
+@enduml
+
+[role="mapping"]
+isTestCase: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:TestCase)
+@startuml isTestCase
+title isTestCase
+folder "teammates\\.test\\.cases(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "TestCase" as TestCase
+TestCase .. class
+@enduml
+
+[role="mapping"]
+isBackdoorLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.logic\\.backdoor\\.BackDoorLogic') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:BackdoorLogicClass)
+@startuml isBackdoorLogicClass
+title isBackdoorLogicClass
+folder "?package" as package {
+class "teammates\\.logic\\.backdoor\\.BackDoorLogic" as class {
+}
+}
+note "BackdoorLogicClass" as BackdoorLogicClass
+BackdoorLogicClass .. class
+@enduml
+
+[role="mapping"]
+isBackDoorTestDriver: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.driver\\.BackDoor') -> (?class rdf:type architecture:BackDoorTestDriver)
+@startuml isBackDoorTestDriver
+title isBackDoorTestDriver
+class "teammates\\.test\\.driver\\.BackDoor" as class {
+}
+note "BackDoorTestDriver" as BackDoorTestDriver
+BackDoorTestDriver .. class
+@enduml
+
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.test\\.cases\\.browsertests(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.cases\\.testdriver\\.BackDoorTest') -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.test\\.cases\\.BaseTestCaseWithBackDoorApiAccess') -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.client\\.scripts\\.ImportData') -> (?class rdf:type architecture:BrowserTest)
+[role="mapping"]
+isBrowserTest: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts\\.PerformanceProfiler') -> (?class rdf:type architecture:BrowserTest)
+@startuml isBrowserTest
+title isBrowserTest
+package isBrowserTest1 <<Cloud>> {
+folder "teammates\\.test\\.cases\\.browsertests(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+}
+package isBrowserTest2 <<Cloud>> {
+class "teammates\\.test\\.cases\\.testdriver\\.BackDoorTest" as class1 {
+}
+}
+package isBrowserTest3 <<Cloud>> {
+class "teammates\\.test\\.cases\\.BaseTestCaseWithBackDoorApiAccess" as class2 {
+}
+}
+package isBrowserTest4 <<Cloud>> {
+class "teammates\\.client\\.scripts\\.ImportData" as class3 {
+}
+}
+package isBrowserTest5 <<Cloud>> {
+class "teammates\\.client\\.scripts\\.PerformanceProfiler" as class4 {
+}
+}
+note "BrowserTest" as BrowserTest
+BrowserTest .. class
+BrowserTest .. class1
+BrowserTest .. class2
+BrowserTest .. class3
+BrowserTest .. class4
+@enduml
+
+[role="mapping"]
+isAutomatedActionClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.automated(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:AutomatedActionClass)
+@startuml isAutomatedActionClass
+title isAutomatedActionClass
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "AutomatedActionClass" as AutomatedActionClass
+AutomatedActionClass .. class
+@enduml
+
+[role="mapping"]
+isActionClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.template(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ActionClass)
+[role="mapping"]
+isActionClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.automated(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ActionClass)
+@startuml isActionClass
+title isActionClass
+package isActionClass1 <<Cloud>> {
+folder "teammates\\.ui\\.template(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+}
+package isActionClass2 <<Cloud>> {
+folder "teammates\\.ui\\.automated(\\w|\\W)*" as package1 {
+class "?class1" as class1 {
+}
+}
+}
+note "ActionClass" as ActionClass
+ActionClass .. class
+ActionClass .. class1
+@enduml
+
+[role="mapping"]
+isLogicAPI: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicAPI)
+@startuml isLogicAPI
+title isLogicAPI
+folder "teammates\\.logic\\.api(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "LogicAPI" as LogicAPI
+LogicAPI .. class
+@enduml
+
+[role="mapping"]
+isJavaUtilLogger: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'java\\.util\\.logging(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:JavaUtilLogger)
+@startuml isJavaUtilLogger
+title isJavaUtilLogger
+folder "java\\.util\\.logging(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "JavaUtilLogger" as JavaUtilLogger
+JavaUtilLogger .. class
+@enduml
+
+[role="mapping"]
+isTeammatesLogger: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'teammates\\.common\\.Logger') -> (?class rdf:type architecture:TeammatesLogger)
+[role="mapping"]
+isTeammatesLogger: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'teammates\\.common\\.Logger') -> (?class rdf:type architecture:TeammatesLogger)
+@startuml isTeammatesLogger
+title isTeammatesLogger
+package isTeammatesLogger1 <<Cloud>> {
+class "teammates\\.common\\.Logger" as class {
+}
+}
+package isTeammatesLogger2 <<Cloud>> {
+class "teammates\\.common\\.Logger" as class1 {
+}
+}
+note "TeammatesLogger" as TeammatesLogger
+TeammatesLogger .. class
+TeammatesLogger .. class1
+@enduml
+
+[role="mapping"]
+isTemplateClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.template(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:TemplateClass)
+@startuml isTemplateClass
+title isTemplateClass
+folder "teammates\\.ui\\.template(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "TemplateClass" as TemplateClass
+TemplateClass .. class
+@enduml
+
+[role="mapping"]
+isPageDataClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.pagedata(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:PageDataClass)
+@startuml isPageDataClass
+title isPageDataClass
+folder "teammates\\.ui\\.pagedata(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "PageDataClass" as PageDataClass
+PageDataClass .. class
+@enduml
+
+[role="mapping"]
+isController: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.ui\\.controller(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:Controller)
+@startuml isController
+title isController
+folder "teammates\\.ui\\.controller(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "Controller" as Controller
+Controller .. class
+@enduml
+
+[role="mapping"]
+isClientScript: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientScript)
+@startuml isClientScript
+title isClientScript
+folder "teammates\\.client(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "ClientScript" as ClientScript
+ClientScript .. class
+@enduml
+
+[role="mapping"]
+isStorageSearchClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.search(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageSearchClass)
+@startuml isStorageSearchClass
+title isStorageSearchClass
+folder "teammates\\.storage\\.search(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "StorageSearchClass" as StorageSearchClass
+StorageSearchClass .. class
+@enduml
+
+[role="mapping"]
+isStorageAPIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.storage\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:StorageAPIClass)
+@startuml isStorageAPIClass
+title isStorageAPIClass
+folder "teammates\\.storage\\.api(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "StorageAPIClass" as StorageAPIClass
+StorageAPIClass .. class
+@enduml
+
+[role="mapping"]
+isLogicCoreClass: (?class rdf:type famix:FamixClass)  (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.core(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicCoreClass)
+@startuml isLogicCoreClass
+title isLogicCoreClass
+folder "teammates\\.logic\\.core(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "LogicCoreClass" as LogicCoreClass
+LogicCoreClass .. class
+@enduml
+
+[role="mapping"]
+isBackDoorLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.backdoor(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:BackDoorLogicClass)
+@startuml isBackDoorLogicClass
+title isBackDoorLogicClass
+folder "teammates\\.logic\\.backdoor(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "BackDoorLogicClass" as BackDoorLogicClass
+BackDoorLogicClass .. class
+@enduml
+
+[role="mapping"]
+isLogicAPIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.logic\\.api(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicAPIClass)
+@startuml isLogicAPIClass
+title isLogicAPIClass
+folder "teammates\\.logic\\.api(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "LogicAPIClass" as LogicAPIClass
+LogicAPIClass .. class
+@enduml
+
+[role="mapping"]
+isClientClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientClass)
+@startuml isClientClass
+title isClientClass
+folder "teammates\\.client(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "ClientClass" as ClientClass
+ClientClass .. class
+@enduml
+
+[role="mapping"]
+isClientUtilClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts\\.util(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientUtilClass)
+@startuml isClientUtilClass
+title isClientUtilClass
+folder "teammates\\.client\\.scripts\\.util(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "ClientUtilClass" as ClientUtilClass
+ClientUtilClass .. class
+@enduml
+
+[role="mapping"]
+isClientScriptClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.scripts') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientScriptClass)
+@startuml isClientScriptClass
+title isClientScriptClass
+folder "teammates\\.client\\.scripts" as package {
+class "?class" as class {
+}
+}
+note "ClientScriptClass" as ClientScriptClass
+ClientScriptClass .. class
+@enduml
+
+[role="mapping"]
+isClientRemoteAPIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'teammates\\.client\\.remoteapi(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ClientRemoteAPIClass)
+@startuml isClientRemoteAPIClass
+title isClientRemoteAPIClass
+folder "teammates\\.client\\.remoteapi(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+note "ClientRemoteAPIClass" as ClientRemoteAPIClass
+ClientRemoteAPIClass .. class
+@enduml
+
+[role="mapping"]
+isBackDoorServlet: (?class rdf:type famix:FamixClass) (?class famix:hasName ?className) regex(?className, 'teammates\\.logic\\.backdoor\\.BackDoorServlet') -> (?class rdf:type architecture:BackDoorServlet)
+@startuml isBackDoorServlet
+title isBackDoorServlet
+class "teammates\\.logic\\.backdoor\\.BackDoorServlet" as class {
+}
+note "BackDoorServlet" as BackDoorServlet
+BackDoorServlet .. class
+@enduml

@@ -1,0 +1,310 @@
+[role="rule"]
+Every ApiGateway must resideinpackage MicroserviceApp.
+@startuml Every ApiGateway must resideinpackage MicroserviceApp.
+title Every ApiGateway must resideinpackage MicroserviceApp.
+folder "com\\.piggymetrics$(\\w||\\W)*" as microserviceAppC {
+folder "(\\w||\\W)*gateway$" as apiGatewayC #RoyalBlue {
+}
+}
+
+folder "(\\w||\\W)*gateway$" as apiGatewayW #OrangeRed {
+}
+apiGatewayC -[bold]-> microserviceAppC
+note on link: resideinpackage
+note "MicroserviceApp" as MicroserviceApp
+MicroserviceApp .. microserviceAppC
+note "ApiGateway" as ApiGateway
+ApiGateway .. apiGatewayC
+note "ApiGateway" as ApiGateway1
+ApiGateway1 .. apiGatewayW
+@enduml
+
+[role="rule"]
+Every Microservice must registerin ServiceRegistry.
+@startuml Every Microservice must registerin ServiceRegistry.
+title Every Microservice must registerin ServiceRegistry.
+class "(\\w||\\W)*RegistryApplication$" as serviceRegistryC {
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceW #OrangeRed {
+}
+class "EnableDiscoveryClient" as registryImport {
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceC #RoyalBlue {
+}
+microserviceC -[dashed]-> registryImport: <<imports>>
+microserviceC -[bold]-> serviceRegistryC
+note on link: registerin
+note "ServiceRegistry" as ServiceRegistry
+ServiceRegistry .. serviceRegistryC
+note "Microservice" as Microservice1
+Microservice1 .. microserviceW
+note "Microservice" as Microservice
+Microservice .. microserviceC
+@enduml
+
+[role="rule"]
+Every Microservice must haveown DatabaseAccessAbstraction.
+=======================================================
+isExternal can't be visualized, here without this triple
+=======================================================
+@startuml Every Microservice must haveown DatabaseAccessAbstraction.
+title Every Microservice must haveown DatabaseAccessAbstraction.
+folder "?classPackage" as classPackage {
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceC #RoyalBlue {
+}
+folder "?class2Package" as class2Package {
+class "(\\w||\\W)*Repository$" as databaseAccessAbstractionC {
+}
+}
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceW #OrangeRed {
+}
+
+
+microserviceC -[bold]-> databaseAccessAbstractionC
+note on link: haveown
+note "Microservice" as Microservice1
+Microservice1 .. microserviceW
+note "Microservice" as Microservice
+Microservice .. microserviceC
+note "DatabaseAccessAbstraction" as DatabaseAccessAbstraction
+DatabaseAccessAbstraction .. databaseAccessAbstractionC
+@enduml
+
+[role="rule"]
+Every Microservice must use CircuitBreaker.
+@startuml Every Microservice must use CircuitBreaker.
+title Every Microservice must use CircuitBreaker.
+class "(\\w||\\W)*EnableCircuitBreaker$" as circuitBreakerC {
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceW #OrangeRed {
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceC #RoyalBlue {
+}
+microserviceC -[dashed]-> circuitBreakerC: <<imports>>
+microserviceC -[bold]-> circuitBreakerC
+note on link: use
+note "CircuitBreaker" as CircuitBreaker
+CircuitBreaker .. circuitBreakerC
+note "Microservice" as Microservice1
+Microservice1 .. microserviceW
+note "Microservice" as Microservice
+Microservice .. microserviceC
+@enduml
+
+[role="rule"]
+Every Microservice must useown RuntimeEnvironment.
+@startuml Every Microservice must useown RuntimeEnvironment.
+scale 4
+title Every Microservice must useown RuntimeEnvironment.
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as class1 {
+{method} main()
+}
+note "Microservice" as Microservice1
+Microservice1 .. class1
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceW #OrangeRed {
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceC #RoyalBlue {
+{method} main()
+}
+microserviceC -[bold]-> microserviceC::main
+note on link: useown
+note "RuntimeEnvironment" as RuntimeEnvironment
+RuntimeEnvironment .. microserviceC::main
+note "Microservice" as Microservice2
+Microservice2 .. microserviceW
+note "Microservice" as Microservice
+Microservice .. microserviceC
+microserviceW -[hidden]- microserviceC
+class1 -[hidden]- microserviceC
+@enduml
+
+[role="rule"]
+Every Microservice must haveown API.
+@startuml Every Microservice must haveown API.
+title Every Microservice must haveown API.
+
+folder "?classPackage" as classPackage {
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceC #RoyalBlue {
+}
+folder "?class2Package" as class2Package {
+class "(\\w||\\W)*Controller$" as aPIC {
+}
+}
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as microserviceW #OrangeRed {
+}
+
+microserviceC -[bold]-> aPIC
+note on link: haveown
+note "API" as API
+API .. aPIC
+note "Microservice" as Microservice1
+Microservice1 .. microserviceW
+note "Microservice" as Microservice
+Microservice .. microserviceC
+@enduml
+
+[role="mapping"]
+isAPI: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*Controller$') -> (?class rdf:type architecture:API)
+@startuml isAPI
+title isAPI
+class "(\\w||\\W)*Controller$" as class {
+}
+note "API" as API
+API .. class
+@enduml
+
+[role="mapping"]
+isApiGateway: (?classPackage rdf:type famix:Namespace) (?classPackage famix:hasName ?name) regex(?name, '(\\w||\\W)*gateway$') -> (?classPackage rdf:type architecture:ApiGateway)
+@startuml isApiGateway
+title isApiGateway
+folder "(\\w||\\W)*gateway$" as classPackage {
+}
+note "ApiGateway" as ApiGateway
+ApiGateway .. classPackage
+@enduml
+
+[role="mapping"]
+isCircuitBreaker: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*EnableCircuitBreaker$') -> (?class rdf:type architecture:CircuitBreaker)
+@startuml isCircuitBreaker
+title isCircuitBreaker
+class "(\\w||\\W)*EnableCircuitBreaker$" as class {
+}
+note "CircuitBreaker" as CircuitBreaker
+CircuitBreaker .. class
+@enduml
+
+[role="mapping"]
+isDatabaseAccessAbstraction: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) (?class famix:isExternal 'false'^^xsd:boolean) regex(?name, '(\\w||\\W)*Repository$') -> (?class rdf:type architecture:DatabaseAccessAbstraction)
+=======================================================
+isExternal can't be visualized, here without this triple
+=======================================================
+@startuml isDatabaseAccessAbstraction
+title isDatabaseAccessAbstraction
+class "(\\w||\\W)*Repository$" as class {
+}
+note "DatabaseAccessAbstraction" as DatabaseAccessAbstraction
+DatabaseAccessAbstraction .. class
+@enduml
+
+[role="mapping"]
+isMicroservice: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'NotificationServiceApplication$|AccountApplication$|StatisticsApplication$') -> (?class rdf:type architecture:Microservice)
+@startuml isMicroservice
+title isMicroservice
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as class {
+}
+note "Microservice" as Microservice
+Microservice .. class
+@enduml
+
+[role="mapping"]
+isMicroserviceApp: (?classPackage rdf:type famix:Namespace) (?classPackage famix:hasName ?name) regex(?name, 'com\\.piggymetrics$(\\w||\\W)*') -> (?classPackage rdf:type architecture:MicroserviceApp)
+@startuml isMicroserviceApp
+title isMicroserviceApp
+folder "com\\.piggymetrics$(\\w||\\W)*" as classPackage {
+}
+note "MicroserviceApp" as MicroserviceApp
+MicroserviceApp .. classPackage
+@enduml
+
+[role="mapping"]
+isRuntimeEnvironment: (?class rdf:type architecture:Microservice) (?class famix:definesMethod ?method) (?method famix:hasName ?name) regex(?name, 'main') -> (?method rdf:type architecture:RuntimeEnvironment)
+@startuml isRuntimeEnvironment
+title isRuntimeEnvironment
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as class1 {
+{method} main()
+}
+note "Microservice" as Microservice
+Microservice .. class1
+note "RuntimeEnvironment" as RuntimeEnvironment
+RuntimeEnvironment .. class1::main
+@enduml
+
+[role="mapping"]
+isServiceRegistry: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '(\\w||\\W)*RegistryApplication$') -> (?class rdf:type architecture:ServiceRegistry)
+@startuml isServiceRegistry
+title isServiceRegistry
+class "(\\w||\\W)*RegistryApplication$" as class {
+}
+note "ServiceRegistry" as ServiceRegistry
+ServiceRegistry .. class
+@enduml
+
+[role="mapping"]
+registerinMapping: (?registry rdf:type architecture:ServiceRegistry) (?class rdf:type famix:FamixClass) (?registryImport rdf:type famix:FamixClass) (?class famix:imports ?registryImport) (?registryImport famix:hasName ?registryImportName) regex(?registryImportName, 'EnableDiscoveryClient') -> (?class architecture:registerin ?registry)
+@startuml registerinMapping
+title registerinMapping
+class "(\\w||\\W)*RegistryApplication$" as registry1 {
+}
+class "?class" as class {
+}
+class "EnableDiscoveryClient" as registryImport {
+}
+class -[dashed]-> registryImport: <<imports>>
+class -[bold]-> registry1
+note on link: registerin
+note "ServiceRegistry" as ServiceRegistry
+ServiceRegistry .. registry1
+@enduml
+
+[role="mapping"]
+haveownMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?classPackage rdf:type famix:Namespace) (?classPackage famix:namespaceContains ?class) (?class2Package rdf:type famix:Namespace) (?class2Package famix:namespaceContains ?class2) (?classPackage famix:namespaceContains ?class2Package) -> (?class architecture:haveown ?class2)
+@startuml haveownMapping
+title haveownMapping
+folder "?classPackage" as classPackage {
+class "?class" as class {
+}
+folder "?class2Package" as class2Package {
+class "?class2" as class2 {
+}
+}
+}
+class -[bold]-> class2
+note on link: haveown
+@enduml
+
+[role="mapping"]
+resideinpackageMapping: (?classPackage rdf:type famix:Namespace) (?class2Package rdf:type famix:Namespace) (?classPackage famix:namespaceContains ?class2Package) -> (?class2Package architecture:resideinpackage ?classPackage)
+@startuml resideinpackageMapping
+title resideinpackageMapping
+folder "?classPackage" as classPackage {
+folder "?class2Package" as class2Package {
+}
+}
+class2Package -[bold]-> classPackage
+note on link: resideinpackage
+@enduml
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+@startuml useMapping
+title useMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: use
+@enduml
+
+[role="mapping"]
+useownMapping: (?class rdf:type architecture:Microservice) (?class2 rdf:type architecture:RuntimeEnvironment) (?class famix:definesMethod ?class2) -> (?class architecture:useown ?class2)
+@startuml useownMapping
+title useownMapping
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as class1 {
+{method} main()
+}
+class "NotificationServiceApplication$|AccountApplication$|StatisticsApplication$" as class31 {
+{method} main()
+}
+note "Microservice" as Microservice1
+Microservice1 .. class31
+class1 -[bold]-> class1::main
+note on link: useown
+note "Microservice" as Microservice
+Microservice .. class1
+note "RuntimeEnvironment" as RuntimeEnvironment
+RuntimeEnvironment .. class1::main
+@enduml

@@ -1,0 +1,4567 @@
+' WICHTIG: Nicht alle Varianten von use konnten berücksichtigt werden
+' Problem: 
+
+[role="rule"]
+No GUIClass can use a CommandLineInterfaceClass.
+@startuml No GUIClass can use a CommandLineInterfaceClass.
+title No GUIClass can use a CommandLineInterfaceClass.
+package isGUIClass1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.gui(\\w|\\W)*" as package {
+class "?gUIClass" as gUIClass {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+}
+package isGUIClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefGUI" as gUIClass1 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefMain" as gUIClass2 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.Change" as gUIClass3 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog" as gUIClass4 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeScanner" as gUIClass5 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryAddChange" as gUIClass6 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryChange" as gUIClass7 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryDeleteChange" as gUIClass8 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass10 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.FileUpdatePanel" as gUIClass9 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass11 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.GroupChange" as gUIClass10 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass12 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.InfoPane" as gUIClass11 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass13 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.MetaDataChange" as gUIClass12 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass14 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.PreambleChange" as gUIClass13 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass15 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringAddChange" as gUIClass14 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass16 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringChange" as gUIClass15 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass17 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringNameChange" as gUIClass16 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass18 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringRemoveChange" as gUIClass17 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass19 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning" as gUIClass18 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass20 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.ImportDialog" as gUIClass19 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass21 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter" as gUIClass20 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+package isGUIClass22 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfImporter" as gUIClass21 {
+<color:#OrangeRed> {field} ?f : ?commandLineInterfaceClass
+}
+}
+folder "net\\.sf\\.jabref\\.cli" as package1 {
+class "?commandLineInterfaceClass" as commandLineInterfaceClass {
+}
+}
+gUIClass -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass1 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass2 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass3 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass4 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass5 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass6 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass7 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass8 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass9 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass10 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass11 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass12 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass13 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass14 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass15 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass16 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass17 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass18 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass19 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass20 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass21 -[bold]-> commandLineInterfaceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "GUIClass" as GUIClass
+GUIClass .. gUIClass
+GUIClass .. gUIClass1
+GUIClass .. gUIClass2
+GUIClass .. gUIClass3
+GUIClass .. gUIClass4
+GUIClass .. gUIClass5
+GUIClass .. gUIClass6
+GUIClass .. gUIClass7
+GUIClass .. gUIClass8
+GUIClass .. gUIClass9
+GUIClass .. gUIClass10
+GUIClass .. gUIClass11
+GUIClass .. gUIClass12
+GUIClass .. gUIClass13
+GUIClass .. gUIClass14
+GUIClass .. gUIClass15
+GUIClass .. gUIClass16
+GUIClass .. gUIClass17
+GUIClass .. gUIClass18
+GUIClass .. gUIClass19
+GUIClass .. gUIClass20
+GUIClass .. gUIClass21
+note "CommandLineInterfaceClass" as CommandLineInterfaceClass
+CommandLineInterfaceClass .. commandLineInterfaceClass
+package isGUIClass1_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.gui(\\w|\\W)*" as package2 {
+class "?gUIClass22" as gUIClass22 {
+}
+}
+}
+package isGUIClass2_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefGUI" as gUIClass23 {
+}
+}
+package isGUIClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefMain" as gUIClass24 {
+}
+}
+package isGUIClass4_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.Change" as gUIClass25 {
+}
+}
+package isGUIClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog" as gUIClass26 {
+}
+}
+package isGUIClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeScanner" as gUIClass27 {
+}
+}
+package isGUIClass7_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryAddChange" as gUIClass28 {
+}
+}
+package isGUIClass8_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryChange" as gUIClass29 {
+}
+}
+package isGUIClass9_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryDeleteChange" as gUIClass30 {
+}
+}
+package isGUIClass10_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.FileUpdatePanel" as gUIClass31 {
+}
+}
+package isGUIClass11_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.GroupChange" as gUIClass32 {
+}
+}
+package isGUIClass12_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.InfoPane" as gUIClass33 {
+}
+}
+package isGUIClass13_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.MetaDataChange" as gUIClass34 {
+}
+}
+package isGUIClass14_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.PreambleChange" as gUIClass35 {
+}
+}
+package isGUIClass15_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringAddChange" as gUIClass36 {
+}
+}
+package isGUIClass16_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringChange" as gUIClass37 {
+}
+}
+package isGUIClass17_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringNameChange" as gUIClass38 {
+}
+}
+package isGUIClass18_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringRemoveChange" as gUIClass39 {
+}
+}
+package isGUIClass19_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning" as gUIClass40 {
+}
+}
+package isGUIClass20_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.ImportDialog" as gUIClass41 {
+}
+}
+package isGUIClass21_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter" as gUIClass42 {
+}
+}
+package isGUIClass22_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfImporter" as gUIClass43 {
+}
+}
+folder "net\\.sf\\.jabref\\.cli" as package3 {
+class "?commandLineInterfaceClass1" as commandLineInterfaceClass1 {
+}
+}
+gUIClass22 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass23 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass24 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass25 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass26 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass27 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass28 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass29 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass30 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass31 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass32 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass33 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass34 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass35 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass36 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass37 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass38 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass39 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass40 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass41 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass42 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass43 -[dashed]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+gUIClass22 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass23 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass24 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass25 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass26 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass27 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass28 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass29 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass30 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass31 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass32 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass33 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass34 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass35 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass36 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass37 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass38 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass39 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass40 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass41 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass42 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+gUIClass43 -[bold]-> commandLineInterfaceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "GUIClass" as GUIClass1
+GUIClass1 .. gUIClass22
+GUIClass1 .. gUIClass23
+GUIClass1 .. gUIClass24
+GUIClass1 .. gUIClass25
+GUIClass1 .. gUIClass26
+GUIClass1 .. gUIClass27
+GUIClass1 .. gUIClass28
+GUIClass1 .. gUIClass29
+GUIClass1 .. gUIClass30
+GUIClass1 .. gUIClass31
+GUIClass1 .. gUIClass32
+GUIClass1 .. gUIClass33
+GUIClass1 .. gUIClass34
+GUIClass1 .. gUIClass35
+GUIClass1 .. gUIClass36
+GUIClass1 .. gUIClass37
+GUIClass1 .. gUIClass38
+GUIClass1 .. gUIClass39
+GUIClass1 .. gUIClass40
+GUIClass1 .. gUIClass41
+GUIClass1 .. gUIClass42
+GUIClass1 .. gUIClass43
+note "CommandLineInterfaceClass" as CommandLineInterfaceClass1
+CommandLineInterfaceClass1 .. commandLineInterfaceClass1
+@enduml
+
+[role="rule"]
+No LogicClass can use a GUIClass.
+@startuml No LogicClass can use a GUIClass.
+title No LogicClass can use a GUIClass.
+package isGUIClass1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.gui(\\w|\\W)*" as package4 {
+class "?gUIClass" as gUIClass {
+}
+}
+}
+package isGUIClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefGUI" as gUIClass1 {
+}
+}
+package isGUIClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefMain" as gUIClass2 {
+}
+}
+package isGUIClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.Change" as gUIClass3 {
+}
+}
+package isGUIClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog" as gUIClass4 {
+}
+}
+package isGUIClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeScanner" as gUIClass5 {
+}
+}
+package isGUIClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryAddChange" as gUIClass6 {
+}
+}
+package isGUIClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryChange" as gUIClass7 {
+}
+}
+package isGUIClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryDeleteChange" as gUIClass8 {
+}
+}
+package isGUIClass10 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.FileUpdatePanel" as gUIClass9 {
+}
+}
+package isGUIClass11 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.GroupChange" as gUIClass10 {
+}
+}
+package isGUIClass12 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.InfoPane" as gUIClass11 {
+}
+}
+package isGUIClass13 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.MetaDataChange" as gUIClass12 {
+}
+}
+package isGUIClass14 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.PreambleChange" as gUIClass13 {
+}
+}
+package isGUIClass15 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringAddChange" as gUIClass14 {
+}
+}
+package isGUIClass16 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringChange" as gUIClass15 {
+}
+}
+package isGUIClass17 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringNameChange" as gUIClass16 {
+}
+}
+package isGUIClass18 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringRemoveChange" as gUIClass17 {
+}
+}
+package isGUIClass19 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning" as gUIClass18 {
+}
+}
+package isGUIClass20 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.ImportDialog" as gUIClass19 {
+}
+}
+package isGUIClass21 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter" as gUIClass20 {
+}
+}
+package isGUIClass22 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfImporter" as gUIClass21 {
+}
+}
+package isLogicClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefExecutorService" as logicClass {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateListener" as logicClass1 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateMonitor" as logicClass2 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass4 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.logic(\\w|\\W)*" as package {
+class "?logicClass3" as logicClass3 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+}
+package isLogicClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSProcessor" as logicClass4 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer" as logicClass5 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.MySQLProcessor" as logicClass6 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.OracleProcessor" as logicClass7 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor" as logicClass8 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isLogicClass10 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*" as package1 {
+class "?logicClass9" as logicClass9 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+}
+package isLogicClass11 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*" as package2 {
+class "?logicClass10" as logicClass10 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+}
+package isLogicClass12 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*" as package3 {
+class "?logicClass11" as logicClass11 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+}
+logicClass -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "GUIClass" as GUIClass
+GUIClass .. gUIClass
+GUIClass .. gUIClass1
+GUIClass .. gUIClass2
+GUIClass .. gUIClass3
+GUIClass .. gUIClass4
+GUIClass .. gUIClass5
+GUIClass .. gUIClass6
+GUIClass .. gUIClass7
+GUIClass .. gUIClass8
+GUIClass .. gUIClass9
+GUIClass .. gUIClass10
+GUIClass .. gUIClass11
+GUIClass .. gUIClass12
+GUIClass .. gUIClass13
+GUIClass .. gUIClass14
+GUIClass .. gUIClass15
+GUIClass .. gUIClass16
+GUIClass .. gUIClass17
+GUIClass .. gUIClass18
+GUIClass .. gUIClass19
+GUIClass .. gUIClass20
+GUIClass .. gUIClass21
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+LogicClass .. logicClass1
+LogicClass .. logicClass2
+LogicClass .. logicClass3
+LogicClass .. logicClass4
+LogicClass .. logicClass5
+LogicClass .. logicClass6
+LogicClass .. logicClass7
+LogicClass .. logicClass8
+LogicClass .. logicClass9
+LogicClass .. logicClass10
+LogicClass .. logicClass11
+package isGUIClass1_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.gui(\\w|\\W)*" as package9 {
+class "?gUIClass22" as gUIClass22 {
+}
+}
+}
+package isGUIClass2_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefGUI" as gUIClass23 {
+}
+}
+package isGUIClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefMain" as gUIClass24 {
+}
+}
+package isGUIClass4_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.Change" as gUIClass25 {
+}
+}
+package isGUIClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog" as gUIClass26 {
+}
+}
+package isGUIClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeScanner" as gUIClass27 {
+}
+}
+package isGUIClass7_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryAddChange" as gUIClass28 {
+}
+}
+package isGUIClass8_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryChange" as gUIClass29 {
+}
+}
+package isGUIClass9_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryDeleteChange" as gUIClass30 {
+}
+}
+package isGUIClass10_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.FileUpdatePanel" as gUIClass31 {
+}
+}
+package isGUIClass11_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.GroupChange" as gUIClass32 {
+}
+}
+package isGUIClass12_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.InfoPane" as gUIClass33 {
+}
+}
+package isGUIClass13_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.MetaDataChange" as gUIClass34 {
+}
+}
+package isGUIClass14_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.PreambleChange" as gUIClass35 {
+}
+}
+package isGUIClass15_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringAddChange" as gUIClass36 {
+}
+}
+package isGUIClass16_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringChange" as gUIClass37 {
+}
+}
+package isGUIClass17_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringNameChange" as gUIClass38 {
+}
+}
+package isGUIClass18_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringRemoveChange" as gUIClass39 {
+}
+}
+package isGUIClass19_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning" as gUIClass40 {
+}
+}
+package isGUIClass20_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.ImportDialog" as gUIClass41 {
+}
+}
+package isGUIClass21_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter" as gUIClass42 {
+}
+}
+package isGUIClass22_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfImporter" as gUIClass43 {
+}
+}
+package isLogicClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefExecutorService" as logicClass12 {
+}
+}
+package isLogicClass2_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateListener" as logicClass13 {
+}
+}
+package isLogicClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateMonitor" as logicClass14 {
+}
+}
+package isLogicClass4_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.logic(\\w|\\W)*" as package5 {
+class "?logicClass15" as logicClass15 {
+}
+}
+}
+package isLogicClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSProcessor" as logicClass16 {
+}
+}
+package isLogicClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer" as logicClass17 {
+}
+}
+package isLogicClass7_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.MySQLProcessor" as logicClass18 {
+}
+}
+package isLogicClass8_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.OracleProcessor" as logicClass19 {
+}
+}
+package isLogicClass9_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor" as logicClass20 {
+}
+}
+package isLogicClass10_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*" as package6 {
+class "?logicClass21" as logicClass21 {
+}
+}
+}
+package isLogicClass11_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*" as package7 {
+class "?logicClass22" as logicClass22 {
+}
+}
+}
+package isLogicClass12_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*" as package8 {
+class "?logicClass23" as logicClass23 {
+}
+}
+}
+logicClass12 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "GUIClass" as GUIClass1
+GUIClass1 .. gUIClass22
+GUIClass1 .. gUIClass23
+GUIClass1 .. gUIClass24
+GUIClass1 .. gUIClass25
+GUIClass1 .. gUIClass26
+GUIClass1 .. gUIClass27
+GUIClass1 .. gUIClass28
+GUIClass1 .. gUIClass29
+GUIClass1 .. gUIClass30
+GUIClass1 .. gUIClass31
+GUIClass1 .. gUIClass32
+GUIClass1 .. gUIClass33
+GUIClass1 .. gUIClass34
+GUIClass1 .. gUIClass35
+GUIClass1 .. gUIClass36
+GUIClass1 .. gUIClass37
+GUIClass1 .. gUIClass38
+GUIClass1 .. gUIClass39
+GUIClass1 .. gUIClass40
+GUIClass1 .. gUIClass41
+GUIClass1 .. gUIClass42
+GUIClass1 .. gUIClass43
+note "LogicClass" as LogicClass1
+LogicClass1 .. logicClass12
+LogicClass1 .. logicClass13
+LogicClass1 .. logicClass14
+LogicClass1 .. logicClass15
+LogicClass1 .. logicClass16
+LogicClass1 .. logicClass17
+LogicClass1 .. logicClass18
+LogicClass1 .. logicClass19
+LogicClass1 .. logicClass20
+LogicClass1 .. logicClass21
+LogicClass1 .. logicClass22
+LogicClass1 .. logicClass23
+@enduml
+
+[role="rule"]
+No LogicClass can use a PreferenceClass.
+@startuml No LogicClass can use a PreferenceClass.
+title No LogicClass can use a PreferenceClass.
+package isLogicClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefExecutorService" as logicClass {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateListener" as logicClass1 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateMonitor" as logicClass2 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass4 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.logic(\\w|\\W)*" as package {
+class "?logicClass3" as logicClass3 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+}
+package isLogicClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSProcessor" as logicClass4 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer" as logicClass5 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.MySQLProcessor" as logicClass6 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.OracleProcessor" as logicClass7 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor" as logicClass8 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isLogicClass10 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*" as package1 {
+class "?logicClass9" as logicClass9 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+}
+package isLogicClass11 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*" as package2 {
+class "?logicClass10" as logicClass10 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+}
+package isLogicClass12 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*" as package3 {
+class "?logicClass11" as logicClass11 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+}
+package isPreferenceClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass {
+}
+}
+package isPreferenceClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package4 {
+class "?preferenceClass1" as preferenceClass1 {
+}
+}
+}
+package isPreferenceClass3 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package5 {
+class "?preferenceClass2" as preferenceClass2 {
+}
+}
+}
+logicClass -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass1 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass2 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass3 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass4 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass5 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass6 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass7 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass8 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass9 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass10 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass11 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+LogicClass .. logicClass1
+LogicClass .. logicClass2
+LogicClass .. logicClass3
+LogicClass .. logicClass4
+LogicClass .. logicClass5
+LogicClass .. logicClass6
+LogicClass .. logicClass7
+LogicClass .. logicClass8
+LogicClass .. logicClass9
+LogicClass .. logicClass10
+LogicClass .. logicClass11
+note "PreferenceClass" as PreferenceClass
+PreferenceClass .. preferenceClass
+PreferenceClass .. preferenceClass1
+PreferenceClass .. preferenceClass2
+package isLogicClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefExecutorService" as logicClass12 {
+}
+}
+package isLogicClass2_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateListener" as logicClass13 {
+}
+}
+package isLogicClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateMonitor" as logicClass14 {
+}
+}
+package isLogicClass4_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.logic(\\w|\\W)*" as package6 {
+class "?logicClass15" as logicClass15 {
+}
+}
+}
+package isLogicClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSProcessor" as logicClass16 {
+}
+}
+package isLogicClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer" as logicClass17 {
+}
+}
+package isLogicClass7_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.MySQLProcessor" as logicClass18 {
+}
+}
+package isLogicClass8_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.OracleProcessor" as logicClass19 {
+}
+}
+package isLogicClass9_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor" as logicClass20 {
+}
+}
+package isLogicClass10_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*" as package7 {
+class "?logicClass21" as logicClass21 {
+}
+}
+}
+package isLogicClass11_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*" as package8 {
+class "?logicClass22" as logicClass22 {
+}
+}
+}
+package isLogicClass12_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*" as package9 {
+class "?logicClass23" as logicClass23 {
+}
+}
+}
+package isPreferenceClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass3 {
+}
+}
+package isPreferenceClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package10 {
+class "?preferenceClass4" as preferenceClass4 {
+}
+}
+}
+package isPreferenceClass3_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package11 {
+class "?preferenceClass5" as preferenceClass5 {
+}
+}
+}
+logicClass12 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass13 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass14 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass15 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass16 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass17 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass18 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass19 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass20 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass21 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass22 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass23 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+logicClass12 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass12 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass13 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass14 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass15 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass16 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass17 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass18 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass19 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass20 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass21 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass22 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+logicClass23 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "LogicClass" as LogicClass1
+LogicClass1 .. logicClass12
+LogicClass1 .. logicClass13
+LogicClass1 .. logicClass14
+LogicClass1 .. logicClass15
+LogicClass1 .. logicClass16
+LogicClass1 .. logicClass17
+LogicClass1 .. logicClass18
+LogicClass1 .. logicClass19
+LogicClass1 .. logicClass20
+LogicClass1 .. logicClass21
+LogicClass1 .. logicClass22
+LogicClass1 .. logicClass23
+note "PreferenceClass" as PreferenceClass1
+PreferenceClass1 .. preferenceClass3
+PreferenceClass1 .. preferenceClass4
+PreferenceClass1 .. preferenceClass5
+@enduml
+
+[role="rule"]
+No ModelClass can use a LogicClass.
+@startuml No ModelClass can use a LogicClass.
+title No ModelClass can use a LogicClass.
+package isModelClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefException" as modelClass {
+<color:#OrangeRed> {field} ?f : ?logicClass11
+}
+}
+package isModelClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.model(\\w|\\W)*" as package {
+class "?modelClass1" as modelClass1 {
+<color:#OrangeRed> {field} ?f : ?logicClass11
+}
+}
+}
+package isModelClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnection" as modelClass2 {
+<color:#OrangeRed> {field} ?f : ?logicClass11
+}
+}
+package isModelClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties" as modelClass3 {
+<color:#OrangeRed> {field} ?f : ?logicClass11
+}
+}
+package isModelClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSType" as modelClass4 {
+<color:#OrangeRed> {field} ?f : ?logicClass11
+}
+}
+package isModelClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.security\\.Password" as modelClass5 {
+<color:#OrangeRed> {field} ?f : ?logicClass11
+}
+}
+package isLogicClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefExecutorService" as logicClass {
+}
+}
+package isLogicClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateListener" as logicClass1 {
+}
+}
+package isLogicClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateMonitor" as logicClass2 {
+}
+}
+package isLogicClass4 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.logic(\\w|\\W)*" as package1 {
+class "?logicClass3" as logicClass3 {
+}
+}
+}
+package isLogicClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSProcessor" as logicClass4 {
+}
+}
+package isLogicClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer" as logicClass5 {
+}
+}
+package isLogicClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.MySQLProcessor" as logicClass6 {
+}
+}
+package isLogicClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.OracleProcessor" as logicClass7 {
+}
+}
+package isLogicClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor" as logicClass8 {
+}
+}
+package isLogicClass10 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*" as package2 {
+class "?logicClass9" as logicClass9 {
+}
+}
+}
+package isLogicClass11 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*" as package3 {
+class "?logicClass10" as logicClass10 {
+}
+}
+}
+package isLogicClass12 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*" as package4 {
+class "?logicClass11" as logicClass11 {
+}
+}
+}
+modelClass -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> logicClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> logicClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> logicClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> logicClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> logicClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> logicClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ModelClass" as ModelClass
+ModelClass .. modelClass
+ModelClass .. modelClass1
+ModelClass .. modelClass2
+ModelClass .. modelClass3
+ModelClass .. modelClass4
+ModelClass .. modelClass5
+note "LogicClass" as LogicClass
+LogicClass .. logicClass
+LogicClass .. logicClass1
+LogicClass .. logicClass2
+LogicClass .. logicClass3
+LogicClass .. logicClass4
+LogicClass .. logicClass5
+LogicClass .. logicClass6
+LogicClass .. logicClass7
+LogicClass .. logicClass8
+LogicClass .. logicClass9
+LogicClass .. logicClass10
+LogicClass .. logicClass11
+package isModelClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefException" as modelClass6 {
+}
+}
+package isModelClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.model(\\w|\\W)*" as package5 {
+class "?modelClass7" as modelClass7 {
+}
+}
+}
+package isModelClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnection" as modelClass8 {
+}
+}
+package isModelClass4_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties" as modelClass9 {
+}
+}
+package isModelClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSType" as modelClass10 {
+}
+}
+package isModelClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.security\\.Password" as modelClass11 {
+}
+}
+package isLogicClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefExecutorService" as logicClass12 {
+}
+}
+package isLogicClass2_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateListener" as logicClass13 {
+}
+}
+package isLogicClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateMonitor" as logicClass14 {
+}
+}
+package isLogicClass4_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.logic(\\w|\\W)*" as package6 {
+class "?logicClass15" as logicClass15 {
+}
+}
+}
+package isLogicClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSProcessor" as logicClass16 {
+}
+}
+package isLogicClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer" as logicClass17 {
+}
+}
+package isLogicClass7_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.MySQLProcessor" as logicClass18 {
+}
+}
+package isLogicClass8_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.OracleProcessor" as logicClass19 {
+}
+}
+package isLogicClass9_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor" as logicClass20 {
+}
+}
+package isLogicClass10_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*" as package7 {
+class "?logicClass21" as logicClass21 {
+}
+}
+}
+package isLogicClass11_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*" as package8 {
+class "?logicClass22" as logicClass22 {
+}
+}
+}
+package isLogicClass12_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*" as package9 {
+class "?logicClass23" as logicClass23 {
+}
+}
+}
+modelClass6 -[dashed]-> logicClass12 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass13 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass14 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass15 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass16 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass17 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass18 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass19 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass20 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass21 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> logicClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass12 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass13 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass14 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass15 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass16 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass17 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass18 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass19 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass20 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass21 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> logicClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass12 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass13 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass14 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass15 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass16 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass17 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass18 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass19 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass20 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass21 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> logicClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass12 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass13 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass14 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass15 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass16 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass17 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass18 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass19 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass20 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass21 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> logicClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass12 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass13 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass14 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass15 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass16 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass17 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass18 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass19 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass20 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass21 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> logicClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass12 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass13 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass14 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass15 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass16 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass17 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass18 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass19 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass20 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass21 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> logicClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[bold]-> logicClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> logicClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> logicClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> logicClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> logicClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> logicClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> logicClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ModelClass" as ModelClass1
+ModelClass1 .. modelClass6
+ModelClass1 .. modelClass7
+ModelClass1 .. modelClass8
+ModelClass1 .. modelClass9
+ModelClass1 .. modelClass10
+ModelClass1 .. modelClass11
+note "LogicClass" as LogicClass1
+LogicClass1 .. logicClass12
+LogicClass1 .. logicClass13
+LogicClass1 .. logicClass14
+LogicClass1 .. logicClass15
+LogicClass1 .. logicClass16
+LogicClass1 .. logicClass17
+LogicClass1 .. logicClass18
+LogicClass1 .. logicClass19
+LogicClass1 .. logicClass20
+LogicClass1 .. logicClass21
+LogicClass1 .. logicClass22
+LogicClass1 .. logicClass23
+@enduml
+
+[role="rule"]
+No ModelClass can use a PreferenceClass.
+@startuml No ModelClass can use a PreferenceClass.
+title No ModelClass can use a PreferenceClass.
+package isModelClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefException" as modelClass {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isModelClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.model(\\w|\\W)*" as package {
+class "?modelClass1" as modelClass1 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+}
+package isModelClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnection" as modelClass2 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isModelClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties" as modelClass3 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isModelClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSType" as modelClass4 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isModelClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.security\\.Password" as modelClass5 {
+<color:#OrangeRed> {field} ?f : ?preferenceClass2
+}
+}
+package isPreferenceClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass {
+}
+}
+package isPreferenceClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package1 {
+class "?preferenceClass1" as preferenceClass1 {
+}
+}
+}
+package isPreferenceClass3 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package2 {
+class "?preferenceClass2" as preferenceClass2 {
+}
+}
+}
+modelClass -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> preferenceClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> preferenceClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> preferenceClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ModelClass" as ModelClass
+ModelClass .. modelClass
+ModelClass .. modelClass1
+ModelClass .. modelClass2
+ModelClass .. modelClass3
+ModelClass .. modelClass4
+ModelClass .. modelClass5
+note "PreferenceClass" as PreferenceClass
+PreferenceClass .. preferenceClass
+PreferenceClass .. preferenceClass1
+PreferenceClass .. preferenceClass2
+package isModelClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefException" as modelClass6 {
+}
+}
+package isModelClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.model(\\w|\\W)*" as package3 {
+class "?modelClass7" as modelClass7 {
+}
+}
+}
+package isModelClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnection" as modelClass8 {
+}
+}
+package isModelClass4_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties" as modelClass9 {
+}
+}
+package isModelClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSType" as modelClass10 {
+}
+}
+package isModelClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.security\\.Password" as modelClass11 {
+}
+}
+package isPreferenceClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass3 {
+}
+}
+package isPreferenceClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package4 {
+class "?preferenceClass4" as preferenceClass4 {
+}
+}
+}
+package isPreferenceClass3_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package5 {
+class "?preferenceClass5" as preferenceClass5 {
+}
+}
+}
+modelClass6 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> preferenceClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> preferenceClass4 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> preferenceClass5 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass6 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> preferenceClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> preferenceClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> preferenceClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "ModelClass" as ModelClass1
+ModelClass1 .. modelClass6
+ModelClass1 .. modelClass7
+ModelClass1 .. modelClass8
+ModelClass1 .. modelClass9
+ModelClass1 .. modelClass10
+ModelClass1 .. modelClass11
+note "PreferenceClass" as PreferenceClass1
+PreferenceClass1 .. preferenceClass3
+PreferenceClass1 .. preferenceClass4
+PreferenceClass1 .. preferenceClass5
+@enduml
+
+[role="rule"]
+No PreferenceClass can use a GlobalClass.
+@startuml No PreferenceClass can use a GlobalClass.
+title No PreferenceClass can use a GlobalClass.
+package isPreferenceClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.Globals
+}
+}
+package isPreferenceClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package {
+class "?preferenceClass1" as preferenceClass1 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.Globals
+}
+}
+}
+package isPreferenceClass3 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package1 {
+class "?preferenceClass2" as preferenceClass2 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.Globals
+}
+}
+}
+class "net\\.sf\\.jabref\\.Globals" as globalClass {
+}
+preferenceClass -[bold]-> globalClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> globalClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> globalClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "PreferenceClass" as PreferenceClass
+PreferenceClass .. preferenceClass
+PreferenceClass .. preferenceClass1
+PreferenceClass .. preferenceClass2
+note "GlobalClass" as GlobalClass
+GlobalClass .. globalClass
+package isPreferenceClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass3 {
+}
+}
+package isPreferenceClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package2 {
+class "?preferenceClass4" as preferenceClass4 {
+}
+}
+}
+package isPreferenceClass3_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package3 {
+class "?preferenceClass5" as preferenceClass5 {
+}
+}
+}
+class "net\\.sf\\.jabref\\.Globals" as globalClass1 {
+}
+preferenceClass3 -[dashed]-> globalClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> globalClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> globalClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[bold]-> globalClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> globalClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> globalClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "PreferenceClass" as PreferenceClass1
+PreferenceClass1 .. preferenceClass3
+PreferenceClass1 .. preferenceClass4
+PreferenceClass1 .. preferenceClass5
+note "GlobalClass" as GlobalClass1
+GlobalClass1 .. globalClass1
+@enduml
+
+[role="rule"]
+No PreferenceClass can use a GUIClass.
+@startuml No PreferenceClass can use a GUIClass.
+title No PreferenceClass can use a GUIClass.
+package isGUIClass1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.gui(\\w|\\W)*" as package2 {
+class "?gUIClass" as gUIClass {
+}
+}
+}
+package isGUIClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefGUI" as gUIClass1 {
+}
+}
+package isGUIClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefMain" as gUIClass2 {
+}
+}
+package isGUIClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.Change" as gUIClass3 {
+}
+}
+package isGUIClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog" as gUIClass4 {
+}
+}
+package isGUIClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeScanner" as gUIClass5 {
+}
+}
+package isGUIClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryAddChange" as gUIClass6 {
+}
+}
+package isGUIClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryChange" as gUIClass7 {
+}
+}
+package isGUIClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryDeleteChange" as gUIClass8 {
+}
+}
+package isGUIClass10 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.FileUpdatePanel" as gUIClass9 {
+}
+}
+package isGUIClass11 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.GroupChange" as gUIClass10 {
+}
+}
+package isGUIClass12 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.InfoPane" as gUIClass11 {
+}
+}
+package isGUIClass13 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.MetaDataChange" as gUIClass12 {
+}
+}
+package isGUIClass14 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.PreambleChange" as gUIClass13 {
+}
+}
+package isGUIClass15 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringAddChange" as gUIClass14 {
+}
+}
+package isGUIClass16 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringChange" as gUIClass15 {
+}
+}
+package isGUIClass17 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringNameChange" as gUIClass16 {
+}
+}
+package isGUIClass18 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringRemoveChange" as gUIClass17 {
+}
+}
+package isGUIClass19 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning" as gUIClass18 {
+}
+}
+package isGUIClass20 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.ImportDialog" as gUIClass19 {
+}
+}
+package isGUIClass21 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter" as gUIClass20 {
+}
+}
+package isGUIClass22 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfImporter" as gUIClass21 {
+}
+}
+package isPreferenceClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+package isPreferenceClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package {
+class "?preferenceClass1" as preferenceClass1 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+}
+package isPreferenceClass3 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package1 {
+class "?preferenceClass2" as preferenceClass2 {
+<color:#OrangeRed> {field} ?f : net\\.sf\\.jabref\\.pdfimport\\.PdfImporter
+}
+}
+}
+preferenceClass -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass4 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass5 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass6 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass7 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass8 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass9 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass10 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass11 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass12 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass13 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass14 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass15 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass16 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass17 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass18 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass19 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass20 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> gUIClass21 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "GUIClass" as GUIClass
+GUIClass .. gUIClass
+GUIClass .. gUIClass1
+GUIClass .. gUIClass2
+GUIClass .. gUIClass3
+GUIClass .. gUIClass4
+GUIClass .. gUIClass5
+GUIClass .. gUIClass6
+GUIClass .. gUIClass7
+GUIClass .. gUIClass8
+GUIClass .. gUIClass9
+GUIClass .. gUIClass10
+GUIClass .. gUIClass11
+GUIClass .. gUIClass12
+GUIClass .. gUIClass13
+GUIClass .. gUIClass14
+GUIClass .. gUIClass15
+GUIClass .. gUIClass16
+GUIClass .. gUIClass17
+GUIClass .. gUIClass18
+GUIClass .. gUIClass19
+GUIClass .. gUIClass20
+GUIClass .. gUIClass21
+note "PreferenceClass" as PreferenceClass
+PreferenceClass .. preferenceClass
+PreferenceClass .. preferenceClass1
+PreferenceClass .. preferenceClass2
+package isGUIClass1_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.gui(\\w|\\W)*" as package5 {
+class "?gUIClass22" as gUIClass22 {
+}
+}
+}
+package isGUIClass2_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefGUI" as gUIClass23 {
+}
+}
+package isGUIClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefMain" as gUIClass24 {
+}
+}
+package isGUIClass4_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.Change" as gUIClass25 {
+}
+}
+package isGUIClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog" as gUIClass26 {
+}
+}
+package isGUIClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeScanner" as gUIClass27 {
+}
+}
+package isGUIClass7_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryAddChange" as gUIClass28 {
+}
+}
+package isGUIClass8_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryChange" as gUIClass29 {
+}
+}
+package isGUIClass9_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryDeleteChange" as gUIClass30 {
+}
+}
+package isGUIClass10_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.FileUpdatePanel" as gUIClass31 {
+}
+}
+package isGUIClass11_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.GroupChange" as gUIClass32 {
+}
+}
+package isGUIClass12_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.InfoPane" as gUIClass33 {
+}
+}
+package isGUIClass13_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.MetaDataChange" as gUIClass34 {
+}
+}
+package isGUIClass14_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.PreambleChange" as gUIClass35 {
+}
+}
+package isGUIClass15_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringAddChange" as gUIClass36 {
+}
+}
+package isGUIClass16_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringChange" as gUIClass37 {
+}
+}
+package isGUIClass17_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringNameChange" as gUIClass38 {
+}
+}
+package isGUIClass18_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringRemoveChange" as gUIClass39 {
+}
+}
+package isGUIClass19_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning" as gUIClass40 {
+}
+}
+package isGUIClass20_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.ImportDialog" as gUIClass41 {
+}
+}
+package isGUIClass21_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter" as gUIClass42 {
+}
+}
+package isGUIClass22_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfImporter" as gUIClass43 {
+}
+}
+package isPreferenceClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass3 {
+}
+}
+package isPreferenceClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package3 {
+class "?preferenceClass4" as preferenceClass4 {
+}
+}
+}
+package isPreferenceClass3_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package4 {
+class "?preferenceClass5" as preferenceClass5 {
+}
+}
+}
+preferenceClass3 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass22 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass23 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass24 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass25 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass26 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass27 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass28 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass29 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass30 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass31 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass32 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass33 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass34 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass35 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass36 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass37 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass38 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass39 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass40 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass41 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass42 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> gUIClass43 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass22 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass24 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass25 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass26 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass27 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass28 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass29 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass30 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass31 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass32 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass33 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass34 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass35 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass36 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass37 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass38 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass39 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass40 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass41 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass42 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> gUIClass43 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "GUIClass" as GUIClass1
+GUIClass1 .. gUIClass22
+GUIClass1 .. gUIClass23
+GUIClass1 .. gUIClass24
+GUIClass1 .. gUIClass25
+GUIClass1 .. gUIClass26
+GUIClass1 .. gUIClass27
+GUIClass1 .. gUIClass28
+GUIClass1 .. gUIClass29
+GUIClass1 .. gUIClass30
+GUIClass1 .. gUIClass31
+GUIClass1 .. gUIClass32
+GUIClass1 .. gUIClass33
+GUIClass1 .. gUIClass34
+GUIClass1 .. gUIClass35
+GUIClass1 .. gUIClass36
+GUIClass1 .. gUIClass37
+GUIClass1 .. gUIClass38
+GUIClass1 .. gUIClass39
+GUIClass1 .. gUIClass40
+GUIClass1 .. gUIClass41
+GUIClass1 .. gUIClass42
+GUIClass1 .. gUIClass43
+note "PreferenceClass" as PreferenceClass1
+PreferenceClass1 .. preferenceClass3
+PreferenceClass1 .. preferenceClass4
+PreferenceClass1 .. preferenceClass5
+@enduml
+
+[role="rule"]
+No PreferenceClass can use a SwingLibraryClass.
+@startuml No PreferenceClass can use a SwingLibraryClass.
+title No PreferenceClass can use a SwingLibraryClass.
+package isPreferenceClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass {
+<color:#OrangeRed> {field} ?f : java\\.awt\\.(\\w|\\W)*
+}
+}
+package isPreferenceClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package {
+class "?preferenceClass1" as preferenceClass1 {
+<color:#OrangeRed> {field} ?f : java\\.awt\\.(\\w|\\W)*
+}
+}
+}
+package isPreferenceClass3 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package1 {
+class "?preferenceClass2" as preferenceClass2 {
+<color:#OrangeRed> {field} ?f : java\\.awt\\.(\\w|\\W)*
+}
+}
+}
+package isSwingLibraryClass1 <<Cloud>> {
+class "javax\\.swing\\.(\\w|\\W)*" as swingLibraryClass {
+}
+}
+package isSwingLibraryClass2 <<Cloud>> {
+class "java\\.awt\\.(\\w|\\W)*" as swingLibraryClass1 {
+}
+}
+preferenceClass -[bold]-> swingLibraryClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass -[bold]-> swingLibraryClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> swingLibraryClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass1 -[bold]-> swingLibraryClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> swingLibraryClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass2 -[bold]-> swingLibraryClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "PreferenceClass" as PreferenceClass
+PreferenceClass .. preferenceClass
+PreferenceClass .. preferenceClass1
+PreferenceClass .. preferenceClass2
+note "SwingLibraryClass" as SwingLibraryClass
+SwingLibraryClass .. swingLibraryClass
+SwingLibraryClass .. swingLibraryClass1
+package isPreferenceClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as preferenceClass3 {
+}
+}
+package isPreferenceClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package2 {
+class "?preferenceClass4" as preferenceClass4 {
+}
+}
+}
+package isPreferenceClass3_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package3 {
+class "?preferenceClass5" as preferenceClass5 {
+}
+}
+}
+package isSwingLibraryClass1_1 <<Cloud>> {
+class "javax\\.swing\\.(\\w|\\W)*" as swingLibraryClass2 {
+}
+}
+package isSwingLibraryClass2_1 <<Cloud>> {
+class "java\\.awt\\.(\\w|\\W)*" as swingLibraryClass3 {
+}
+}
+preferenceClass3 -[dashed]-> swingLibraryClass2 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[dashed]-> swingLibraryClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> swingLibraryClass2 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass4 -[dashed]-> swingLibraryClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> swingLibraryClass2 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass5 -[dashed]-> swingLibraryClass3 #line:OrangeRed;text:OrangeRed : <<imports>>
+preferenceClass3 -[bold]-> swingLibraryClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass3 -[bold]-> swingLibraryClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> swingLibraryClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass4 -[bold]-> swingLibraryClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> swingLibraryClass2 #line:OrangeRed;text:OrangeRed 
+note on link: use
+preferenceClass5 -[bold]-> swingLibraryClass3 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "PreferenceClass" as PreferenceClass1
+PreferenceClass1 .. preferenceClass3
+PreferenceClass1 .. preferenceClass4
+PreferenceClass1 .. preferenceClass5
+note "SwingLibraryClass" as SwingLibraryClass1
+SwingLibraryClass1 .. swingLibraryClass2
+SwingLibraryClass1 .. swingLibraryClass3
+@enduml
+
+[role="rule"]
+No ModelClass can use a JavaSQLAndOracleClass.
+@startuml No ModelClass can use a JavaSQLAndOracleClass.
+title No ModelClass can use a JavaSQLAndOracleClass.
+class "java\\.sql\\.(\\w|\\W)*" as javaSQLAndOracleClass {
+}
+package isModelClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefException" as modelClass {
+<color:#OrangeRed> {field} ?f : java\\.sql\\.(\\w|\\W)*
+}
+}
+package isModelClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.model(\\w|\\W)*" as package {
+class "?modelClass1" as modelClass1 {
+<color:#OrangeRed> {field} ?f : java\\.sql\\.(\\w|\\W)*
+}
+}
+}
+package isModelClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnection" as modelClass2 {
+<color:#OrangeRed> {field} ?f : java\\.sql\\.(\\w|\\W)*
+}
+}
+package isModelClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties" as modelClass3 {
+<color:#OrangeRed> {field} ?f : java\\.sql\\.(\\w|\\W)*
+}
+}
+package isModelClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSType" as modelClass4 {
+<color:#OrangeRed> {field} ?f : java\\.sql\\.(\\w|\\W)*
+}
+}
+package isModelClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.security\\.Password" as modelClass5 {
+<color:#OrangeRed> {field} ?f : java\\.sql\\.(\\w|\\W)*
+}
+}
+modelClass -[bold]-> javaSQLAndOracleClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass1 -[bold]-> javaSQLAndOracleClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass2 -[bold]-> javaSQLAndOracleClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass3 -[bold]-> javaSQLAndOracleClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass4 -[bold]-> javaSQLAndOracleClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass5 -[bold]-> javaSQLAndOracleClass #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "JavaSQLAndOracleClass" as JavaSQLAndOracleClass
+JavaSQLAndOracleClass .. javaSQLAndOracleClass
+note "ModelClass" as ModelClass
+ModelClass .. modelClass
+ModelClass .. modelClass1
+ModelClass .. modelClass2
+ModelClass .. modelClass3
+ModelClass .. modelClass4
+ModelClass .. modelClass5
+class "java\\.sql\\.(\\w|\\W)*" as javaSQLAndOracleClass1 {
+}
+package isModelClass1_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefException" as modelClass6 {
+}
+}
+package isModelClass2_1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.model(\\w|\\W)*" as package1 {
+class "?modelClass7" as modelClass7 {
+}
+}
+}
+package isModelClass3_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnection" as modelClass8 {
+}
+}
+package isModelClass4_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties" as modelClass9 {
+}
+}
+package isModelClass5_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSType" as modelClass10 {
+}
+}
+package isModelClass6_1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.security\\.Password" as modelClass11 {
+}
+}
+modelClass6 -[dashed]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass7 -[dashed]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass8 -[dashed]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass9 -[dashed]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass10 -[dashed]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass11 -[dashed]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed : <<imports>>
+modelClass6 -[bold]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass7 -[bold]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass8 -[bold]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass9 -[bold]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass10 -[bold]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+modelClass11 -[bold]-> javaSQLAndOracleClass1 #line:OrangeRed;text:OrangeRed 
+note on link: use
+note "JavaSQLAndOracleClass" as JavaSQLAndOracleClass1
+JavaSQLAndOracleClass1 .. javaSQLAndOracleClass1
+note "ModelClass" as ModelClass1
+ModelClass1 .. modelClass6
+ModelClass1 .. modelClass7
+ModelClass1 .. modelClass8
+ModelClass1 .. modelClass9
+ModelClass1 .. modelClass10
+ModelClass1 .. modelClass11
+@enduml
+
+//------------------------------------------------------------------------------------
+Relationsmappings stammen aus old-mappings
+In variante 1 wurde fehlerhaftes subjekt im then tripel geändert
+use Variante über invokes geht nicht
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?f rdf:type famix:Attribute) (?class famix:definesAttribute ?f) (?f famix:hasDeclaredType ?class2) -> (?class architecture:use ?class2)
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?m rdf:type famix:Method) (?class famix:definesMethod ?m) (?m famix:definesVariable ?v) (?v famix:hasDeclaredType ?class2) -> (?class architecture:use ?class2)
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+====================================================================================
+Variante mit LocalVariable kann nicht visualisiert werden, invokes etc. existieren nicht mehr
+====================================================================================
+@startuml useMapping
+title useMapping
+package useMapping1 <<Cloud>> {
+class "?class" as class {
+{field} ?f : ?class2
+}
+class "?class2" as class2 {
+}
+class -[bold]-> class2
+note on link: use
+}
+package useMapping2 <<Cloud>> {
+class "?class1" as class1 {
+}
+class "?class21" as class21 {
+}
+class1 -[dashed]-> class21: <<imports>>
+class1 -[bold]-> class21
+note on link: use
+}
+@enduml
+
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.gui(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefGUI') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefMain') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.Change') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.ChangeScanner') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.EntryAddChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.EntryChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.EntryDeleteChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.FileUpdatePanel') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.GroupChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.InfoPane') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.MetaDataChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.PreambleChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringAddChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringNameChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.collab\\.StringRemoveChange') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.pdfimport\\.ImportDialog') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter') -> (?class rdf:type architecture:GUIClass)
+[role="mapping"]
+isGUIClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.pdfimport\\.PdfImporter') -> (?class rdf:type architecture:GUIClass)
+@startuml isGUIClass
+title isGUIClass
+package isGUIClass1 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.gui(\\w|\\W)*" as package {
+class "?class" as class {
+}
+}
+}
+package isGUIClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefGUI" as class1 {
+}
+}
+package isGUIClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefMain" as class2 {
+}
+}
+package isGUIClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.Change" as class3 {
+}
+}
+package isGUIClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeDisplayDialog" as class4 {
+}
+}
+package isGUIClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.ChangeScanner" as class5 {
+}
+}
+package isGUIClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryAddChange" as class6 {
+}
+}
+package isGUIClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryChange" as class7 {
+}
+}
+package isGUIClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.EntryDeleteChange" as class8 {
+}
+}
+package isGUIClass10 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.FileUpdatePanel" as class9 {
+}
+}
+package isGUIClass11 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.GroupChange" as class10 {
+}
+}
+package isGUIClass12 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.InfoPane" as class11 {
+}
+}
+package isGUIClass13 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.MetaDataChange" as class12 {
+}
+}
+package isGUIClass14 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.PreambleChange" as class13 {
+}
+}
+package isGUIClass15 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringAddChange" as class14 {
+}
+}
+package isGUIClass16 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringChange" as class15 {
+}
+}
+package isGUIClass17 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringNameChange" as class16 {
+}
+}
+package isGUIClass18 <<Cloud>> {
+class "net\\.sf\\.jabref\\.collab\\.StringRemoveChange" as class17 {
+}
+}
+package isGUIClass19 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.FileLinksUpgradeWarning" as class18 {
+}
+}
+package isGUIClass20 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.ImportDialog" as class19 {
+}
+}
+package isGUIClass21 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfFileFilter" as class20 {
+}
+}
+package isGUIClass22 <<Cloud>> {
+class "net\\.sf\\.jabref\\.pdfimport\\.PdfImporter" as class21 {
+}
+}
+note "GUIClass" as GUIClass
+GUIClass .. class
+GUIClass .. class1
+GUIClass .. class2
+GUIClass .. class3
+GUIClass .. class4
+GUIClass .. class5
+GUIClass .. class6
+GUIClass .. class7
+GUIClass .. class8
+GUIClass .. class9
+GUIClass .. class10
+GUIClass .. class11
+GUIClass .. class12
+GUIClass .. class13
+GUIClass .. class14
+GUIClass .. class15
+GUIClass .. class16
+GUIClass .. class17
+GUIClass .. class18
+GUIClass .. class19
+GUIClass .. class20
+GUIClass .. class21
+@enduml
+
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefExecutorService') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.FileUpdateListener') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.FileUpdateMonitor') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.logic(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSProcessor') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.MySQLProcessor') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.OracleProcessor') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor') -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+[role="mapping"]
+isLogicClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+@startuml isLogicClass
+title isLogicClass
+package isLogicClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefExecutorService" as class {
+}
+}
+package isLogicClass2 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateListener" as class1 {
+}
+}
+package isLogicClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.FileUpdateMonitor" as class2 {
+}
+}
+package isLogicClass4 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.logic(\\w|\\W)*" as package {
+class "?class3" as class3 {
+}
+}
+}
+package isLogicClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSProcessor" as class4 {
+}
+}
+package isLogicClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSSynchronizer" as class5 {
+}
+}
+package isLogicClass7 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.MySQLProcessor" as class6 {
+}
+}
+package isLogicClass8 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.OracleProcessor" as class7 {
+}
+}
+package isLogicClass9 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.PostgreSQLProcessor" as class8 {
+}
+}
+package isLogicClass10 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.event(\\w|\\W)*" as package1 {
+class "?class9" as class9 {
+}
+}
+}
+package isLogicClass11 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.exception(\\w|\\W)*" as package2 {
+class "?class10" as class10 {
+}
+}
+}
+package isLogicClass12 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.listener(\\w|\\W)*" as package3 {
+class "?class11" as class11 {
+}
+}
+}
+note "LogicClass" as LogicClass
+LogicClass .. class
+LogicClass .. class1
+LogicClass .. class2
+LogicClass .. class3
+LogicClass .. class4
+LogicClass .. class5
+LogicClass .. class6
+LogicClass .. class7
+LogicClass .. class8
+LogicClass .. class9
+LogicClass .. class10
+LogicClass .. class11
+@enduml
+
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.JabRefException') -> (?class rdf:type architecture:ModelClass)
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.model(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:ModelClass)
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSConnection') -> (?class rdf:type architecture:ModelClass)
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties') -> (?class rdf:type architecture:ModelClass)
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.DBMSType') -> (?class rdf:type architecture:ModelClass)
+[role="mapping"]
+isModelClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.security\\.Password') -> (?class rdf:type architecture:ModelClass)
+@startuml isModelClass
+title isModelClass
+package isModelClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.JabRefException" as class {
+}
+}
+package isModelClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.model(\\w|\\W)*" as package {
+class "?class1" as class1 {
+}
+}
+}
+package isModelClass3 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnection" as class2 {
+}
+}
+package isModelClass4 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSConnectionProperties" as class3 {
+}
+}
+package isModelClass5 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.DBMSType" as class4 {
+}
+}
+package isModelClass6 <<Cloud>> {
+class "net\\.sf\\.jabref\\.shared\\.security\\.Password" as class5 {
+}
+}
+note "ModelClass" as ModelClass
+ModelClass .. class
+ModelClass .. class1
+ModelClass .. class2
+ModelClass .. class3
+ModelClass .. class4
+ModelClass .. class5
+@enduml
+
+[role="mapping"]
+isGlobalClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.Globals') -> (?class rdf:type architecture:GlobalClass)
+@startuml isGlobalClass
+title isGlobalClass
+class "net\\.sf\\.jabref\\.Globals" as class {
+}
+note "GlobalClass" as GlobalClass
+GlobalClass .. class
+@enduml
+
+[role="mapping"]
+isCommandLineInterfaceClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.cli') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:CommandLineInterfaceClass)
+@startuml isCommandLineInterfaceClass
+title isCommandLineInterfaceClass
+folder "net\\.sf\\.jabref\\.cli" as package {
+class "?class" as class {
+}
+}
+note "CommandLineInterfaceClass" as CommandLineInterfaceClass
+CommandLineInterfaceClass .. class
+@enduml
+
+[role="mapping"]
+isPreferenceClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations') -> (?class rdf:type architecture:PreferenceClass)
+[role="mapping"]
+isPreferenceClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.preferences(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:PreferenceClass)
+[role="mapping"]
+isPreferenceClass: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:LogicClass)
+@startuml isPreferenceClass
+title isPreferenceClass
+package isPreferenceClass1 <<Cloud>> {
+class "net\\.sf\\.jabref\\.migrations\\.PreferencesMigrations" as class {
+}
+}
+package isPreferenceClass2 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.preferences(\\w|\\W)*" as package {
+class "?class1" as class1 {
+}
+}
+}
+package isPreferenceClass3 <<Cloud>> {
+folder "net\\.sf\\.jabref\\.shared\\.prefs(\\w|\\W)*" as package1 {
+class "?class2" as class2 {
+}
+}
+}
+note "PreferenceClass" as PreferenceClass
+PreferenceClass .. class
+PreferenceClass .. class1
+PreferenceClass .. class2
+@enduml
+
+[role="mapping"]
+isSwingLibraryClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'javax\\.swing\\.(\\w|\\W)*') -> (?class rdf:type architecture:SwingLibraryClass)
+[role="mapping"]
+isSwingLibraryClass: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, 'java\\.awt\\.(\\w|\\W)*') -> (?class rdf:type architecture:SwingLibraryClass)
+@startuml isSwingLibraryClass
+title isSwingLibraryClass
+package isSwingLibraryClass1 <<Cloud>> {
+class "javax\\.swing\\.(\\w|\\W)*" as class {
+}
+}
+package isSwingLibraryClass2 <<Cloud>> {
+class "java\\.awt\\.(\\w|\\W)*" as class1 {
+}
+}
+note "SwingLibraryClass" as SwingLibraryClass
+SwingLibraryClass .. class
+SwingLibraryClass .. class1
+@enduml
+
+[role="mapping"]
+isJavaSQLAndOracleClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'java\\.sql\\.(\\w|\\W)*') -> (?class rdf:type architecture:JavaSQLAndOracle)
+[role="mapping"]
+isJavaSQLAndOracleClass: (?class rdf:type famix:FamixClass) (?class famix:hasFullQualifiedName ?name) regex(?name, 'oracle(\\w|\\W)*') -> (?class rdf:type architecture:JavaSQLAndOracle)
+@startuml isJavaSQLAndOracleClass
+title isJavaSQLAndOracleClass
+package isJavaSQLAndOracleClass1 <<Cloud>> {
+class "java\\.sql\\.(\\w|\\W)*" as class {
+}
+}
+package isJavaSQLAndOracleClass2 <<Cloud>> {
+class "oracle(\\w|\\W)*" as class1 {
+}
+}
+note "JavaSQLAndOracleClass" as JavaSQLAndOracleClass
+JavaSQLAndOracleClass .. class
+JavaSQLAndOracleClass .. class1
+@enduml

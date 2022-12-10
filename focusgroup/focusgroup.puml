@@ -1,0 +1,1283 @@
+[role="rule"]
+Every Controller must use a Service.
+@startuml Every Controller must use a Service.
+title Every Controller must use a Service.
+class ".*Controller" as controllerW #OrangeRed {
+}
+class ".*Controller" as controllerC #RoyalBlue {
+}
+class ".*Service" as serviceC {
+}
+controllerC -[dashed]-> serviceC: <<imports>>
+controllerC -[bold]-> serviceC
+note on link: use
+note "Controller" as Controller1
+Controller1 .. controllerW
+note "Controller" as Controller
+Controller .. controllerC
+note "Service" as Service
+Service .. serviceC
+@enduml
+
+//can only changed to can-only
+[role="rule"]
+Every Service can-only beUsedBy a Controller or beUsedBy a Service.
+@startuml Every Service can-only beUsedBy a Controller or beUsedBy a Service.
+scale 4
+title Every Service can-only beUsedBy a Controller or beUsedBy a Service.
+class ".*Service" as service1W {
+}
+class ".*Controller" as controllerC {
+}
+class ".*Service" as serviceCC {
+}
+class ".*Service" as service1C {
+}
+class ".*Service" as service1CC {
+}
+class ".*Service" as service1WW {
+}
+class "?famixClassW" as famixClassW {
+}
+class "?famixClass1WW" as famixClass1WW {
+}
+controllerC -[dashed]-> service1C #line:RoyalBlue;text:RoyalBlue : <<imports>>
+service1C -[bold]-> controllerC #line:RoyalBlue;text:RoyalBlue 
+note on link: beUsedBy
+famixClassW -[dashed]-> service1W #line:OrangeRed;text:OrangeRed : <<imports>>
+service1W -[bold]-> famixClassW #line:OrangeRed;text:OrangeRed 
+note on link: beUsedBy
+serviceCC -[dashed]-> service1CC #line:RoyalBlue;text:RoyalBlue : <<imports>>
+service1CC -[bold]-> serviceCC #line:RoyalBlue;text:RoyalBlue 
+note on link: beUsedBy
+famixClass1WW -[dashed]-> service1WW #line:OrangeRed;text:OrangeRed : <<imports>>
+service1WW -[bold]-> famixClass1WW #line:OrangeRed;text:OrangeRed 
+note on link: beUsedBy
+note "Service" as Service1
+Service1 .. service1W
+note "Controller" as Controller
+Controller .. controllerC
+note "Service" as Service3
+Service3 .. serviceCC
+note "Service" as Service
+Service .. service1C
+note "Service" as Service2
+Service2 .. service1CC
+note "Service" as Service4
+Service4 .. service1WW
+@enduml
+
+[role="rule"]
+No Controller can access a DataAccessObject.
+@startuml No Controller can access a DataAccessObject.
+title No Controller can access a DataAccessObject.
+class ".*DAO" as dataAccessObject {
+}
+class ".*Controller" as controller {
+}
+controller -[dashed]-> dataAccessObject #line:OrangeRed;text:OrangeRed : <<imports>>
+controller -[bold]-> dataAccessObject #line:OrangeRed;text:OrangeRed 
+note on link: access
+note "DataAccessObject" as DataAccessObject
+DataAccessObject .. dataAccessObject
+note "Controller" as Controller
+Controller .. controller
+@enduml
+
+[role="rule"]
+Nothing can access a Controller.
+@startuml Nothing can access a Controller.
+title Nothing can access a Controller.
+class ".*Controller" as controller {
+}
+class "?nothing" as nothing {
+}
+nothing -[dashed]-> controller #line:OrangeRed;text:OrangeRed : <<imports>>
+nothing -[bold]-> controller #line:OrangeRed;text:OrangeRed 
+note on link: access
+note "Controller" as Controller
+Controller .. controller
+@enduml
+
+// one changed to 1
+[role="rule"]
+Every HostTransactionComponent can beIncludedIn exactly 1 Module.
+==============================================================
+Module has no equivalent is archcnl
+==============================================================
+
+[role="rule"]
+No HostTransactionComponent can dependOn anything.
+@startuml No HostTransactionComponent can dependOn anything.
+title No HostTransactionComponent can dependOn anything.
+class "HostTransactionComponent" as hostTransactionComponent {
+}
+enum "?anything" as anything {
+}
+hostTransactionComponent -[dashed]-> anything #line:OrangeRed;text:OrangeRed : <<imports>>
+hostTransactionComponent -[bold]-> anything #line:OrangeRed;text:OrangeRed 
+note on link: dependOn
+note "HostTransactionComponent" as HostTransactionComponent
+HostTransactionComponent .. hostTransactionComponent
+@enduml
+
+// haveName changed to hasName
+[role="rule"]
+Every BatchBean must hasName equal-to "Bat*".
+==============================================================
+String can't be visualized
+==============================================================
+
+// call cant be described, isDefinedIn changed to methodIsDefinedIn
+[role="rule"]
+No MBean can call a Method that (methodIsDefinedIn an ApplicationCore).
+==============================================================
+call couldn't be formalized
+==============================================================
+
+// CompositePrimary Key erfordert 2 mal @Id --> nicht mit einfachem mapping möglich
+[role="rule"]
+No Entity can define a CompositePrimaryKey.
+==============================================================
+CompositePrimaryKey couldn't be formalized
+==============================================================
+
+// nicht formalisierbar, da PrimaryKey sich aus mehreren unterliegenden Konzepten zusammensetzen müsste --> keine Graphstruktur
+[role="rule"]
+Every PrimaryKey can consistOf exactly 1 Attribute.
+==============================================================
+PrimaryKey couldn't be formalized
+==============================================================
+
+[role="rule"]
+Every ApplicationException must implement a BusinessException or implement a TechnicalException or implement a TechnicalRuntimeException.
+@startuml Every ApplicationException must implement a BusinessException or implement a TechnicalException or implement a TechnicalRuntimeException.
+title Every ApplicationException must implement a BusinessException or implement a TechnicalException or implement a TechnicalRuntimeException.
+class "?GENERATED7" as GENERATED7 {
+<color:#OrangeRed> {method} ?method6()
+}
+GENERATED7::method6 -[dashed]-> applicationExceptionW1 #line:OrangeRed;text:OrangeRed : <<throws>>
+folder "application" as package3 #OrangeRed {
+class "?applicationExceptionW1" as applicationExceptionW1 #OrangeRed {
+}
+}
+note "Exception" as Exception6
+Exception6 .. applicationExceptionW1
+folder "application" as package #RoyalBlue {
+class "?applicationExceptionC1" as applicationExceptionC1 #RoyalBlue implements businessExceptionC1 {
+}
+}
+class "?GENERATED1" as GENERATED1 {
+<color:#RoyalBlue> {method} ?method()
+}
+GENERATED1::method -[dashed]-> applicationExceptionC1 #line:RoyalBlue;text:RoyalBlue : <<throws>>
+note "Exception" as Exception
+Exception .. applicationExceptionC1
+class "?GENERATED2" as GENERATED2 {
+{method} ?method1()
+}
+GENERATED2::method1 -[dashed]-> businessExceptionC1: <<throws>>
+folder "business" as business {
+interface "?businessExceptionC1" as businessExceptionC1 {
+}
+}
+note "Exception" as Exception1
+Exception1 .. businessExceptionC1
+class "?GENERATED5" as GENERATED5 {
+<color:#RoyalBlue> {method} ?method4()
+}
+GENERATED5::method4 -[dashed]-> applicationExceptionCCC1 #line:RoyalBlue;text:RoyalBlue : <<throws>>
+folder "application" as package2 #RoyalBlue {
+class "?applicationExceptionCCC1" as applicationExceptionCCC1 #RoyalBlue implements technicalRuntimeExceptionCCC11 {
+}
+}
+note "Exception" as Exception4
+Exception4 .. applicationExceptionCCC1
+folder "technical" as business1 {
+interface "?technicalExceptionCC1" as technicalExceptionCC1 {
+}
+}
+class "?GENERATED4" as GENERATED4 {
+{method} ?method3()
+}
+GENERATED4::method3 -[dashed]-> technicalExceptionCC1: <<throws>>
+note "Exception" as Exception3
+Exception3 .. technicalExceptionCC1
+class "RuntimeException" as runtime1 {
+}
+folder "technical" as business2 {
+interface "?technicalRuntimeExceptionCCC11" as technicalRuntimeExceptionCCC11 extends runtime1 {
+}
+}
+class "?GENERATED6" as GENERATED6 {
+{method} ?method5()
+}
+GENERATED6::method5 -[dashed]-> technicalRuntimeExceptionCCC11: <<throws>>
+note "Exception" as Exception5
+Exception5 .. technicalRuntimeExceptionCCC11
+note "RuntimeException" as RuntimeException
+RuntimeException .. runtime1
+note "TechnicalException" as TechnicalException1
+TechnicalException1 .. technicalRuntimeExceptionCCC11
+folder "application" as package1 #RoyalBlue {
+class "?applicationExceptionCC1" as applicationExceptionCC1 #RoyalBlue implements technicalExceptionCC1 {
+}
+}
+class "?GENERATED3" as GENERATED3 {
+<color:#RoyalBlue> {method} ?method2()
+}
+GENERATED3::method2 -[dashed]-> applicationExceptionCC1 #line:RoyalBlue;text:RoyalBlue : <<throws>>
+note "Exception" as Exception2
+Exception2 .. applicationExceptionCC1
+applicationExceptionC1 -[bold]-> businessExceptionC1
+note on link: implement
+applicationExceptionCC1 -[bold]-> technicalExceptionCC1
+note on link: implement
+applicationExceptionCCC1 -[bold]-> technicalRuntimeExceptionCCC11
+note on link: implement
+note "ApplicationException" as ApplicationException3
+ApplicationException3 .. applicationExceptionW1
+note "ApplicationException" as ApplicationException
+ApplicationException .. applicationExceptionC1
+note "BusinessException" as BusinessException
+BusinessException .. businessExceptionC1
+note "ApplicationException" as ApplicationException2
+ApplicationException2 .. applicationExceptionCCC1
+note "TechnicalException" as TechnicalException
+TechnicalException .. technicalExceptionCC1
+note "TechnicalRuntimeException" as TechnicalRuntimeException
+TechnicalRuntimeException .. technicalRuntimeExceptionCCC11
+note "ApplicationException" as ApplicationException1
+ApplicationException1 .. applicationExceptionCC1
+@enduml
+
+// isLocatedIn changed to methodIsLocatedIn da das Mapping doppelt verwendet wird
+[role="rule"]
+Every Method that (hasModifier equal-to "public" and methodIsLocatedIn a ControllerLayer) must return an APIResponseWrapper.
+===============================================================================
+String can't be visualized
+===============================================================================
+
+// Field changed to Aggregate
+[role="rule"]
+Every GeneratedValueAnnotation that (annotates a Aggregate) must define a Strategy that (hasValue equal-to "AUTO").
+===============================================================================
+String can't be visualized
+===============================================================================
+
+[role="rule"]
+Every Aggregate that (defines an AggregateId) must provide a Method that (return an AggregateId).
+@startuml Every Aggregate that (defines an AggregateId) must provide a Method that (return an AggregateId).
+title Every Aggregate that (defines an AggregateId) must provide a Method that (return an AggregateId).
+class ".*AggregateId" as aggregateIdC {
+}
+class ".*Aggregate" as aggregateW #OrangeRed {
+<color:#OrangeRed> {field} ?att1 : .*AggregateId
+}
+class ".*AggregateId" as aggregateId1C #RoyalBlue {
+}
+class ".*Aggregate" as aggregateC #RoyalBlue {
+<color:#RoyalBlue> {field} ?att : .*AggregateId
+{method} ?methodC() : .*AggregateId
+}
+class ".*AggregateId" as aggregateId1W #OrangeRed {
+}
+aggregateC -[bold]-> aggregateId1C #line:RoyalBlue;text:RoyalBlue 
+note on link: defines
+aggregateC::methodC -[bold]-> aggregateIdC
+note on link: return
+aggregateC -[bold]-> aggregateC::methodC
+note on link: provide
+aggregateW -[bold]-> aggregateId1W #line:OrangeRed;text:OrangeRed 
+note on link: defines
+note "AggregateId" as AggregateId1
+AggregateId1 .. aggregateIdC
+note "Aggregate" as Aggregate1
+Aggregate1 .. aggregateW
+note "AggregateId" as AggregateId
+AggregateId .. aggregateId1C
+note "Aggregate" as Aggregate
+Aggregate .. aggregateC
+note "AggregateId" as AggregateId2
+AggregateId2 .. aggregateId1W
+@enduml
+
+// Field changed to Attribute, haveModifier changed to hasModifier
+[role="rule"]
+Every Attribute that (represents a Logger) must hasModifier equal-to "private" and hasModifier equal-to "static" and hasModifier equal-to "final".
+===============================================================================
+String can't be visualized
+===============================================================================
+
+[role="rule"]
+Every Exception that (isThrownBy a ServiceMethod) must be a ServiceInterfaceException.
+@startuml Every Exception that (isThrownBy a ServiceMethod) must be a ServiceInterfaceException.
+title Every Exception that (isThrownBy a ServiceMethod) must be a ServiceInterfaceException.
+class ".*Service" as service21 #OrangeRed {
+<color:#OrangeRed> {method} ?serviceMethodW()
+}
+note "Service" as Service1
+Service1 .. service21
+class "?GENERATED2" as GENERATED2 {
+{method} ?method1()
+}
+GENERATED2::method1 -[dashed]-> serviceInterfaceExceptionC1: <<throws>>
+folder "services" as namespace1 {
+class "?serviceInterfaceExceptionC1" as serviceInterfaceExceptionC1 {
+}
+}
+note "Exception" as Exception1
+Exception1 .. serviceInterfaceExceptionC1
+note "ServiceLayer" as ServiceLayer
+ServiceLayer .. namespace1
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+class "?exceptionC" as exceptionC {
+}
+GENERATED1::method -[dashed]-> exceptionC: <<throws>>
+class "?GENERATED3" as GENERATED3 {
+<color:#OrangeRed> {method} ?method2()
+}
+class "?exceptionW" as exceptionW #OrangeRed {
+}
+GENERATED3::method2 -[dashed]-> exceptionW #line:OrangeRed;text:OrangeRed : <<throws>>
+class ".*Service" as service1 {
+{method} ?serviceMethodC()
+}
+note "Service" as Service
+Service .. service1
+service1::serviceMethodC -[dashed]-> exceptionC: <<throws>>
+exceptionC -[bold]-> service1::serviceMethodC
+note on link: isThrownBy
+exceptionC --|> serviceInterfaceExceptionC1 #line:RoyalBlue;text:RoyalBlue : Is-a
+service21::serviceMethodW -[dashed]-> exceptionW #line:OrangeRed;text:OrangeRed : <<throws>>
+exceptionW -[bold]-> service21::serviceMethodW #line:OrangeRed;text:OrangeRed 
+note on link: isThrownBy
+note "ServiceMethod" as ServiceMethod1
+ServiceMethod1 .. service21::serviceMethodW
+note "ServiceInterfaceException" as ServiceInterfaceException
+ServiceInterfaceException .. serviceInterfaceExceptionC1
+note "Exception" as Exception
+Exception .. exceptionC
+note "Exception" as Exception2
+Exception2 .. exceptionW
+note "ServiceMethod" as ServiceMethod
+ServiceMethod .. service1::serviceMethodC
+@enduml
+
+[role="rule"]
+No ServiceMethod can throw an Exception that (isDefinedIn an ApplicationCore).
+@startuml No ServiceMethod can throw an Exception that (isDefinedIn an ApplicationCore).
+title No ServiceMethod can throw an Exception that (isDefinedIn an ApplicationCore).
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> exception: <<throws>>
+class ".*Service" as service1 {
+{method} ?serviceMethod()
+}
+note "Service" as Service
+Service .. service1
+folder "core" as applicationCore {
+class "?exception" as exception {
+}
+}
+exception -[bold]-> applicationCore
+note on link: isDefinedIn
+service1::serviceMethod -[dashed]-> exception: <<throws>>
+service1::serviceMethod -[bold]-> exception #line:OrangeRed;text:OrangeRed 
+note on link: throw
+note "Exception" as Exception
+Exception .. exception
+note "ServiceMethod" as ServiceMethod
+ServiceMethod .. service1::serviceMethod
+note "ApplicationCore" as ApplicationCore
+ApplicationCore .. applicationCore
+@enduml
+
+// that nach vorne gezogen, ExceptionFacade kann nicht formalisiert werden: Was ist das, ArchCNL erlaubt keinen Zugriff auf try catch Strukturen
+[role="rule"]
+Every Method that (isPartOf an ExceptionFacade) must beAnnotatedWith a LoggingContextAnnotation.
+============================================================
+ExceptionFacade couldn't be formalized
+============================================================
+
+[role="rule"]
+Every ServiceMethod can-only return a TransferObject or return a PrimitiveType.
+@startuml Every ServiceMethod can-only return a TransferObject or return a PrimitiveType.
+title Every ServiceMethod can-only return a TransferObject or return a PrimitiveType.
+folder "transfer" as package {
+class "?transferObjectC" as transferObjectC {
+}
+}
+class ".*Service" as service21 {
+{method} ?serviceMethodW() : ?famixClassW
+}
+note "Service" as Service1
+Service1 .. service21
+class ".*Service" as service31 {
+{method} ?serviceMethodCC() : ?primitiveTypeCC
+}
+note "Service" as Service2
+Service2 .. service31
+class ".*Service" as service41 {
+{method} ?serviceMethodWW() : ?primitiveType1WW
+}
+note "Service" as Service3
+Service3 .. service41
+class primitiveType1WW <<primitive>> #OrangeRed
+class "?famixClassW" as famixClassW #OrangeRed {
+}
+class primitiveTypeCC <<primitive>> #RoyalBlue
+class ".*Service" as service1 {
+{method} ?serviceMethodC() : ?transferObjectC
+}
+note "Service" as Service
+Service .. service1
+service1::serviceMethodC -[bold]-> transferObjectC #line:RoyalBlue;text:RoyalBlue 
+note on link: return
+service21::serviceMethodW -[bold]-> famixClassW #line:OrangeRed;text:OrangeRed 
+note on link: return
+service31::serviceMethodCC -[bold]-> primitiveTypeCC #line:RoyalBlue;text:RoyalBlue 
+note on link: return
+service41::serviceMethodWW -[bold]-> primitiveType1WW #line:OrangeRed;text:OrangeRed 
+note on link: return
+note "TransferObject" as TransferObject
+TransferObject .. transferObjectC
+note "ServiceMethod" as ServiceMethod1
+ServiceMethod1 .. service21::serviceMethodW
+note "ServiceMethod" as ServiceMethod2
+ServiceMethod2 .. service31::serviceMethodCC
+note "ServiceMethod" as ServiceMethod3
+ServiceMethod3 .. service41::serviceMethodWW
+note "ServiceMethod" as ServiceMethod
+ServiceMethod .. service1::serviceMethodC
+@enduml
+
+// hasType changed to hasDeclaredType, declare changed to definesParameter
+[role="rule"]
+Every ServiceMethod can-only definesParameter a Parameter that (hasDeclaredType a TransferObject) or definesParameter a Parameter that (hasDeclaredType a PrimitiveType).
+@startuml Every ServiceMethod can-only definesParameter a Parameter that (hasDeclaredType a TransferObject) or definesParameter a Parameter that (hasDeclaredType a PrimitiveType).
+title Every ServiceMethod can-only definesParameter a Parameter that (hasDeclaredType a TransferObject) or definesParameter a Parameter that (hasDeclaredType a PrimitiveType).
+folder "transfer" as package {
+class "?transferObjectC" as transferObjectC {
+}
+}
+class ".*Service" as service21 {
+{method} ?serviceMethodW(<color:#OrangeRed>?parameter2W</color>)
+}
+note "Service" as Service1
+Service1 .. service21
+class ".*Service" as service31 {
+{method} ?serviceMethodCC(<color:#RoyalBlue>?parameter1CC:?primitiveTypeCC</color>)
+}
+note "Service" as Service2
+Service2 .. service31
+class ".*Service" as service41 {
+{method} ?serviceMethodWW(<color:#OrangeRed>?parameter3WW</color>)
+}
+note "Service" as Service3
+Service3 .. service41
+class primitiveTypeCC <<primitive>>
+class ".*Service" as service1 {
+{method} ?serviceMethodC(<color:#RoyalBlue>?parameterC:?transferObjectC</color>)
+}
+note "Service" as Service
+Service .. service1
+note "TransferObject" as TransferObject
+TransferObject .. transferObjectC
+note "ServiceMethod" as ServiceMethod1
+ServiceMethod1 .. service21::serviceMethodW
+note "ServiceMethod" as ServiceMethod2
+ServiceMethod2 .. service31::serviceMethodCC
+note "ServiceMethod" as ServiceMethod3
+ServiceMethod3 .. service41::serviceMethodWW
+note "ServiceMethod" as ServiceMethod
+ServiceMethod .. service1::serviceMethodC
+@enduml
+
+// declares changed to definesAttribute, Class changes to FamixClass, Field changed to Attribute, beAccessedBy kann nicht formalisiert werden
+[role="rule"]
+Every FamixClass that (definesAttribute a Attribute that (isAnnotatedWith a PayloadAnnotation)) can-only beAccessedBy a Method that (isAnnotatedWith a SecuredAnnotation).
+=========================================================
+beAccessedBy couldn't be formalized
+=========================================================
+
+// Field changed to Attribute, can only changed to can-only, isDefinedIn changed to isFieldOf or isMethodOf, , beAccessedBy kann nicht formalisiert werden
+[role="rule"]
+Every Attribute that (isFieldOf StatelessSessionBean X) can-only beAccessedBy a Constructor that (isMethodOf StatelessSessionBean X) or beAccessedBy a PostConstructMethod that (isMethodOf StatelessSessionBean X).
+=========================================================
+beAccessedBy couldn't be formalized
+=========================================================
+
+// hasPosition hat kein Äquivalent
+[role="rule"]
+Every Parameter that (hasPosition equal-to 1 and isDefinedBy a Method that (isDefinedBy a RemoteBeanInterface)) must haveType a AufrufKontextTo or haveType a ClientAufrufKontextTo.
+=========================================================
+hasPosition couldn't be formalized
+=========================================================
+
+// accesses changed to accesses, can only changed to can-only
+[role="rule"]
+Every Application that (accesses Application X) can-only accesses a ServiceLayer that (belongsTo Application X).
+@startuml Every Application that (accesses Application X) can-only accesses a ServiceLayer that (belongsTo Application X).
+title Every Application that (accesses Application X) can-only accesses a ServiceLayer that (belongsTo Application X).
+folder "application" as  XC {
+class "?class2" as class2 {
+}
+folder "services" as serviceLayerC {
+class "?class21" as class21 #RoyalBlue {
+}
+}
+}
+folder "application" as applicationC {
+class "?class" as class {
+}
+class "?class1" as class1 #RoyalBlue {
+}
+}
+
+folder "application" as applicationW {
+class "?class3" as class3 {
+}
+class "?class4" as class4 #OrangeRed {
+}
+}
+folder "?namespaceW" as namespaceW #OrangeRed {
+class "?class23" as class23 #OrangeRed {
+}
+}
+folder "application" as  XW {
+class "?class22" as class22 {
+}
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: use
+applicationC -[bold]->  XC
+note on link: accesses
+serviceLayerC -[bold]->  XC
+note on link: belongsTo
+class1 -[dashed]-> class21 #line:RoyalBlue;text:RoyalBlue : <<imports>>
+class1 -[bold]-> class21 #line:RoyalBlue;text:RoyalBlue 
+note on link: use
+applicationC -[bold]-> serviceLayerC #line:RoyalBlue;text:RoyalBlue 
+note on link: accesses
+class3 -[dashed]-> class22: <<imports>>
+class3 -[bold]-> class22
+note on link: use
+applicationW -[bold]->  XW
+note on link: accesses
+class4 -[dashed]-> class23 #line:OrangeRed;text:OrangeRed : <<imports>>
+class4 -[bold]-> class23 #line:OrangeRed;text:OrangeRed 
+note on link: use
+applicationW -[bold]-> namespaceW #line:OrangeRed;text:OrangeRed 
+note on link: accesses
+note "Application" as Application1
+Application1 ..  XC
+note "Application" as Application
+Application .. applicationC
+note "ServiceLayer" as ServiceLayer
+ServiceLayer .. serviceLayerC
+note "Application" as Application2
+Application2 .. applicationW
+note "Application" as Application3
+Application3 ..  XW
+@enduml
+
+// Module hat kein Äquivalent, hasName kann nicht in Variable gespeichert werden, Umweg über Konzept nicht in Visualisierung möglich
+[role="rule"]
+Every Service that (hasName equal-to A and isLocatedIn Module X and uses a Service that (hasName equal-to B and isLocatedIn Module X)) must communicateVia a LocalEJBCommunication that (hasSource a Service that (hasName equal-to A) and hasDestination a Service that (hasName equal-to B)).
+================================================================================
+ Nein, die Regel ist wegen ,,hasName equal-to A`` im Sinne der Regelgrammatik ungültig.
+================================================================================
+
+// uses changed to use, Domain und WebserviceCommunication nicht formalisierbar
+[role="rule"]
+Every Service that (isLocatedIn Domain X and use a Service that (isLocatedIn Domain Y)) must use a WebserviceCommunication that (hasSource a Service that (isLocatedIn Domain X) and hasDestination a Service that (isLocatedIn Domain Y)).
+================================================================================
+Nein, da hasSource und hasDestination über dem Niveau der Codeontologie liegen und damit kein Mapping formulierbar ist.
+================================================================================
+
+// Module hat kein Äquivalent
+[role="rule"]
+Every Service that (isLocatedIn Application A and isLocatedIn Module X and uses a Service that (isLocatedIn Application A and isLocatedIn Module Y)) must communicateVia a LocalEJBCommunication that (hasSource a Service that (isLocatedIn Application A and isLocatedIn Module X) and hasDestination a Service that (isLocatedIn Application A and isLocatedIn Module Y)).
+================================================================================
+Nein, da Module nicht auf dem Level der Code-Ontologie von ArchCNL steht.
+================================================================================
+
+[role="rule"]
+Every BusinessLogicService that (isLocatedIn Module X and uses a DataAccessComponent) can only use a DataAccessComponent that (isLocatedIn Module X) or use a HostAccessComponent that (isLocatedIn Module X) or use a HostTransactionComponent that (isLocatedIn Module X).
+================================================================================
+Nein, da Module nicht auf dem Level der Code-Ontologie von ArchCNL steht.
+================================================================================
+
+// String kann nicht direkt in Variable gespeichert werden, Umweg über Konzept durch Visualisierung nicht erlaubt, WebserviceCommunication nicht formalisierbar
+[role="rule"]
+Every Application that (hasName equal-to X and communicatesWith an Application that (hasName equal-to Y)) can only use a WebserviceCommunication that (hasSource an Application that (hasName equal-to X) and hasDestination an Application that (hasName equal-to Y)) or use a RemoteEJBCommunication that (hasSource an Application that (hasName equal-to X) and hasDestination an Application that (hasName equal-to Y)) .
+================================================================================
+Regel ist wegen ,,hasName equal-to X`` im Sinne der Regelgrammatik ungültig.
+================================================================================
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
+[role="mapping"]
+definesMapping: (?class rdf:type famix:FamixClass) (?class famix:definesAttribute ?att) (?att famix:hasDeclaredType ?type) -> (?class architecture:defines ?type)
+@startuml definesMapping
+title definesMapping
+class "?class" as class {
+{field} ?att : ?type
+}
+class "?type" as type {
+}
+class -[bold]-> type
+note on link: defines
+@enduml
+
+[role="mapping"]
+useMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:use ?class2)
+@startuml useMapping
+title useMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: use
+@enduml
+
+[role="mapping"]
+beUsedByMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class2 architecture:beUsedBy ?class)
+@startuml beUsedByMapping
+title beUsedByMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class2 -[bold]-> class
+note on link: beUsedBy
+@enduml
+
+[role="mapping"]
+accessMapping: (?class rdf:type famix:FamixClass) (?class2 rdf:type famix:FamixClass) (?class famix:imports ?class2) -> (?class architecture:access ?class2)
+@startuml accessMapping
+title accessMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: access
+@enduml
+
+[role="mapping"]
+accessesMapping: (?package famix:namespaceContains ?class) (?package2 famix:namespaceContains ?class2) (?class architecture:use ?class2) -> (?package architecture:accesses ?package2)
+@startuml accessesMapping
+title accessesMapping
+folder "?package" as package {
+class "?class" as class {
+}
+}
+folder "?package2" as package2 {
+class "?class2" as class2 {
+}
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: use
+package -[bold]-> package2
+note on link: accesses
+@enduml
+
+[role="mapping"]
+dependOnMapping: (?class famix:imports ?class2) -> (?class architecture:dependOn ?class2)
+@startuml dependOnMapping
+title dependOnMapping
+class "?class" as class {
+}
+class "?class2" as class2 {
+}
+class -[dashed]-> class2: <<imports>>
+class -[bold]-> class2
+note on link: dependOn
+@enduml
+
+[role="mapping"]
+defineMapping: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasAnnotationTypeAttribute ?att) -> (?annotation architecture:define ?att)
+@startuml defineMapping
+title defineMapping
+annotation "?annotation" as annotation {
+{field} ?att
+}
+annotation -[bold]-> annotation::att
+note on link: define
+@enduml
+
+[role="mapping"]
+implementMapping: (?inheritance famix:hasSubClass ?class) (?inheritance famix:hasSuperClass ?interface) (?interface famix:isInterface 'true'^^xsd:boolean) -> (?class architecture:implement ?interface)
+@startuml implementMapping
+title implementMapping
+class "?class" as class implements interface {
+}
+interface "?interface" as interface {
+}
+class -[bold]-> interface
+note on link: implement
+@enduml
+
+[role="mapping"]
+methodIsLocatedInMapping: (?class famix:definesMethod ?method) (?package famix:namespaceContains ?class) -> (?method architecture:methodIsLocatedIn ?package)
+@startuml methodIsLocatedInMapping
+title methodIsLocatedInMapping
+folder "?package" as package {
+class "?class" as class {
+{method} ?method()
+}
+}
+class::method -[bold]-> package
+note on link: methodIsLocatedIn
+@enduml
+
+[role="mapping"]
+isLocatedInMapping: (?package famix:namespaceContains ?class) -> (?class architecture:isLocatedIn ?package)
+@startuml isLocatedInMapping
+title isLocatedInMapping
+folder "?package" as package {
+class "?class" as class {
+}
+}
+class -[bold]-> package
+note on link: isLocatedIn
+@enduml
+
+[role="mapping"]
+returnMapping: (?method rdf:type famix:Method) (?method famix:hasDeclaredType ?returnType) -> (?method architecture:return ?returnType)
+@startuml returnMapping
+title returnMapping
+class "?GENERATED1" as GENERATED1 {
+{method} ?method() : ?returnType
+}
+class "?returnType" as returnType {
+}
+GENERATED1::method -[bold]-> returnType
+note on link: return
+@enduml
+
+[role="mapping"]
+annotatesMapping: (?class rdf:type famix:FamixClass) (?class famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?annotation) -> (?annotation architecture:annotates ?class)
+@startuml annotatesMapping
+title annotatesMapping
+annotation "?annotation" as annotation {
+}
+class "?class" as class <<?annotation>> {
+}
+annotation -[bold]-> class
+note on link: annotates
+@enduml
+
+[role="mapping"]
+provideMapping: (?class rdf:type famix:FamixClass) (?class famix:definesMethod ?method) -> (?class architecture:provide ?method)
+@startuml provideMapping
+title provideMapping
+class "?class" as class {
+{method} ?method()
+}
+class -[bold]-> class::method
+note on link: provide
+@enduml
+
+[role="mapping"]
+representsMapping: (?att rdf:type famix:Attribute) (?att famix:hasDeclaredType ?type) (?namespace famix:namespaceContains ?type) -> (?att architecture:represents ?namespace)
+@startuml representsMapping
+title representsMapping
+class "?GENERATED1" as GENERATED1 {
+{field} ?att : ?type
+}
+folder "?namespace" as namespace {
+class "?type" as type {
+}
+}
+GENERATED1::att -[bold]-> namespace
+note on link: represents
+@enduml
+
+[role="mapping"]
+isThrownByMapping: (?exception rdf:type famix:FamixClass) (?method rdf:type famix:Method) (?method famix:throwsException ?exception) -> (?exception architecture:isThrownBy ?method)
+@startuml isThrownByMapping
+title isThrownByMapping
+class "?exception" as exception {
+}
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> exception: <<throws>>
+exception -[bold]-> GENERATED1::method
+note on link: isThrownBy
+@enduml
+
+[role="mapping"]
+throwMapping: (?method rdf:type famix:Method) (?method famix:throwsException ?exception) -> (?method architecture:throw ?exception)
+@startuml throwMapping
+title throwMapping
+class "?exception" as exception {
+}
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> exception: <<throws>>
+GENERATED1::method -[bold]-> exception
+note on link: throw
+@enduml
+
+[role="mapping"]
+isDefinedInMapping: (?namespace famix:namespaceContains ?class) -> (?class architecture:isDefinedIn ?namespace)
+@startuml isDefinedInMapping
+title isDefinedInMapping
+folder "?namespace" as namespace {
+class "?class" as class {
+}
+}
+class -[bold]-> namespace
+note on link: isDefinedIn
+@enduml
+
+[role="mapping"]
+methodIsDefinedInMapping: (?namespace famix:namespaceContains ?class) (?class famix:definesMethod ?method) -> (?method architecture:methodIsDefinedIn ?namespace)
+@startuml methodIsDefinedInMapping
+title methodIsDefinedInMapping
+folder "?namespace" as namespace {
+class "?class" as class {
+{method} ?method()
+}
+}
+class::method -[bold]-> namespace
+note on link: methodIsDefinedIn
+@enduml
+
+[role="mapping"]
+isMethodOfMapping: (?class rdf:type famix:FamixClass) (?class famix:definesMethod ?content) -> (?content architecture:isMethodOf ?class)
+@startuml isMethodOfMapping
+title isMethodOfMapping
+class "?class" as class {
+{method} ?content()
+}
+class::content -[bold]-> class
+note on link: isMethodOf
+@enduml
+
+[role="mapping"]
+isAttributeOfMapping: (?class rdf:type famix:FamixClass) (?class famix:definesAttribute ?content) -> (?content architecture:isAttributeOf ?class)
+@startuml isAttributeOfMapping
+title isAttributeOfMapping
+class "?class" as class {
+{field} ?content
+}
+class::content -[bold]-> class
+note on link: isAttributeOf
+@enduml
+
+[role="mapping"]
+beAnnotatedWithMapping: (?method rdf:type famix:Method) (?method famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?annotation) -> (?method architecture:beAnnotatedWith ?annotation)
+@startuml beAnnotatedWithMapping
+title beAnnotatedWithMapping
+annotation "?annotation" as annotation {
+}
+class "?GENERATED1" as GENERATED1 {
+{method} ?method() <<?annotation>>
+}
+GENERATED1::method -[bold]-> annotation
+note on link: beAnnotatedWith
+@enduml
+
+[role="mapping"]
+belongsToMapping: (?layer rdf:type architecture:ServiceLayer) (?app rdf:type architecture:Application) (?app famix:namespaceContains ?layer) -> (?layer architecture:belongsTo ?app)
+@startuml belongsToMapping
+title belongsToMapping
+folder "application" as app1 {
+folder "services" as layer1 {
+}
+}
+
+layer1 -[bold]-> app1
+note on link: belongsTo
+note "Application" as Application
+Application .. app1
+note "ServiceLayer" as ServiceLayer
+ServiceLayer .. layer1
+@enduml
+
+//----------------------------------------------
+
+[role="mapping"]
+isController: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Controller') -> (?class rdf:type architecture:Controller)
+@startuml isController
+title isController
+class ".*Controller" as class {
+}
+note "Controller" as Controller
+Controller .. class
+@enduml
+
+[role="mapping"]
+isService: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Service') -> (?class rdf:type architecture:Service)
+@startuml isService
+title isService
+class ".*Service" as class {
+}
+note "Service" as Service
+Service .. class
+@enduml
+
+[role="mapping"]
+isDataAccessObject: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*DAO') -> (?class rdf:type architecture:DataAccessObject)
+@startuml isDataAccessObject
+title isDataAccessObject
+class ".*DAO" as class {
+}
+note "DataAccessObject" as DataAccessObject
+DataAccessObject .. class
+@enduml
+
+[role="mapping"]
+isHostTransactionComponent: (?class rdf:type famix:FamixClass) (?class famix:hasName 'HostTransactionComponent') -> (?class rdf:type architecture:HostTransactionComponent)
+@startuml isHostTransactionComponent
+title isHostTransactionComponent
+class "HostTransactionComponent" as class {
+}
+note "HostTransactionComponent" as HostTransactionComponent
+HostTransactionComponent .. class
+@enduml
+
+[role="mapping"]
+isEntity: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Entity') -> (?class rdf:type architecture:Entity)
+@startuml isEntity
+title isEntity
+class ".*Entity" as class {
+}
+note "Entity" as Entity
+Entity .. class
+@enduml
+
+[role="mapping"]
+isApplicationException: (?exception rdf:type architecture:Exception) (?package famix:namespaceContains ?exception) (?package famix:hasName 'application') -> (?exception rdf:type architecture:ApplicationException)
+@startuml isApplicationException
+title isApplicationException
+folder "application" as package {
+class "?exception1" as exception1 {
+}
+}
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> exception1: <<throws>>
+note "Exception" as Exception
+Exception .. exception1
+note "ApplicationException" as ApplicationException
+ApplicationException .. exception1
+@enduml
+
+[role="mapping"]
+isBusinessException: (?exception rdf:type architecture:Exception) (?business famix:namespaceContains ?exception) (?business famix:hasName 'business') -> (?exception rdf:type architecture:BusinessException)
+===============================================================
+Fehler: exception ist nicht in Package
+===============================================================
+@startuml isBusinessException
+title isBusinessException
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> exception1: <<throws>>
+folder "business" as business {
+class "?exception1" as exception1 {
+}
+}
+note "Exception" as Exception
+Exception .. exception1
+note "BusinessException" as BusinessException
+BusinessException .. exception1
+@enduml
+
+[role="mapping"]
+isTechnicalException: (?exception rdf:type architecture:Exception) (?business famix:namespaceContains ?exception) (?business famix:hasName 'technical') -> (?exception rdf:type architecture:TechnicalException)
+===============================================================
+Fehler: exception ist nicht in Package
+===============================================================
+@startuml isTechnicalException
+title isTechnicalException
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> exception1: <<throws>>
+folder "technical" as business {
+class "?exception1" as exception1 {
+}
+}
+note "Exception" as Exception
+Exception .. exception1
+note "TechnicalException" as TechnicalException
+TechnicalException .. exception1
+@enduml
+
+[role="mapping"]
+isRuntimeException: (?class rdf:type famix:FamixClass) (?class famix:hasName 'RuntimeException') -> (?class rdf:type architecture:RuntimeException)
+@startuml isRuntimeException
+title isRuntimeException
+class "RuntimeException" as class {
+}
+note "RuntimeException" as RuntimeException
+RuntimeException .. class
+@enduml
+
+[role="mapping"]
+isTechnicalRuntimeException: (?exception rdf:type architecture:TechnicalException) (?runtime rdf:type architecture:RuntimeException) (?inheritance famix:hasSubClass ?exception) (?inheritance famix:hasSuperClass ?runtime) -> (?exception rdf:type architecture:TechnicalRuntimeException)
+===================================================================================================================
+Bei exception kann kein Variablentyp aus FamixClass, TechnicalException und Exception auswählen
+===================================================================================================================
+
+[role="mapping"]
+isControllerLayer: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'controllers') -> (?package rdf:type architecture:ControllerLayer)
+@startuml isControllerLayer
+title isControllerLayer
+folder "controllers" as package {
+}
+note "ControllerLayer" as ControllerLayer
+ControllerLayer .. package
+@enduml
+
+[role="mapping"]
+isAPIResponseWrapper: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*ApiWrapper') -> (?class rdf:type architecture:APIResponseWrapper)
+@startuml isAPIResponseWrapper
+title isAPIResponseWrapper
+class ".*ApiWrapper" as class {
+}
+note "APIResponseWrapper" as APIResponseWrapper
+APIResponseWrapper .. class
+@enduml
+
+[role="mapping"]
+isGeneratedValueAnnotation: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'GeneratedValue') -> (?annotation rdf:type architecture:GeneratedValueAnnotation)
+@startuml isGeneratedValueAnnotation
+title isGeneratedValueAnnotation
+annotation "GeneratedValue" as annotation {
+}
+note "GeneratedValueAnnotation" as GeneratedValueAnnotation
+GeneratedValueAnnotation .. annotation
+@enduml
+
+[role="mapping"]
+isAggregate: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*Aggregate') -> (?class rdf:type architecture:Aggregate)
+@startuml isAggregate
+title isAggregate
+class ".*Aggregate" as class {
+}
+note "Aggregate" as Aggregate
+Aggregate .. class
+@enduml
+
+[role="mapping"]
+isAggregateId: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*AggregateId') -> (?class rdf:type architecture:AggregateId)
+@startuml isAggregateId
+title isAggregateId
+class ".*AggregateId" as class {
+}
+note "AggregateId" as AggregateId
+AggregateId .. class
+@enduml
+
+[role="mapping"]
+isLogger: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'logging') -> (?package rdf:type architecture:Logger)
+@startuml isLogger
+title isLogger
+folder "logging" as package {
+}
+note "Logger" as Logger
+Logger .. package
+@enduml
+
+[role="mapping"]
+isException: (?class rdf:type famix:FamixClass) (?method famix:throwsException ?class) -> (?class rdf:type architecture:Exception)
+@startuml isException
+title isException
+class "?class" as class {
+}
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> class: <<throws>>
+note "Exception" as Exception
+Exception .. class
+@enduml
+
+[role="mapping"]
+isServiceMethod: (?service rdf:type architecture:Service) (?service famix:definesMethod ?method) -> (?method rdf:type architecture:ServiceMethod)
+@startuml isServiceMethod
+title isServiceMethod
+class ".*Service" as service1 {
+{method} ?method()
+}
+note "Service" as Service
+Service .. service1
+note "ServiceMethod" as ServiceMethod
+ServiceMethod .. service1::method
+@enduml
+
+[role="mapping"]
+isServiceInterfaceException: (?exception rdf:type architecture:Exception) (?namespace rdf:type architecture:ServiceLayer) (?namespace famix:namespaceContains ?exception) -> (?exception rdf:type architecture:ServiceInterfaceException)
+===============================================================
+Fehler: exception ist nicht in Package
+===============================================================
+@startuml isServiceInterfaceException
+title isServiceInterfaceException
+class "?GENERATED1" as GENERATED1 {
+{method} ?method()
+}
+GENERATED1::method -[dashed]-> exception1: <<throws>>
+folder "services" as namespace1 {
+class "?exception1" as exception1 {
+}
+}
+note "Exception" as Exception
+Exception .. exception1
+note "ServiceLayer" as ServiceLayer
+ServiceLayer .. namespace1
+note "ServiceInterfaceException" as ServiceInterfaceException
+ServiceInterfaceException .. exception1
+@enduml
+
+[role="mapping"]
+isApplicationCore: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'core') -> (?package rdf:type architecture:ApplicationCore)
+@startuml isApplicationCore
+title isApplicationCore
+folder "core" as package {
+}
+note "ApplicationCore" as ApplicationCore
+ApplicationCore .. package
+@enduml
+
+[role="mapping"]
+isTransferObject: (?class rdf:type famix:FamixClass) (?package rdf:type famix:Namespace) (?package famix:hasName 'transfer') (?package famix:namespaceContains ?class) -> (?class rdf:type architecture:TransferObject)
+@startuml isTransferObject
+title isTransferObject
+folder "transfer" as package {
+class "?class" as class {
+}
+}
+note "TransferObject" as TransferObject
+TransferObject .. class
+@enduml
+
+[role="mapping"]
+isPayloadAnnotation: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'Payload') -> (?annotation rdf:type architecture:PayloadAnnotation)
+@startuml isPayloadAnnotation
+title isPayloadAnnotation
+annotation "Payload" as annotation {
+}
+note "PayloadAnnotation" as PayloadAnnotation
+PayloadAnnotation .. annotation
+@enduml
+
+[role="mapping"]
+isSecuredAnnotation: (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'Secured') -> (?annotation rdf:type architecture:SecuredAnnotation)
+@startuml isSecuredAnnotation
+title isSecuredAnnotation
+annotation "Secured" as annotation {
+}
+note "SecuredAnnotation" as SecuredAnnotation
+SecuredAnnotation .. annotation
+@enduml
+
+[role="mapping"]
+isStatelessSessionBean: (?class rdf:type famix:FamixClass) (?class famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?annotation) (?annotation rdf:type famix:AnnotationType) (?annotation famix:hasName 'Stateless') -> (?class rdf:type architecture:StatelessSessionBean)
+@startuml isStatelessSessionBean
+title isStatelessSessionBean
+annotation "Stateless" as annotation {
+}
+class "?class" as class <<Stateless>> {
+}
+note "StatelessSessionBean" as StatelessSessionBean
+StatelessSessionBean .. class
+@enduml
+
+[role="mapping"]
+isConstructor: (?method rdf:type famix:Method) (?method famix:isConstructor 'true'^^xsd:boolean) -> (?method rdf:type architecture:Constructor)
+@startuml isConstructor
+title isConstructor
+class "?GENERATED1" as GENERATED1 {
+{method} <<Create>> ?method()
+}
+note "Constructor" as Constructor
+Constructor .. GENERATED1::method
+@enduml
+
+[role="mapping"]
+isPostConstructMethod: (?method rdf:type famix:Method) (?method famix:hasAnnotationInstance ?instance) (?instance famix:hasAnnotationType ?type) (?type famix:hasName 'PostConstruct') -> (?method rdf:type architecture:PostConstructMethod)
+@startuml isPostConstructMethod
+title isPostConstructMethod
+class "?GENERATED1" as GENERATED1 {
+{method} ?method() <<PostConstruct>>
+}
+annotation "PostConstruct" as type {
+}
+note "PostConstructMethod" as PostConstructMethod
+PostConstructMethod .. GENERATED1::method
+@enduml
+
+[role="mapping"]
+isApplication: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'application') -> (?package rdf:type architecture:Application)
+@startuml isApplication
+title isApplication
+folder "application" as package {
+}
+note "Application" as Application
+Application .. package
+@enduml
+
+[role="mapping"]
+isServiceLayer: (?package rdf:type famix:Namespace) (?package famix:hasName ?name) regex(?name, 'services') -> (?package rdf:type architecture:ServiceLayer)
+@startuml isServiceLayer
+title isServiceLayer
+folder "services" as package {
+}
+note "ServiceLayer" as ServiceLayer
+ServiceLayer .. package
+@enduml
+
+[role="mapping"]
+isBusinessLogicService: (?service rdf:type architecture:Service) (?package rdf:type famix:Namespace) (?package famix:hasName 'logic') (?package famix:namespaceContains ?service) -> (?service rdf:type architecture:BusinessLogicService)
+@startuml isBusinessLogicService
+title isBusinessLogicService
+folder "logic" as package {
+class ".*Service" as service1 {
+}
+}
+
+note "Service" as Service
+Service .. service1
+note "BusinessLogicService" as BusinessLogicService
+BusinessLogicService .. service1
+@enduml
+
+[role="mapping"]
+isDataAccessComponent: (?class rdf:type famix:FamixClass) (?class famix:hasName ?name) regex(?name, '.*DAC') -> (?class rdf:type architecture:DataAccessComponent)
+@startuml isDataAccessComponent
+title isDataAccessComponent
+class ".*DAC" as class {
+}
+note "DataAccessComponent" as DataAccessComponent
+DataAccessComponent .. class
+@enduml
+
+[role="mapping"]
+isStrategy: (?att rdf:type famix:AnnotationTypeAttribute) (?att famix:hasName 'strategy') -> (?att rdf:type architecture:Strategy)
+@startuml isStrategy
+title isStrategy
+annotation "?GENERATED1" as GENERATED1 {
+{field} strategy
+}
+note "Strategy" as Strategy
+Strategy .. GENERATED1::strategy
+@enduml
